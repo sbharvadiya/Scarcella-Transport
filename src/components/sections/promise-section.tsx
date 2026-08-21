@@ -59,8 +59,13 @@ export function PromiseSection() {
         </p>
       </Container>
 
-      <div className="relative mt-14 h-[300px] w-full sm:h-[340px]">
-        <SiteImage {...images.depotGateSign} />
+      {/* The photo carries its own sky, which continues the section gradient —
+          anchor to the bottom so the trucks stay whole as the crop changes. */}
+      <div className="relative mt-14 h-[340px] w-full sm:h-[520px] lg:h-[620px]">
+        <SiteImage
+          {...images.promiseRoadTrain}
+          className="object-cover object-bottom"
+        />
       </div>
     </section>
   );

@@ -44,6 +44,10 @@ export const images = {
     src: "/img/prime-mover-front.png",
     alt: "Front-on view of a green Kenworth prime mover with ROAD TRAIN plates",
   },
+  promiseRoadTrain: {
+    src: "/img/promise-road-train.png",
+    alt: "Scarcella road train loaded at the depot under a clear sky",
+  },
   depotGateSign: {
     src: "/img/depot-gate-sign.png",
     alt: "Two prime movers either side of the F & A Scarcella depot sign",
@@ -124,6 +128,12 @@ export const images = {
     src: "/img/graphic-trajectory.jpg",
     alt: "",
   },
+} as const;
+
+/** Slider navigation arrows (supplied as 64px rounded buttons). */
+export const sliderArrows = {
+  left: "/img/arrow-left.png",
+  right: "/img/arrow-right.png",
 } as const;
 
 /** Accreditation and partner logos. */

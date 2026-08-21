@@ -1,7 +1,15 @@
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/badge";
-import { SiteImage } from "@/components/ui/site-image";
+import { ImageSlider } from "@/components/ui/image-slider";
 import { images } from "@/lib/images";
+
+const slides = [
+  images.fleetRoadTrainFull,
+  images.primeMoverFront,
+  images.fleetLineup,
+  images.heroRoadTrains,
+  images.workshopBonnetUp,
+];
 
 const features = [
   {
@@ -51,14 +59,7 @@ export function FleetShowcase() {
           </span>
         </div>
 
-        <div className="mt-4 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-[2fr_1fr] sm:gap-4 sm:overflow-visible sm:px-0">
-          <div className="relative h-[420px] w-[85%] shrink-0 snap-start overflow-hidden rounded-3xl sm:h-[560px] sm:w-auto">
-            <SiteImage {...images.fleetRoadTrainFull} sizes="(max-width: 640px) 85vw, 60vw" />
-          </div>
-          <div className="relative h-[420px] w-[60%] shrink-0 snap-start overflow-hidden rounded-3xl sm:h-[560px] sm:w-auto">
-            <SiteImage {...images.primeMoverFront} sizes="(max-width: 640px) 60vw, 30vw" />
-          </div>
-        </div>
+        <ImageSlider slides={slides} className="mt-4 sm:mt-10" />
 
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
           {features.map((f) => (
