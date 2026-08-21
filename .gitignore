@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# design source material (Figma mockups, raw font downloads)
+/design-ref/
+
+# Original Figma SVG exports — photos embedded as base64 (241 MB).
+# The rasters were extracted from these into /public/img, which is what the
+# app actually loads. Keep the originals locally; don't ship them.
+/public/home/
+/public/about/
+/public/blog/
+/public/service/
+/public/our fleet/
+/public/Accredidation & Safety/
+/public/font/
+
+# crash artefact
+bash.exe.stackdump
