@@ -119,6 +119,64 @@ export const images = {
     alt: "Axle group mass management readout",
   },
 
+  // Promise section card icons
+  promiseIconRightFirstTime: {
+    src: "/img/promise-icon-right-first-time.png",
+    alt: "",
+    width: 1511,
+    height: 276,
+  },
+  promiseIconFreshMeansFresh: {
+    src: "/img/promise-icon-fresh-means-fresh.png",
+    alt: "",
+    width: 1587,
+    height: 755,
+  },
+  promiseIconMaintained: {
+    src: "/img/promise-icon-maintained.png",
+    alt: "",
+    width: 754,
+    height: 776,
+  },
+  promiseIconPersonAnswers: {
+    src: "/img/promise-icon-person-answers.png",
+    alt: "",
+    width: 977,
+    height: 747,
+  },
+
+  // Fleet showcase feature icons
+  fleetIconWeeklyServicing: {
+    src: "/img/fleet-icon-weekly-servicing.svg",
+    alt: "",
+  },
+  fleetIconTwoUpTeams: {
+    src: "/img/fleet-icon-two-up-teams.svg",
+    alt: "",
+  },
+  fleetIconQualityOverQuantity: {
+    src: "/img/fleet-icon-quality-over-quantity.svg",
+    alt: "",
+  },
+
+  // Services grid card backgrounds
+  serviceSydneyDarwin: {
+    src: "/img/services-sydney-darwin-express.svg",
+    alt: "",
+  },
+  serviceEasternSeaboard: {
+    src: "/img/services-eastern-seaboard.svg",
+    alt: "",
+  },
+  serviceRefrigerated: {
+    src: "/img/services-refrigerated-freight.svg",
+    alt: "",
+  },
+  serviceDangerousGoods: {
+    src: "/img/services-dangerous-goods-oversize.svg",
+    alt: "",
+  },
+
   // Graphics (not photography)
   graphicMilestones: {
     src: "/img/graphic-milestones.png",
@@ -143,6 +201,28 @@ export const logos = {
   accredThree: { src: "/img/logo-accred-3.svg", alt: "Accreditation partner" },
   accredFour: { src: "/img/logo-accred-4.png", alt: "Accreditation partner" },
   sillaker: { src: "/img/logo-sillaker.png", alt: "Partner logo" },
+} as const;
+
+/** Technology & accreditation partner logos (dark-mode wordmarks, 56px tall). */
+export const techPartnerLogos = {
+  teletracNavman: {
+    src: "/img/logo-teletrac-navman.svg",
+    alt: "Teletrac Navman",
+    width: 195,
+    height: 56,
+  },
+  seeingMachinesGuardian: {
+    src: "/img/logo-seeing-machines-guardian.svg",
+    alt: "Seeing Machines Guardian",
+    width: 316,
+    height: 56,
+  },
+  nswFoodAuthority: {
+    src: "/img/logo-nsw-food-authority.svg",
+    alt: "NSW Food Authority",
+    width: 147,
+    height: 56,
+  },
 } as const;
 
 /** Blog thumbnails, used in order for the article grid. */

@@ -1,5 +1,7 @@
 import { Container } from "@/components/ui/container";
 import { Eyebrow, Pill } from "@/components/ui/badge";
+import { SiteImage } from "@/components/ui/site-image";
+import { images } from "@/lib/images";
 
 const services = [
   {
@@ -7,24 +9,28 @@ const services = [
     title: "Sydney → Darwin Express",
     desc: "Departures every Tuesday and Friday. Triple and quad road trains with two-up driver teams running non-stop — fatigue-compliant, two-day express.",
     chips: ["Tue & Fri", "2-day express"],
+    bg: images.serviceSydneyDarwin,
   },
   {
     tag: "Eastern seaboard",
     title: "Sydney – Brisbane – Melbourne",
     desc: "B-double and single combinations on the east-coast triangle, with interstate full loads from Brisbane and Melbourne through to Darwin.",
     chips: ["Scheduled + full loads"],
+    bg: images.serviceEasternSeaboard,
   },
   {
     tag: "Cold chain",
     title: "Refrigerated Freight",
     desc: "Refrigerated vans, slider vans and tautliners purpose-built for produce and temperature-controlled goods — the freight we were founded on.",
     chips: ["Produce", "Chilled", "Frozen"],
+    bg: images.serviceRefrigerated,
   },
   {
     tag: "Specialised",
     title: "Dangerous Goods & Oversize",
     desc: "Authorised for packaged dangerous goods and oversized loads. Drop deck mezzanine trailers, flat tops, and regional pickups through the Riverina.",
     chips: ["DG authorised", "Oversize"],
+    bg: images.serviceDangerousGoods,
   },
 ];
 
@@ -54,22 +60,28 @@ export function ServicesGrid() {
           {services.map((s) => (
             <div
               key={s.title}
-              className="flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border border-line bg-surface p-6 sm:w-auto"
+              className="relative flex min-h-100 w-[85%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-line bg-surface p-6 sm:w-auto"
             >
-              <Pill className="self-start">{s.tag}</Pill>
-              <h3 className="mt-5 text-xl font-medium leading-snug text-ink">
-                {s.title}
-              </h3>
-              <p className="mt-3 flex-1 text-sm text-muted">{s.desc}</p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {s.chips.map((c) => (
-                  <span
-                    key={c}
-                    className="rounded-full bg-surface-2 px-3 py-1 text-xs font-medium text-ink/70"
-                  >
-                    {c}
-                  </span>
-                ))}
+              <SiteImage
+                {...s.bg}
+                className="pointer-events-none select-none object-bottom-right"
+              />
+              <div className="relative flex flex-1 flex-col">
+                <Pill className="self-start">{s.tag}</Pill>
+                <h3 className="mt-5 text-xl font-medium leading-snug text-ink">
+                  {s.title}
+                </h3>
+                <p className="mt-3 flex-1 text-sm text-muted">{s.desc}</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {s.chips.map((c) => (
+                    <span
+                      key={c}
+                      className="rounded-full bg-surface-2 px-3 py-1 text-xs font-medium text-ink/70"
+                    >
+                      {c}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

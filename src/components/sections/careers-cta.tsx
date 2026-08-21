@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/badge";
 import { SiteImage } from "@/components/ui/site-image";
@@ -5,7 +6,7 @@ import { images } from "@/lib/images";
 
 export function CareersCta() {
   return (
-    <section className="bg-ink py-20 text-white sm:py-28">
+    <section className="bg-ink p-14 text-white sm:pb-14">
       <Container>
         <div className="text-left sm:text-center">
           <Eyebrow className="text-white/50">Join the team</Eyebrow>
@@ -19,14 +20,14 @@ export function CareersCta() {
           </p>
         </div>
 
-        <div className="relative mt-12 h-[420px] overflow-hidden rounded-3xl sm:h-[380px]">
+        <div className="relative mt-8 h-[340px] overflow-hidden rounded-3xl sm:h-[240px]">
           <SiteImage {...images.mechanicCummins} />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent sm:bg-gradient-to-r sm:from-ink/85 sm:via-ink/40 sm:to-transparent" />
-          <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-12">
+          <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10">
             <p className="text-xs font-medium uppercase tracking-wider text-white/60">
               Now hiring · Syd Depot
             </p>
-            <div className="mt-3 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div className="mt-3 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
               <div className="max-w-lg">
                 <h3 className="text-2xl font-medium sm:text-3xl">
                   Qualified Diesel Mechanic
@@ -39,9 +40,9 @@ export function CareersCta() {
               </div>
               <a
                 href="mailto:ops@scarcellatransport.com.au"
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-bright px-5 py-3 text-sm font-medium text-white hover:bg-brand"
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-bright px-5 py-3 text-sm font-medium text-white hover:bg-brand"
               >
-                Email to apply
+                <Image src="/img/mail-02.svg" alt="" width={16} height={14} /> Email to apply
               </a>
             </div>
           </div>

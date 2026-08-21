@@ -5,7 +5,7 @@ type ButtonVariant = "primary" | "outline-dark" | "outline-light" | "dark";
 type ButtonSize = "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-colors whitespace-nowrap";
 
 const variants: Record<ButtonVariant, string> = {
   primary: "bg-brand-bright text-white hover:bg-brand",

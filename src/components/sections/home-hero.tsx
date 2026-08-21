@@ -16,14 +16,14 @@ const stats = [
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden bg-ink">
-      <div className="relative h-[720px] w-full lg:h-[880px]">
+      <div className="relative h-[620px] w-full lg:h-[720px]">
         <div className="absolute inset-0">
           <SiteImage {...images.heroRoadTrains} eager />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-ink/85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
 
-        <div className="relative flex h-full flex-col justify-end pb-16 pt-32">
+        <div className="relative flex h-full flex-col justify-end pb-12 pt-24">
           <Container>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-end">
               <div>
@@ -38,7 +38,7 @@ export function HomeHero() {
                   {routes.map((r) => (
                     <span
                       key={r}
-                      className="rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm"
+                      className="rounded-xl border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm"
                     >
                       {r}
                     </span>
@@ -69,13 +69,18 @@ export function HomeHero() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 bg-ink">
+      <div className="border-t border-black/5 bg-white">
         <Container>
-          <div className="grid grid-cols-2 gap-8 py-12 sm:grid-cols-3 lg:grid-cols-5">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <p className="text-4xl font-semibold text-white sm:text-5xl">{s.value}</p>
-                <p className="mt-2 text-sm text-white/50">{s.label}</p>
+          <div className="grid grid-cols-2 divide-y divide-ink/10 py-12 text-center sm:grid-cols-3 sm:divide-y-0 lg:grid-cols-5">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`px-4 py-6 sm:py-0 ${
+                  i < stats.length - 1 ? "sm:border-r sm:border-ink/10" : ""
+                }`}
+              >
+                <p className="text-4xl font-semibold text-ink sm:text-5xl">{s.value}</p>
+                <p className="mt-2 text-sm text-ink/50">{s.label}</p>
               </div>
             ))}
           </div>

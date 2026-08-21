@@ -115,7 +115,7 @@ export function ImageSlider({
         onPointerCancel={endDrag}
         onClickCapture={onClickCapture}
         className={cn(
-          "-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2",
+          "-mx-6 flex snap-x snap-mandatory gap-2 overflow-x-auto px-6 pb-2",
           "[scrollbar-width:none] sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden",
           dragging ? "cursor-grabbing select-none" : "cursor-grab"
         )}
@@ -123,7 +123,7 @@ export function ImageSlider({
         {slides.map((slide) => (
           <div
             key={slide.src}
-            className="relative h-[420px] w-[85%] shrink-0 snap-start overflow-hidden rounded-3xl sm:h-[560px] sm:w-[calc(50%-0.5rem)]"
+            className="relative h-[420px] w-[85%] shrink-0 snap-start overflow-hidden rounded-lg sm:h-[560px] sm:w-[72%]"
           >
             <SiteImage
               src={slide.src}

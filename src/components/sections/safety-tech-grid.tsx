@@ -1,8 +1,9 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/badge";
 import { VideoBackground } from "@/components/ui/video-background";
 import { SiteImage } from "@/components/ui/site-image";
-import { images, logos } from "@/lib/images";
+import { images, techPartnerLogos } from "@/lib/images";
 
 const items = [
   {
@@ -37,7 +38,11 @@ const items = [
   },
 ];
 
-const partners = [logos.nhvas, logos.truckSafe, logos.accredThree, logos.accredFour];
+const partners = [
+  techPartnerLogos.teletracNavman,
+  techPartnerLogos.seeingMachinesGuardian,
+  techPartnerLogos.nswFoodAuthority,
+];
 
 export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean }) {
   return (
@@ -92,17 +97,14 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
           </p>
           <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
             {partners.map((p) => (
-              <span
+              <Image
                 key={p.src}
-                className="relative block h-12 w-32 rounded-lg bg-white/95 p-2"
-              >
-                <SiteImage
-                  src={p.src}
-                  alt={p.alt}
-                  className="object-contain p-1"
-                  sizes="128px"
-                />
-              </span>
+                src={p.src}
+                alt={p.alt}
+                width={p.width}
+                height={p.height}
+                className="h-9 w-auto"
+              />
             ))}
           </div>
         </div>

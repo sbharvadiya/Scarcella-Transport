@@ -1,14 +1,18 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/badge";
 
 const bullets = [
-  { icon: <BoxIcon />, text: "Refrigerated, general, DG and oversize" },
   {
-    icon: <RouteIcon />,
+    icon: "/img/elements.svg",
+    text: "Refrigerated, general, DG and oversize",
+  },
+  {
+    icon: "/img/delivery-tracking-01.svg",
     text: "Sydney–Darwin express, eastern seaboard, regional NSW",
   },
   {
-    icon: <HeadsetIcon />,
+    icon: "/img/customer-service-01.svg",
     text: "Spoken to a person, not a portal — (02) 4626 6661",
   },
 ];
@@ -17,8 +21,8 @@ export function QuoteForm() {
   return (
     <section className="py-20 sm:py-28">
       <Container>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-          <div>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="flex h-full flex-col">
             <Eyebrow>Get a quote</Eyebrow>
             <h2 className="mt-4 text-4xl font-medium leading-tight text-ink sm:text-5xl">
               Tell us what&apos;s moving. We&apos;ll come back with a price.
@@ -28,10 +32,10 @@ export function QuoteForm() {
               business day.
             </p>
 
-            <div className="mt-14 divide-y divide-line border-t border-line">
+            <div className="mt-14 divide-y divide-line border-t border-line lg:mt-auto">
               {bullets.map((b, i) => (
                 <div key={i} className="flex items-center gap-4 py-5">
-                  <span className="text-brand-bright">{b.icon}</span>
+                  <Image src={b.icon} alt="" width={22} height={22} />
                   <p className="text-sm text-ink">
                     <a href="tel:0246266661" className="font-semibold text-ink underline decoration-brand-bright/40 hover:decoration-brand-bright">
                       {b.text}
@@ -46,8 +50,17 @@ export function QuoteForm() {
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <Field label="Name" placeholder="Enter Name" required />
               <Field label="Company" placeholder="Enter Company" />
-              <Field label="Phone" placeholder="Enter Phone Number" required />
-              <Field label="Email" placeholder="Enter Email" />
+              <Field
+                label="Phone"
+                placeholder="Enter Phone Number"
+                icon="/img/smart-phone-01.svg"
+                required
+              />
+              <Field
+                label="Email"
+                placeholder="Enter Email"
+                icon="/img/mail-02.svg"
+              />
               <Field label="Pickup suburb" placeholder="e.g. Campbelltown NSW" />
               <Field label="Delivery suburb" placeholder="e.g. Darwin NT" />
               <div>
@@ -73,7 +86,7 @@ export function QuoteForm() {
 
             <button
               type="submit"
-              className="mt-6 w-full rounded-full bg-brand-dark py-4 text-sm font-semibold text-white hover:bg-brand"
+              className="mt-6 w-full rounded-xl bg-brand-dark py-4 text-sm font-semibold text-white hover:bg-brand"
             >
               Request my quote
             </button>
@@ -91,48 +104,36 @@ function Field({
   label,
   placeholder,
   required,
+  icon,
 }: {
   label: string;
   placeholder: string;
   required?: boolean;
+  icon?: string;
 }) {
   return (
     <div>
       <label className="text-sm font-medium text-ink">
         {label} {required && <span className="text-brand-bright">*</span>}
       </label>
-      <input
-        type="text"
-        placeholder={placeholder}
-        className="mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-brand-bright focus:outline-none"
-      />
+      <div className="relative mt-2">
+        {icon && (
+          <Image
+            src={icon}
+            alt=""
+            width={18}
+            height={18}
+            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2"
+          />
+        )}
+        <input
+          type="text"
+          placeholder={placeholder}
+          className={`w-full rounded-xl border border-line bg-white py-3 text-sm text-ink placeholder:text-muted focus:border-brand-bright focus:outline-none ${
+            icon ? "pl-11 pr-4" : "px-4"
+          }`}
+        />
+      </div>
     </div>
-  );
-}
-
-function BoxIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M2.5 6 10 2.5 17.5 6 10 9.5 2.5 6Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-      <path d="M2.5 6v8L10 17.5V9.5M17.5 6v8L10 17.5" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-    </svg>
-  );
-}
-function RouteIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <circle cx="4.5" cy="5" r="2" stroke="currentColor" strokeWidth="1.4" />
-      <circle cx="15.5" cy="15" r="2" stroke="currentColor" strokeWidth="1.4" />
-      <path d="M4.5 7v3a3 3 0 0 0 3 3h5" stroke="currentColor" strokeWidth="1.4" strokeDasharray="2 2" />
-    </svg>
-  );
-}
-function HeadsetIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M3 11v-1a7 7 0 0 1 14 0v1" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      <rect x="2" y="11" width="4" height="5" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
-      <rect x="14" y="11" width="4" height="5" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
-    </svg>
   );
 }
