@@ -153,11 +153,24 @@ export function PromiseSection() {
           sizes="(max-width: 639px) 150vw, (max-width: 1023px) 125vw, 100vw"
           className="absolute bottom-0 left-0 w-[150%] max-w-none sm:w-[125%] lg:w-full"
         />
-        {/* The frame dissolves the photo's bottom into the dark section that
-            follows instead of butting it against a hard edge — ~150px of the
-            frame, so 10vw, ramped to the same #181c1a the people section uses.
-            Sits after the photo so it paints over it. */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[15vw] bg-gradient-to-b sm:h-[10vw] from-ink/0 to-ink" />
+        {/* Figma "Rectangle 4191": a 2382x508 #181C1A rect under an 85.55px
+            layer blur, sitting 304px above the photo's bottom edge — which is
+            where "Rectangle 4190", the solid #181C1A the people section runs
+            on, takes over. So this is not a ramp: it is a hard-edged block
+            whose top edge the blur turns into a Gaussian falloff, ~256px of
+            fade each side of the edge. At the photo's bottom the edge is
+            3.55 sigma in, i.e. fully opaque, so nothing shows at the seam.
+
+            The rect overhangs the frame by 435px on each side and runs 204px
+            past the photo's bottom, purely so its other three blurred edges
+            fall outside the visible area — the overhang is clipped here the
+            same way the solid rect covers it in the frame. The frame's 28.8%
+            is taken to 40% because the overhang has to clear 3 sigma of its
+            own blur, and sigma is widest (8.49vw) at the mobile step.
+
+            Every measurement is in frame units, so all three scale with the
+            photo above (150% / 125% / 100%) and freeze past 2560 with it. */}
+        <div className="pointer-events-none absolute -inset-x-[40%] -bottom-[20.2vw] h-[50.4vw] bg-ink blur-[8.49vw] sm:-bottom-[16.9vw] sm:h-[42vw] sm:blur-[7.07vw] lg:-bottom-[13.5vw] lg:h-[33.6vw] lg:blur-[5.66vw] min-[2560px]:-bottom-[345px] min-[2560px]:h-[860px] min-[2560px]:blur-[145px]" />
       </div>
     </section>
   );

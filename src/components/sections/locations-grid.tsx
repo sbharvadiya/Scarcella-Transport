@@ -3,15 +3,44 @@ import { Container } from "@/components/ui/container";
 import { depots } from "@/lib/nav";
 
 // Each map graphic already has its own pin baked in (dashed ring + solid
-// marker) at the depot's real position in the source 203×189 viewBox. Every
-// card places that same 200×186 graphic in the exact same bottom-right spot
-// — so the maps sit level with each other card-to-card — and each pin just
-// falls wherever it naturally is within that fixed frame.
-const depotMap: Record<string, string> = {
-  "Sydney — Campbelltown": "/img/map-sydney.svg",
-  "Darwin — Yarrawonga": "/img/map-darwin.svg",
-  Adelaide: "/img/map-adelaide.svg",
+// marker), so a card only has to place the frame. The Sydney and Adelaide
+// exports carry each other's pin, so the two are mapped by card rather
+// than by filename. Figma pins every frame to the same spot — 16px in from
+// the right edge, 14px up from the bottom — landing all three continents level
+// card-to-card while each pin falls wherever it naturally sits. Darwin's
+// graphic is taller because its pin sits above the landmass.
+const depotMap: Record<string, { src: string; width: number; height: number }> = {
+  "Sydney — Campbelltown": { src: "/img/map-adelaide.svg", width: 203, height: 189 },
+  "Darwin — Yarrawonga": { src: "/img/map-darwin.svg", width: 202, height: 205 },
+  Adelaide: { src: "/img/map-sydney.svg", width: 211, height: 189 },
 };
+
+function ContactLink({
+  icon,
+  href,
+  children,
+}: {
+  icon: string;
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      className="type-label-lg flex w-fit items-center gap-2 text-neutral-800 transition-colors hover:text-ink"
+    >
+      <Image
+        src={icon}
+        alt=""
+        width={24}
+        height={24}
+        className="h-6 w-6 shrink-0"
+        aria-hidden
+      />
+      {children}
+    </a>
+  );
+}
 
 export function LocationsGrid({
   title = "Head Office",
@@ -28,50 +57,66 @@ export function LocationsGrid({
   return (
     <section className="py-20 sm:py-28">
       <Container>
-        <div className="text-center">
-          <h2 className="text-4xl font-medium text-ink sm:text-5xl">{title}</h2>
-          {description && <p className="mt-4 text-base text-muted">{description}</p>}
+        <div className="flex flex-col items-center gap-4 text-center">
+          <h2 className="type-h2 text-ink">{title}</h2>
+          {description && (
+            <p className="type-body-md-medium text-neutral-800">{description}</p>
+          )}
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {depots.map((d) => (
-            <div key={d.name} className="relative overflow-hidden rounded-2xl bg-surface">
-              <Image
-                src={depotMap[d.name]}
-                alt=""
-                width={200}
-                height={186}
-                className="pointer-events-none absolute right-2 bottom-0"
-              />
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {depots.map((d) => {
+            const map = depotMap[d.name];
+            return (
+              <div
+                key={d.name}
+                className="relative isolate flex flex-col justify-between gap-6 overflow-hidden rounded-3xl border border-line bg-surface p-6 lg:min-h-[288px]"
+              >
+                {map && (
+                  <Image
+                    src={map.src}
+                    alt=""
+                    width={map.width}
+                    height={map.height}
+                    aria-hidden
+                    className="pointer-events-none absolute right-4 bottom-3.5 -z-10 max-w-none"
+                  />
+                )}
 
-              <div className="relative p-6">
-                <h3 className="text-2xl font-medium text-ink">{d.name}</h3>
-                <p className="mt-3 text-sm text-muted">{d.address}</p>
-
-                <div className="mt-12 min-h-[84px] space-y-3">
-                  <p className="flex items-center gap-2 text-sm text-ink">
-                    <Image src="/img/elements (1).svg" alt="" width={11} height={16} className="text-muted" />
-                    {d.phone}
-                  </p>
-                  {"afterHoursLabel" in d && (
-                    <div>
-                      <p className="text-xs text-muted">{d.afterHoursLabel}</p>
-                      <p className="mt-1 flex items-center gap-2 text-sm text-ink">
-                        <Image src="/img/elements (1).svg" alt="" width={11} height={16} className="text-muted" />
-                        {d.afterHoursPhone}
-                      </p>
-                    </div>
-                  )}
+                <div className="flex flex-col gap-4">
+                  <h3 className="type-h4 text-ink">{d.name}</h3>
+                  <p className="type-body-sm text-ink">{d.address}</p>
                 </div>
-                <div className="border-t border-line pt-5">
-                  <p className="flex items-center gap-2 text-sm text-ink">
-                    <Image src="/img/elements (2).svg" alt="" width={13} height={11} className="text-muted" />
+
+                <div className="flex flex-col gap-3">
+                  <div className="flex flex-col justify-center gap-3">
+                    <ContactLink icon="/img/icon-smart-phone-01.svg" href={d.phoneHref}>
+                      {d.phone}
+                    </ContactLink>
+                    {"afterHoursLabel" in d && (
+                      <div className="flex flex-col justify-center">
+                        <p className="text-[11px] leading-4 text-neutral-500">
+                          {d.afterHoursLabel}
+                        </p>
+                        <ContactLink
+                          icon="/img/icon-smart-phone-01.svg"
+                          href={d.afterHoursPhoneHref}
+                        >
+                          {d.afterHoursPhone}
+                        </ContactLink>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="h-px w-full bg-neutral-300" />
+
+                  <ContactLink icon="/img/icon-mail-02.svg" href={`mailto:${d.email}`}>
                     {d.email}
-                  </p>
+                  </ContactLink>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
