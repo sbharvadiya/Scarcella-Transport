@@ -39,57 +39,63 @@ export function AdelaideContent() {
     <>
       <section className="border-b border-line bg-white py-12 sm:py-16">
         <Container>
-          <div className="grid grid-cols-2 divide-y divide-line text-center sm:grid-cols-4 sm:divide-y-0">
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className={`px-4 py-6 sm:py-0 ${
-                  i < stats.length - 1 ? "sm:border-r sm:border-line" : ""
-                }`}
-              >
-                <p className="text-2xl font-medium text-ink sm:text-3xl">
-                  {s.value}
-                  {s.suffix && <span className="text-muted">{s.suffix}</span>}
-                </p>
-                <p className="mt-2 text-sm text-muted">{s.label}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 text-left sm:grid-cols-4">
+            {stats.map((s, i) => {
+              const isRightCol = i % 2 === 1;
+              const isBottomRow = i >= 2;
+              return (
+                <div
+                  key={s.label}
+                  className={`px-4 py-6 sm:py-0 ${
+                    isRightCol ? "border-l border-line sm:border-l-0" : ""
+                  } ${isBottomRow ? "border-t border-line sm:border-t-0" : ""} ${
+                    i > 0 ? "sm:border-l sm:border-line" : ""
+                  }`}
+                >
+                  <p className="text-2xl font-medium text-ink sm:text-3xl">
+                    {s.value}
+                    {s.suffix && <span className="text-muted">{s.suffix}</span>}
+                  </p>
+                  <p className="mt-2 text-sm text-muted">{s.label}</p>
+                </div>
+              );
+            })}
           </div>
         </Container>
       </section>
 
       <section className="bg-white py-20 sm:py-28">
         <Container>
-          <div className="grid grid-cols-1 gap-x-10 gap-y-10 lg:grid-cols-2 lg:items-stretch">
-            <div>
+          <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:items-stretch lg:gap-x-10 lg:gap-y-8">
+            <div className="lg:col-start-1 lg:row-start-1">
               <Eyebrow>Service</Eyebrow>
-              <h2 className="mt-4 text-[32px] font-medium leading-[1.1] text-ink sm:text-4xl lg:text-5xl">
+              <h2 className="type-h2 mt-4 text-ink">
                 Adelaide to Darwin
                 <br />
                 Service
               </h2>
-
-              <div className="mt-16 grid grid-cols-2 gap-x-10 sm:mt-20">
-                <BulletList items={serviceColumns[0]} />
-                <BulletList items={serviceColumns[1]} />
-              </div>
             </div>
 
-            <div className="relative h-70 overflow-hidden rounded-3xl sm:h-100 lg:h-full">
+            <div className="relative h-70 overflow-hidden rounded-3xl sm:h-100 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-full">
               <SiteImage
                 {...images.outbackDusk}
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
+
+            <div className="grid grid-cols-2 gap-x-10 lg:col-start-1 lg:row-start-2">
+              <BulletList items={serviceColumns[0]} />
+              <BulletList items={serviceColumns[1]} />
+            </div>
           </div>
         </Container>
       </section>
 
-      <section className="bg-white pb-20 sm:pb-28">
+      <section className="bg-white pb-0 sm:pb-28">
         <Container>
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-[32px] font-medium leading-[1.1] text-ink sm:text-4xl lg:text-5xl">
+              <h2 className="type-h2 text-ink">
                 Adelaide depot
               </h2>
               <p className="mt-3 text-base text-muted">{adelaide.address}</p>
@@ -121,15 +127,15 @@ export function AdelaideContent() {
             </div>
           </div>
 
-          <div className="mt-10 h-[420px] w-full overflow-hidden rounded-3xl border border-line sm:h-[480px]">
-            <iframe
-              title="Adelaide depot area map"
-              src="https://www.google.com/maps?q=Lonsdale+SA+Australia&output=embed"
-              className="h-full w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+          <div className="mt-10 h-[420px] w-screen -ml-[50vw] relative left-1/2 overflow-hidden border-y border-line sm:ml-0 sm:left-0 sm:w-full sm:rounded-3xl sm:border sm:h-[480px]">
+  <iframe
+    title="Adelaide depot area map"
+    src="https://www.google.com/maps?q=Lonsdale+SA+Australia&output=embed"
+    className="h-full w-full border-0"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+</div>
         </Container>
       </section>
     </>

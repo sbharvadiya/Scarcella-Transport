@@ -23,9 +23,9 @@ export function CareersApplySection() {
       />
 
       <Container className="relative">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start">
-          <div>
-            <h2 className="text-[32px] font-medium leading-[1.1] text-ink sm:text-4xl lg:text-5xl">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-stretch">
+          <div className="flex h-full flex-col">
+            <h2 className="type-h2 text-ink">
               Want to work with us?
             </h2>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-muted">
@@ -34,16 +34,16 @@ export function CareersApplySection() {
               Your safety and rest is paramount to Scarcella Transport.
             </p>
 
-            <h3 className="mt-16 text-xl font-medium leading-snug text-ink sm:mt-20 sm:text-2xl">
+            <h3 className="type-h5 mt-16 text-ink sm:mt-20">
               Please note that for all driving positions,
               <br />
               the applicant must:
             </h3>
 
-            <ul className="mt-6">
+            <ul className="mt-6 flex flex-1 flex-col justify-between border-t border-line">
               {requirements.map((item, i) => (
-                <li key={item} className="border-b border-line py-4 first:pt-0">
-                  <span className="flex items-start gap-4 text-sm text-ink sm:text-base">
+                <li key={item} className="border-b border-line py-4">
+                  <span className="flex items-start gap-3 text-sm text-ink sm:text-base">
                     <span className="shrink-0 text-sm font-semibold text-brand-bright sm:text-base">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -63,12 +63,12 @@ export function CareersApplySection() {
 
 function ApplyForm() {
   return (
-    <form className="rounded-3xl bg-surface p-6 sm:p-10">
-      <h3 className="text-xl font-medium text-ink sm:text-2xl">
+    <form className="flex h-full flex-col rounded-3xl border border-line bg-surface p-6 sm:p-8">
+      <h3 className="type-h5 text-ink">
         Join the success, please fill up the form below
       </h3>
 
-      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Field label="First name" placeholder="Enter your first name" required />
         <Field label="Last name" placeholder="Enter your last name" />
         <Field
@@ -85,11 +85,11 @@ function ApplyForm() {
         />
       </div>
 
-      <div className="mt-5">
+      <div className="mt-4">
         <Field label="Address" placeholder="Enter your address" />
       </div>
 
-      <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className="text-sm font-medium text-ink">Position</label>
           <div className="relative mt-2">
@@ -111,10 +111,10 @@ function ApplyForm() {
         <Field label="LinkedIn Link" placeholder="Enter your LinkedIn profile URL" />
       </div>
 
-      <div className="mt-5">
+      <div className="mt-4">
         <label className="text-sm font-medium text-ink">Cover Letter</label>
         <textarea
-          rows={4}
+          rows={3}
           placeholder="Tell us about yourself and why you'd like to join Scarcella Transport"
           className="mt-2 w-full resize-none rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-brand-bright focus:outline-none"
         />
@@ -122,7 +122,7 @@ function ApplyForm() {
 
       <button
         type="submit"
-        className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-brand-dark py-4 text-sm font-semibold text-white hover:bg-brand"
+        className="mt-auto flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-dark py-4 text-base font-medium text-white hover:bg-brand"
       >
         Submit application <SendIcon />
       </button>
@@ -144,7 +144,7 @@ function Field({
   return (
     <div>
       <label className="text-sm font-medium text-ink">
-        {label} {required && <span className="text-brand-bright">*</span>}
+        {label} {required && <span className="text-[#DFE1DB]">*</span>}
       </label>
       <div className="relative mt-2">
         {icon && (

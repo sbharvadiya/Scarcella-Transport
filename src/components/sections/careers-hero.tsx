@@ -28,7 +28,7 @@ export function CareersHero() {
 
           <div className="flex flex-1 flex-col justify-end pb-14 sm:pb-16">
             <Container>
-              <h1 className="max-w-2xl text-[40px] font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+              <h1 className="type-h1 max-w-2xl text-white">
                 Join the Team that makes work a great place to come to
               </h1>
               <p className="mt-5 text-base text-white/90 sm:text-lg">
