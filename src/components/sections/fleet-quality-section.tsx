@@ -83,14 +83,14 @@ export function FleetQualitySection() {
         </div>
         <div className="mt-24 grid grid-cols-1 gap-8 sm:mt-32 lg:grid-cols-[1fr_1fr] lg:items-end">
           <div>
-            <p className="type-caption-caps text-muted">Our mission</p>
+            <p className="type-caption-caps text-[#A9AC9F]">Our mission</p>
             <h2 className="type-h2 mt-4 text-ink">
               We have the fleet to get
               <br />
               the job done
             </h2>
           </div>
-          <p className="type-body-md text-muted">
+          <p className="type-body-md text-[#A9AC9F]">
             F &amp; A Scarcella Pty Ltd are responsible for ensuring the
             quality and reliability of all products and services it
             provides. We recognise that quality starts with the planning of
@@ -99,7 +99,7 @@ export function FleetQualitySection() {
           </p>
         </div>
         <div className="mt-6 flex justify-end sm:hidden">
-          <span className="text-xs font-medium uppercase tracking-wide text-muted">
+          <span className="text-xs font-medium uppercase tracking-wide text-[#A9AC9F]">
             Swipe <span aria-hidden>»»»</span>
           </span>
         </div>

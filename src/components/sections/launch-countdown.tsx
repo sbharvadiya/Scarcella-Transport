@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const LAUNCH_DATE = new Date("2026-09-15T00:00:00+10:00");
+const LAUNCH_DATE = new Date("2026-09-05T00:00:00+10:00");
 
 function getRemaining() {
   const diff = Math.max(0, LAUNCH_DATE.getTime() - Date.now());

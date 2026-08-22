@@ -21,9 +21,9 @@ function BulletList({ items }: { items: string[] }) {
   return (
     <ul>
       {items.map((item) => (
-        <li key={item} className="border-t border-line py-4 last:pb-0">
-          <span className="flex items-center gap-3 text-sm text-ink sm:text-base">
-            <span className="h-1.5 w-1.5 shrink-0 rounded-xs bg-brand-bright" aria-hidden />
+        <li key={item} className="border-t  border-b border-line py-4 last:pb-3">
+          <span className="flex items-center gap-3 md:text-[18px] font-medium text-ink sm:text-base">
+            <span className="h-2 w-2 shrink-0  bg-brand-bright" aria-hidden />
             {item}
           </span>
         </li>
@@ -37,26 +37,37 @@ export function AdelaideContent() {
 
   return (
     <>
-      <section className="border-b border-line bg-white py-12 sm:py-16">
+      <section className="border-line bg-white py-12 sm:py-16">
         <Container>
           <div className="grid grid-cols-2 text-left sm:grid-cols-4">
             {stats.map((s, i) => {
               const isRightCol = i % 2 === 1;
               const isBottomRow = i >= 2;
               return (
-                <div
-                  key={s.label}
-                  className={`px-4 py-6 sm:py-0 ${
-                    isRightCol ? "border-l border-line sm:border-l-0" : ""
-                  } ${isBottomRow ? "border-t border-line sm:border-t-0" : ""} ${
-                    i > 0 ? "sm:border-l sm:border-line" : ""
-                  }`}
-                >
+                <div key={s.label} className="relative px-4 py-6 sm:py-0 text-center">
+                  {isRightCol && (
+                    <span
+                      aria-hidden
+                      className="divider-fade-y absolute inset-y-0 left-0 w-px sm:hidden"
+                    />
+                  )}
+                  {isBottomRow && (
+                    <span
+                      aria-hidden
+                      className="divider-fade-x absolute inset-x-0 top-0 h-px sm:hidden"
+                    />
+                  )}
+                  {i > 0 && (
+                    <span
+                      aria-hidden
+                      className="divider-fade-y absolute inset-y-0 left-0 hidden w-px sm:block"
+                    />
+                  )}
                   <p className="text-2xl font-medium text-ink sm:text-3xl">
                     {s.value}
-                    {s.suffix && <span className="text-muted">{s.suffix}</span>}
+                    {s.suffix && <span className="text-[#A9AC9F]">{s.suffix}</span>}
                   </p>
-                  <p className="mt-2 text-sm text-muted">{s.label}</p>
+                  <p className="mt-2 text-sm text-[#A9AC9F]">{s.label}</p>
                 </div>
               );
             })}
@@ -74,13 +85,13 @@ export function AdelaideContent() {
                 Service
               </h2>
             </div>
-            <div className="relative h-70 overflow-hidden rounded-3xl sm:h-100 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-full">
+            <div className="relative h-[353px] overflow-hidden rounded-3xl sm:h-100 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-[608px]">
               <SiteImage
-                {...images.outbackDusk}
+                {...images.adelaideServiceRoadTrain}
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <div className="grid grid-cols-2 gap-x-10 lg:col-start-1 lg:row-start-2">
+            <div className="grid grid-cols-2 gap-x-10 lg:col-start-1 lg:row-start-2 lg:self-end">
               <BulletList items={serviceColumns[0]} />
               <BulletList items={serviceColumns[1]} />
             </div>
@@ -94,7 +105,7 @@ export function AdelaideContent() {
               <h2 className="type-h2 text-ink">
                 Adelaide depot
               </h2>
-              <p className="mt-3 text-base text-muted">{adelaide.address}</p>
+              <p className="mt-3 text-base text-[#848877]">{adelaide.address}</p>
             </div>
             <div className="w-full max-w-xs sm:w-auto">
               <div className="border-t border-line py-3">
@@ -108,7 +119,7 @@ export function AdelaideContent() {
                   {adelaide.phone}
                 </a>
               </div>
-              <div className="border-t border-line py-3">
+              <div className="border-t border-b border-line py-3">
                 <a
                   href={`mailto:${adelaide.email}`}
                   className="flex items-center gap-3 text-sm font-medium text-ink hover:text-brand-bright"
@@ -121,15 +132,15 @@ export function AdelaideContent() {
               </div>
             </div>
           </div>
-          <div className="mt-10 h-[420px] w-screen -ml-[50vw] relative left-1/2 overflow-hidden border-y border-line sm:ml-0 sm:left-0 sm:w-full sm:rounded-3xl sm:border sm:h-[480px]">
-  <iframe
-    title="Adelaide depot area map"
-    src="https://www.google.com/maps?q=Lonsdale+SA+Australia&output=embed"
-    className="h-full w-full border-0"
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-  />
-</div>
+          <div className="relative left-1/2 mt-5 -ml-[50vw] h-[488px] w-screen overflow-hidden border-y border-line sm:left-0 sm:ml-0  sm:w-full sm:rounded-3xl sm:border">
+            <iframe
+              title="Adelaide depot area map"
+              src="https://www.google.com/maps?q=Lonsdale+SA+5160+Australia&z=14&output=embed"
+              className="h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </Container>
       </section>
     </>

@@ -77,7 +77,7 @@ export function WhyWeStandOut() {
               </p>
             </div>
             <div className="flex flex-col gap-4">
-              <p className="type-body-md text-muted">
+              <p className="type-body-md text-[#A9AC9F]">
                 Scarcella Transport is based in NSW and has been in business
                 since the late 1960s. During that time, the small family company
                 carried coal locally, and was involved in the transportation of
@@ -86,7 +86,7 @@ export function WhyWeStandOut() {
                 Northern Regions of the country using Road Trains as well as B
                 Doubles across the eastern seaboard.
               </p>
-              <p className="type-body-md text-muted">
+              <p className="type-body-md text-[#A9AC9F]">
                 We like to be flexible. We like to listen. We care about your
                 next delivery and our history tells us we are one of the best in
                 the business.
@@ -118,7 +118,7 @@ export function WhyWeStandOut() {
                 </h3>
                 <div className="flex flex-col gap-4">
                   {card.paragraphs.map((p, i) => (
-                    <p key={i} className="type-body-md text-muted">
+                    <p key={i} className="type-body-md text-[#A9AC9F]">
                       {p}
                     </p>
                   ))}
