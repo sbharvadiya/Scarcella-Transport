@@ -128,7 +128,7 @@ export function ImageSlider({
           railClassName
         )}
       >
-        {slides.map((slide) => (
+        {slides.map((slide, i) => (
           <div
             key={slide.src}
             className={cn(
@@ -140,6 +140,12 @@ export function ImageSlider({
               src={slide.src}
               alt={slide.alt}
               sizes={sizes}
+              // Off-screen cards in a horizontal rail are one arrow click away,
+              // not a page scroll — lazy loading leaves them blank for as long
+              // as the fetch takes. The first card is in view from the start, so
+              // it loads eagerly; the rest fetch up front at normal priority.
+              eager={i === 0}
+              lazy={false}
               // Without this the browser's native image drag hijacks the gesture.
               className="pointer-events-none select-none"
             />

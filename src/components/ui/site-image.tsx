@@ -13,6 +13,7 @@ export function SiteImage({
   className,
   sizes = "100vw",
   eager = false,
+  lazy = true,
   fit = "cover",
   style,
 }: {
@@ -21,6 +22,12 @@ export function SiteImage({
   className?: string;
   sizes?: string;
   eager?: boolean;
+  /**
+   * Opt out of lazy loading without claiming high priority — for images that
+   * are off-screen but only an interaction away, like a carousel's later cards.
+   * Ignored when `eager` is set.
+   */
+  lazy?: boolean;
   /**
    * `cn` only joins classes, so passing `object-contain` through `className`
    * would leave both object-fit utilities on the element and let stylesheet
@@ -39,7 +46,7 @@ export function SiteImage({
       alt={alt}
       fill
       sizes={sizes}
-      loading={eager ? "eager" : "lazy"}
+      loading={eager || !lazy ? "eager" : "lazy"}
       fetchPriority={eager ? "high" : "auto"}
       style={style}
       className={cn(fit === "cover" ? "object-cover" : "object-contain", className)}
