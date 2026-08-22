@@ -6,31 +6,34 @@ import { images } from "@/lib/images";
 export function AccreditationHero() {
   return (
     <section className="relative overflow-hidden bg-ink">
-      <div className="relative h-[584px] w-full sm:h-[520px] lg:h-[560px]">
+      <div className="relative h-[584px] w-full lg:h-[672px]">
         <VideoBackground
           src="/videos/safety-page_workshop-mechanics-loop.mp4"
           poster={images.safetyHero.src}
           cropLetterbox
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/[0.1728] to-ink/[0.72] sm:hidden" />
-        <div className="absolute inset-0 hidden bg-ink/45 sm:block" />
-        <div className="absolute inset-0 hidden bg-gradient-to-t from-ink via-ink/10 to-ink/30 sm:block" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,28,26,0.1728)_0%,rgba(24,28,26,0.72)_100%)] lg:bg-[linear-gradient(251.7deg,rgba(24,28,26,0.1152)_13.43%,rgba(24,28,26,0.72)_88.16%)]" />
         <div className="relative flex h-full flex-col">
-          <Container className="hidden pt-28 sm:block sm:pt-32">
-            <nav className="flex items-center gap-2 text-sm text-white/60" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-white">
+          <Container className="pt-28 lg:pt-32">
+            <nav
+              className="type-body-sm flex items-center gap-1"
+              aria-label="Breadcrumb"
+            >
+              <Link href="/" className="text-[#A3A3A3] transition-colors hover:text-white">
                 Home
               </Link>
-              <span aria-hidden>/</span>
+              <span className="text-white" aria-hidden>
+                /
+              </span>
               <span className="text-white">Accreditation and Safety</span>
             </nav>
           </Container>
-          <div className="flex flex-1 flex-col justify-end pb-14 sm:pb-16">
+          <div className="flex flex-1 flex-col justify-end pb-14 lg:pb-16">
             <Container>
-              <h1 className="max-w-2xl text-[40px] font-semibold leading-12 tracking-[-1px] text-white sm:text-6xl sm:font-bold sm:leading-[1.05] sm:tracking-[-2px] lg:text-7xl">
+              <h1 className="type-h1 max-w-[343px] text-white lg:max-w-[597px]">
                 We don&apos;t cut corners
               </h1>
-              <p className="mt-4 max-w-[684px] text-sm leading-6 tracking-[-0.24px] text-white sm:max-w-[720px] sm:text-lg sm:text-white/80">
+              <p className="type-body-lg mt-4 max-w-[684px] text-white">
                 Our people and our roads matter. We take our safety, training
                 and accreditation seriously.
               </p>

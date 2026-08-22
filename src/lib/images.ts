@@ -185,12 +185,19 @@ export const sliderArrows = {
   right: "/img/arrow-right.png",
 } as const;
 
-export const logos = {
-  nhvas: { src: "/img/logo-nhvas.svg", alt: "NHVAS accredited" },
-  truckSafe: { src: "/img/logo-trucksafe.svg", alt: "TruckSafe accredited" },
-  accredThree: { src: "/img/logo-accred-3.svg", alt: "Accreditation partner" },
-  accredFour: { src: "/img/logo-accred-4.png", alt: "Accreditation partner" },
-  sillaker: { src: "/img/logo-sillaker.png", alt: "Partner logo" },
+export const accreditationBadges = {
+  truckSafe: { src: "/img/accreditation-badge-trucksafe.svg", alt: "TruckSafe accredited" },
+  nhvas: { src: "/img/accreditation-badge-nhvas.svg", alt: "Heavy Vehicle Accreditation Scheme" },
+  waHeavyVehicle: { src: "/img/accreditation-badge-wa-heavy-vehicle.svg", alt: "WA Heavy Vehicle Accreditation" },
+  silliker: { src: "/img/accreditation-badge-silliker.svg", alt: "Silliker certified quality" },
+  natroad: { src: "/img/accreditation-badge-natroad.svg", alt: "NatRoad member" },
+} as const;
+
+export const driverStandardIcons = {
+  coupling: { src: "/img/driver-standard-icon-coupling.svg", alt: "" },
+  compliance: { src: "/img/driver-standard-icon-compliance.svg", alt: "" },
+  fatigue: { src: "/img/driver-standard-icon-fatigue.svg", alt: "" },
+  loadRestraint: { src: "/img/driver-standard-icon-load-restraint.svg", alt: "" },
 } as const;
 
 export const footerBadges = {
