@@ -8,35 +8,37 @@ export function ExperienceBanner() {
   return (
     <section className="pb-20 sm:pb-28">
       <Container>
-        <div className="relative overflow-hidden rounded-3xl sm:h-[300px]">
+        <div className="relative h-[450px] overflow-hidden rounded-3xl border border-neutral-800 lg:h-[288px] lg:border-neutral-200">
           <SiteImage
             {...images.fleetRoadTrainFull}
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/55 to-ink/80 sm:bg-gradient-to-r sm:from-ink/85 sm:via-ink/40 sm:to-ink/70" />
-          <div className="relative flex h-full flex-col justify-center gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-14">
-            <h2 className="text-4xl font-medium text-white sm:text-6xl">
-              Experience
-            </h2>
-            <div className="max-w-md">
-              <p className="text-sm text-white/70">
-                These accreditation schemes above are externally audited by a
-                third party.
-              </p>
-              <p className="mt-4 border-l-4 border-white pl-4 text-lg font-medium text-white">
-                Our experience is our advantage.
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-white/70">
-                We have a reliable and dedicated drivers who enjoy what they
-                do. They take pride in attention to detail and delivery on
-                time.
-              </p>
+          <div className="absolute inset-0 bg-ink/56" />
+          <div className="relative flex h-full flex-col justify-between gap-16 px-6 py-8 lg:flex-row lg:items-start lg:justify-between lg:gap-4 lg:p-14">
+            <div className="flex flex-col gap-4 lg:contents">
+              <h2 className="type-h2 text-white lg:w-[742px]">Experience</h2>
+              <div className="flex flex-col gap-2 lg:gap-6 lg:w-[509px]">
+                <p className="text-base leading-6 text-neutral-300 lg:text-lg lg:tracking-[-0.24px]">
+                  These accreditation schemes above are externally audited by a
+                  third party.
+                </p>
+                <div className="border-l-4 border-white pl-6">
+                  <p className="type-h5 text-white">
+                    Our experience is our advantage.
+                  </p>
+                </div>
+                <p className="text-base leading-6 text-neutral-300 lg:text-lg lg:tracking-[-0.24px]">
+                  We have a reliable and dedicated drivers who enjoy what they
+                  do. They take pride in attention to detail and delivery on
+                  time.
+                </p>
+              </div>
             </div>
             <Button
               href="mailto:ops@scarcellatransport.com.au"
               variant="primary"
-              className="mt-2 w-full sm:hidden"
+              className="w-full lg:hidden"
             >
               <Image
                 src="/img/icon-mail-02.svg"
