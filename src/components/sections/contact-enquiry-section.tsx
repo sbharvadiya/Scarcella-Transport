@@ -42,17 +42,17 @@ export function ContactEnquirySection() {
           <span className="font-medium text-ink">Contact Us</span>
         </nav>
 
-        <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start">
-          <div>
+        <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-[626fr_718fr]">
+          <div className="flex h-full flex-col justify-between">
             <h1 className="text-[40px] font-medium leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
               For Enquiries
               <br />
               or Questions
             </h1>
 
-            <div className="mt-10">
+            <div className="mt-8 border-t border-line">
               {rows.map((row) => (
-                <div key={row.label} className="border-b border-line py-5 first:pt-0">
+                <div key={row.label} className="border-b border-line py-4">
                   <p className="text-sm text-muted">{row.label}</p>
                   <a
                     href={row.href}
@@ -60,7 +60,7 @@ export function ContactEnquirySection() {
                       row.large ? "text-xl sm:text-2xl" : "text-base"
                     }`}
                   >
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-line">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-line">
                       <Image src={row.icon} alt="" width={14} height={14} />
                     </span>
                     {row.value}
@@ -131,7 +131,7 @@ function Field({
   return (
     <div>
       <label className="text-sm font-medium text-ink">
-        {label} {required && <span className="text-brand-bright">*</span>}
+        {label} {required && <span className="text-[#DFE1DB]">*</span>}
       </label>
       <div className="relative mt-2">
         {icon && (
