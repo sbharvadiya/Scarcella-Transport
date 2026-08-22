@@ -11,7 +11,14 @@ import { cn } from "@/lib/utils";
 
 // Pages with no dark hero image behind the header need a solid, dark-on-light
 // header instead of the usual transparent overlay.
-const LIGHT_HEADER_ROUTES = ["/contact"];
+const LIGHT_HEADER_ROUTES = ["/contact", "/blog"];
+
+/** Light on the route itself and anything nested under it (e.g. blog articles). */
+function isLightRoute(pathname: string) {
+  return LIGHT_HEADER_ROUTES.some(
+    (route) => pathname === route || pathname.startsWith(`${route}/`),
+  );
+}
 
 // Figma "Label/Md" and "Label/Lg" — both ride a 24px line box at -0.24px tracking.
 const labelMd = "text-sm font-medium leading-6 tracking-[-0.24px]";
@@ -21,7 +28,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isLight = LIGHT_HEADER_ROUTES.includes(pathname);
+  const isLight = isLightRoute(pathname);
   // The open mobile menu puts its own dark panel behind the page, so the bar
   // above it needs the solid white treatment — over a hero photo the
   // transparent state leaves the logo and icons sitting on the image.
