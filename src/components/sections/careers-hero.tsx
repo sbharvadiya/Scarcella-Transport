@@ -10,6 +10,7 @@ export function CareersHero() {
         <VideoBackground
           src="/videos/careers-page_loop.mp4"
           poster={images.depotGateSign.src}
+          cropLetterbox
         />
         <div className="absolute inset-0 bg-ink/45" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/40" />

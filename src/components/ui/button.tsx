@@ -2,7 +2,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 type ButtonVariant = "primary" | "outline-dark" | "outline-light" | "dark";
-type ButtonSize = "md" | "lg";
+type ButtonSize = "md" | "lg" | "none";
 
 const base =
   "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-colors whitespace-nowrap";
@@ -19,6 +19,8 @@ const variants: Record<ButtonVariant, string> = {
 const sizes: Record<ButtonSize, string> = {
   md: "px-6 py-3 text-base",
   lg: "px-6 py-4 text-base",
+  /* Opt out of the preset padding when a Figma frame pins its own box. */
+  none: "",
 };
 
 export function Button({

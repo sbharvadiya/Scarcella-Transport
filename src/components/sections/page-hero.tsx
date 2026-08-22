@@ -7,12 +7,25 @@ import { cn } from "@/lib/utils";
 export function ScriptWord({
   children,
   className,
+  size = "default",
 }: {
   children: React.ReactNode;
   className?: string;
+  /**
+   * `default` keeps the shared hero sizing. Pass `custom` when the caller
+   * pins its own font-size — `cn` only joins classes, so leaving the preset
+   * on would make the winner depend on stylesheet order rather than intent.
+   */
+  size?: "default" | "custom";
 }) {
   return (
-    <span className={cn("font-script text-5xl italic sm:text-6xl lg:text-7xl", className)}>
+    <span
+      className={cn(
+        "font-script italic",
+        size === "default" && "text-5xl sm:text-6xl lg:text-7xl",
+        className,
+      )}
+    >
       {children}
     </span>
   );
@@ -37,7 +50,7 @@ export function PageHero({
     <section className="relative overflow-hidden bg-ink">
       <div className="relative h-[420px] w-full sm:h-[560px]">
         {video ? (
-          <VideoBackground src={video} />
+          <VideoBackground src={video} cropLetterbox />
         ) : image ? (
           <SiteImage src={image} alt={imageAlt} eager />
         ) : null}

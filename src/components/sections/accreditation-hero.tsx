@@ -10,6 +10,7 @@ export function AccreditationHero() {
         <VideoBackground
           src="/videos/safety-page_workshop-mechanics-loop.mp4"
           poster={images.safetyHero.src}
+          cropLetterbox
         />
         <div className="absolute inset-0 bg-ink/45" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-ink/30" />

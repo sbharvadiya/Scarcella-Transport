@@ -112,7 +112,7 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
 
       {showWashBay && (
         <div className="relative mt-14 h-[300px] w-full overflow-hidden sm:h-[380px]">
-          <VideoBackground src="/videos/safety-page_wash-bay-loop.mp4" />
+          <VideoBackground src="/videos/safety-page_wash-bay-loop.mp4" cropLetterbox />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-8 sm:p-12">
             <p className="text-lg font-medium text-white sm:text-xl">
