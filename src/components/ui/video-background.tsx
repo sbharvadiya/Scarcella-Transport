@@ -9,7 +9,7 @@ export function VideoBackground({
 }) {
   return (
     <video
-      className={className ?? "h-full w-full object-cover"}
+      className={className ?? "absolute inset-0 h-full w-full object-cover"}
       src={src}
       poster={poster}
       autoPlay

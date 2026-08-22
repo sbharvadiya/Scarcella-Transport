@@ -2,10 +2,17 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/badge";
 import { SiteImage } from "@/components/ui/site-image";
 import { VideoBackground } from "@/components/ui/video-background";
+import { cn } from "@/lib/utils";
 
-export function ScriptWord({ children }: { children: React.ReactNode }) {
+export function ScriptWord({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <span className="font-script text-5xl italic sm:text-6xl lg:text-7xl">
+    <span className={cn("font-script text-5xl italic sm:text-6xl lg:text-7xl", className)}>
       {children}
     </span>
   );

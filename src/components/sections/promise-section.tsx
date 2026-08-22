@@ -54,7 +54,7 @@ export function PromiseSection() {
           {promises.map((p) => (
             <div
               key={p.n}
-              className="relative min-h-[170px] overflow-hidden rounded-2xl border border-white/30 bg-white/10 p-6 text-white backdrop-blur-sm sm:p-7"
+              className="relative min-h-[170px] overflow-hidden rounded-2xl border border-white/30 bg-[#6d93bf]/25 p-6 text-white backdrop-blur-sm sm:p-7"
             >
               {p.wrapperClassName ? (
                 <div

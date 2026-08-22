@@ -1,61 +1,79 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { depots } from "@/lib/nav";
-import { SiteImage } from "@/components/ui/site-image";
 
-export function LocationsGrid() {
+// Each map graphic already has its own pin baked in (dashed ring + solid
+// marker) at the depot's real position in the source 203×189 viewBox. Every
+// card places that same 200×186 graphic in the exact same bottom-right spot
+// — so the maps sit level with each other card-to-card — and each pin just
+// falls wherever it naturally is within that fixed frame.
+const depotMap: Record<string, string> = {
+  "Sydney — Campbelltown": "/img/map-sydney.svg",
+  "Darwin — Yarrawonga": "/img/map-darwin.svg",
+  Adelaide: "/img/map-adelaide.svg",
+};
+
+export function LocationsGrid({
+  title = "Head Office",
+  description = (
+    <>
+      <span className="font-semibold text-ink">Three locations.</span> One
+      trusted transport network.
+    </>
+  ),
+}: {
+  title?: string;
+  description?: React.ReactNode;
+}) {
   return (
     <section className="py-20 sm:py-28">
       <Container>
         <div className="text-center">
-          <h2 className="text-4xl font-medium text-ink sm:text-5xl">Head Office</h2>
-          <p className="mt-4 text-base text-muted">
-            <span className="font-semibold text-ink">Three locations.</span> One
-            trusted transport network.
-          </p>
+          <h2 className="text-4xl font-medium text-ink sm:text-5xl">{title}</h2>
+          {description && <p className="mt-4 text-base text-muted">{description}</p>}
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
           {depots.map((d) => (
-            <div key={d.name} className="rounded-2xl bg-surface p-8">
-              <h3 className="text-xl font-medium text-ink">{d.name}</h3>
-              <p className="mt-2 text-sm text-muted">{d.address}</p>
+            <div key={d.name} className="relative overflow-hidden rounded-2xl bg-surface">
+              <Image
+                src={depotMap[d.name]}
+                alt=""
+                width={200}
+                height={186}
+                className="pointer-events-none absolute right-2 bottom-0"
+              />
 
-              <div className="relative mt-8 h-32 overflow-hidden rounded-xl bg-surface-2">
-                <SiteImage
-                  src={d.image}
-                  alt={`${d.name} depot`}
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                />
-              </div>
+              <div className="relative p-6">
+                <h3 className="text-2xl font-medium text-ink">{d.name}</h3>
+                <p className="mt-3 text-sm text-muted">{d.address}</p>
 
-              <div className="mt-6 space-y-3 border-t border-line pt-5">
-                <p className="flex items-center gap-2 text-sm text-ink">
-                  <PhoneIcon /> (02) 4626 6661
-                </p>
-                <p className="flex items-center gap-2 text-sm text-ink">
-                  <MailIcon /> ops@scarcellatransport.com.au
-                </p>
+                <div className="mt-12 min-h-[84px] space-y-3">
+                  <p className="flex items-center gap-2 text-sm text-ink">
+                    <Image src="/img/elements (1).svg" alt="" width={11} height={16} className="text-muted" />
+                    {d.phone}
+                  </p>
+                  {"afterHoursLabel" in d && (
+                    <div>
+                      <p className="text-xs text-muted">{d.afterHoursLabel}</p>
+                      <p className="mt-1 flex items-center gap-2 text-sm text-ink">
+                        <Image src="/img/elements (1).svg" alt="" width={11} height={16} className="text-muted" />
+                        {d.afterHoursPhone}
+                      </p>
+                    </div>
+                  )}
+                </div>
+                <div className="border-t border-line pt-5">
+                  <p className="flex items-center gap-2 text-sm text-ink">
+                    <Image src="/img/elements (2).svg" alt="" width={13} height={11} className="text-muted" />
+                    {d.email}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </Container>
     </section>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-muted">
-      <path d="M3.5 1.5h2l1.2 3-1.5 1a9 9 0 0 0 4.3 4.3l1-1.5 3 1.2v2c0 .8-.7 1.5-1.5 1.5C7 12 2 7 2 3c0-.8.7-1.5 1.5-1.5Z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-function MailIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-muted">
-      <rect x="1.5" y="3" width="13" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
-      <path d="M2 4l6 5 6-5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
   );
 }

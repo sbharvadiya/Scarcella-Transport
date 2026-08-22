@@ -2,21 +2,34 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { primaryNav } from "@/lib/nav";
+import { cn } from "@/lib/utils";
+
+// Pages with no dark hero image behind the header need a solid, dark-on-light
+// header instead of the usual transparent overlay.
+const LIGHT_HEADER_ROUTES = ["/contact"];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isLight = LIGHT_HEADER_ROUTES.includes(pathname);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header
+      className={cn(
+        "inset-x-0 top-0 z-50",
+        isLight ? "relative border-b border-line bg-white" : "absolute"
+      )}
+    >
       <Container>
         <div className="flex h-24 items-center justify-between">
           <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
             <Image
-              src="/brand/scarcella-logo-white.svg"
+              src={isLight ? "/brand/scarcella-logo.svg" : "/brand/scarcella-logo-white.svg"}
               alt="F&A Scarcella Transport"
               width={122}
               height={48}
@@ -30,7 +43,10 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-white/90 transition-colors hover:text-white"
+                className={cn(
+                  "text-sm font-medium transition-colors",
+                  isLight ? "text-ink/80 hover:text-ink" : "text-white/90 hover:text-white"
+                )}
               >
                 {item.label}
               </Link>
@@ -40,7 +56,10 @@ export function SiteHeader() {
           <div className="hidden items-center gap-4 lg:flex">
             <Link
               href="/merch"
-              className="text-sm font-medium text-white/90 transition-colors hover:text-white"
+              className={cn(
+                "text-sm font-medium transition-colors",
+                isLight ? "text-ink/80 hover:text-ink" : "text-white/90 hover:text-white"
+              )}
             >
               Merch Store <span aria-hidden>»</span>
             </Link>
@@ -52,7 +71,10 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white lg:hidden"
+            className={cn(
+              "flex h-10 w-10 items-center justify-center rounded-full border lg:hidden",
+              isLight ? "border-line text-ink" : "border-white/30 text-white"
+            )}
             aria-label="Toggle menu"
             aria-expanded={open}
           >

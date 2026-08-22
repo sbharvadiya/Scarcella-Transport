@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { SiteImage } from "@/components/ui/site-image";
+import { StatCounter } from "@/components/ui/stat-counter";
 import { images } from "@/lib/images";
 
 const routes = ["Sydney", "Darwin", "Adelaide", "Brisbane", "Melbourne"];
@@ -18,7 +18,16 @@ export function HomeHero() {
     <section className="relative overflow-hidden bg-ink">
       <div className="relative h-[620px] w-full lg:h-[720px]">
         <div className="absolute inset-0">
-          <SiteImage {...images.heroRoadTrains} eager />
+          <video
+            className="h-full w-full object-cover"
+            src="/videos/home-page_hero-reel.mp4"
+            poster={images.heroRoadTrains.src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
@@ -79,7 +88,7 @@ export function HomeHero() {
                   i < stats.length - 1 ? "sm:border-r sm:border-ink/10" : ""
                 }`}
               >
-                <p className="text-4xl font-semibold text-ink sm:text-5xl">{s.value}</p>
+                <StatCounter value={s.value} />
                 <p className="mt-2 text-sm text-ink/50">{s.label}</p>
               </div>
             ))}

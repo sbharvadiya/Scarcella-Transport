@@ -60,24 +60,28 @@ export function StoryTimeline() {
           </div>
         </div>
 
-        <div className="relative mt-16 pt-12">
-          <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-line sm:block" />
-          <div className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
-            {timeline.map((t) => (
-              <div key={t.n} className="border-b border-line pb-10">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-line text-xs text-muted">
-                    {t.n}
-                  </span>
-                  <span className="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink/70">
-                    {t.tag}
-                  </span>
-                </div>
-                <h3 className="mt-4 text-2xl font-medium text-ink">{t.title}</h3>
-                <p className="mt-3 text-sm text-muted">{t.desc}</p>
+        <div className="mt-16 space-y-10">
+          {[timeline.slice(0, 2), timeline.slice(2, 4)].map((row, i) => (
+            <div key={i} className="relative pt-12">
+              <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-line sm:block" />
+              <div className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2">
+                {row.map((t) => (
+                  <div key={t.n} className="border-b border-line pb-10">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full border border-line text-xs text-muted">
+                        {t.n}
+                      </span>
+                      <span className="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink/70">
+                        {t.tag}
+                      </span>
+                    </div>
+                    <h3 className="mt-4 text-2xl font-medium text-ink">{t.title}</h3>
+                    <p className="mt-3 text-sm text-muted">{t.desc}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </Container>
     </section>

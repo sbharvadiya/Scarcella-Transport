@@ -3,14 +3,21 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { footerNav, serviceAreas, depots } from "@/lib/nav";
+import { logos } from "@/lib/images";
 
 const socials = [
-  { label: "X", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Facebook", href: "#" },
+  { label: "X", href: "#", icon: "/img/Button icon.svg" },
+  { label: "LinkedIn", href: "#", icon: "/img/Button icon (1).svg" },
+  { label: "Facebook", href: "#", icon: "/img/Button icon (2).svg" },
 ];
 
-const accreditations = ["TruckSafe", "NHVAS", "NT Heavy Vehicle Accreditation", "Silliker", "NatRoad"];
+const accreditations = [
+  logos.truckSafe,
+  logos.nhvas,
+  logos.accredThree,
+  logos.sillaker,
+  logos.accredFour,
+];
 
 export function SiteFooter() {
   return (
@@ -26,12 +33,14 @@ export function SiteFooter() {
               className="h-12 w-auto"
             />
             <div className="mt-6 space-y-3 text-sm text-white/70">
-              <p>
+              <p className="flex items-center gap-2">
+                <Image src="/img/elements (1).svg" alt="" width={11} height={16} />
                 <a href="tel:0246266661" className="hover:text-white">
                   (02) 4626 6661
                 </a>
               </p>
-              <p>
+              <p className="flex items-center gap-2">
+                <Image src="/img/elements (2).svg" alt="" width={13} height={11} />
                 <a href="mailto:ops@scarcellatransport.com.au" className="hover:text-white">
                   ops@scarcellatransport.com.au
                 </a>
@@ -43,9 +52,9 @@ export function SiteFooter() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-xs font-medium hover:bg-white/20"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
                 >
-                  {s.label[0]}
+                  <Image src={s.icon} alt="" width={18} height={18} />
                 </a>
               ))}
             </div>
@@ -106,10 +115,10 @@ export function SiteFooter() {
           <div className="flex flex-wrap items-center gap-3">
             {accreditations.map((a) => (
               <span
-                key={a}
-                className="flex h-10 items-center rounded-full bg-white/5 px-4 text-xs text-white/60"
+                key={a.src}
+                className="flex h-11 items-center justify-center rounded-full bg-white px-2.5"
               >
-                {a}
+                <Image src={a.src} alt={a.alt} width={44} height={44} className="h-8 w-auto object-contain" />
               </span>
             ))}
           </div>

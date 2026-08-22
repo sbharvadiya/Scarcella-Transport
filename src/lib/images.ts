@@ -186,6 +186,14 @@ export const images = {
     src: "/img/graphic-trajectory.jpg",
     alt: "",
   },
+  graphicGauge: {
+    src: "/img/graphic-3.jpg",
+    alt: "",
+  },
+  graphicRoadTrain: {
+    src: "/img/graphic-4.jpg",
+    alt: "",
+  },
 } as const;
 
 /** Slider navigation arrows (supplied as 64px rounded buttons). */
