@@ -211,6 +211,18 @@ export const logos = {
   sillaker: { src: "/img/logo-sillaker.png", alt: "Partner logo" },
 } as const;
 
+/**
+ * Footer accreditation badges, pre-composed by design (84x48 card with its
+ * own background/border baked in) — render at native size, no wrapper needed.
+ */
+export const footerBadges = {
+  truckSafe: { src: "/img/footer-badge-trucksafe.svg", alt: "TruckSafe accredited" },
+  nhvas: { src: "/img/footer-badge-nhvas.svg", alt: "Heavy Vehicle Accreditation Scheme" },
+  waHeavyVehicle: { src: "/img/footer-badge-wa-heavy-vehicle.svg", alt: "WA Heavy Vehicle Accreditation" },
+  silliker: { src: "/img/footer-badge-silliker.svg", alt: "Silliker certified quality" },
+  natroad: { src: "/img/footer-badge-natroad.svg", alt: "NatRoad member" },
+} as const;
+
 /** Technology & accreditation partner logos (dark-mode wordmarks, 56px tall). */
 export const techPartnerLogos = {
   teletracNavman: {

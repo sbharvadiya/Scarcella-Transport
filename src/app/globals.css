@@ -27,6 +27,15 @@
   --color-line: #edeeea;
 
   --color-muted: #848877;
+  --color-muted: #6b6b63;
+
+  /* Dark-theme neutral scale (Figma "Neutral" palette, used on dark sections) */
+  --color-neutral-950: #181c1a;
+  --color-neutral-900: #2a2e28;
+  --color-neutral-800: #41453c;
+  --color-neutral-500: #a9ac9f;
+  --color-neutral-400: #c9cbc2;
+  --color-neutral-200: #edeeea;
 }
 
 @theme inline {
@@ -51,6 +60,13 @@
   --color-surface-2: var(--color-surface-2);
   --color-line: var(--color-line);
   --color-muted: var(--color-muted);
+
+  --color-neutral-950: var(--color-neutral-950);
+  --color-neutral-900: var(--color-neutral-900);
+  --color-neutral-800: var(--color-neutral-800);
+  --color-neutral-500: var(--color-neutral-500);
+  --color-neutral-400: var(--color-neutral-400);
+  --color-neutral-200: var(--color-neutral-200);
 
   --font-sans: var(--font-archivo);
   --font-script: var(--font-pinyon);
