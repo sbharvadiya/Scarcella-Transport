@@ -7,7 +7,7 @@ export function FleetHero() {
   return (
     <section className="relative overflow-hidden bg-ink">
       <div className="relative h-[560px] w-full sm:h-[640px] lg:h-[700px]">
-        <VideoBackground src="/videos/fleet-page_loop.mp4" />
+        <VideoBackground src="/videos/fleet-page_loop.mp4" cropLetterbox />
         <div className="absolute inset-0 bg-ink/45" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-ink/30" />
 
