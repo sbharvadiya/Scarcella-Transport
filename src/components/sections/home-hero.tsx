@@ -17,9 +17,10 @@ export function HomeHero() {
   return (
     <section className="relative overflow-hidden bg-ink">
       <div className="relative h-[620px] w-full lg:h-[720px]">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 overflow-hidden">
           <video
-            className="h-full w-full object-cover"
+            className="absolute left-0 w-full object-cover"
+            style={{ top: "-6%", height: "112%" }}
             src="/videos/home-page_hero-reel.mp4"
             poster={images.heroRoadTrains.src}
             autoPlay
@@ -36,18 +37,18 @@ export function HomeHero() {
           <Container>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-end">
               <div>
-                <h1 className="text-4xl font-medium leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+                <h1 className="text-[40px] font-medium leading-[48px] text-white sm:text-6xl sm:leading-[1.05] lg:text-7xl">
                   Interstate freight,
                   <br />
                   <span className="font-script text-5xl italic sm:text-7xl lg:text-8xl">Done</span>{" "}
                   <span className="font-bold">PROPERLY.</span>
                 </h1>
 
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-8 flex flex-wrap gap-2">
                   {routes.map((r) => (
                     <span
                       key={r}
-                      className="rounded-xl border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm"
+                      className="rounded-xl border border-white/[0.16] bg-white/[0.08] px-3 py-2 text-lg font-medium text-white backdrop-blur-md lg:px-4 lg:py-3"
                     >
                       {r}
                     </span>
@@ -64,12 +65,14 @@ export function HomeHero() {
                   Sydney → Darwin twice weekly, two-day express · 50+ years ·
                   TruckSafe accredited
                 </p>
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-6 grid grid-cols-2 gap-2 lg:flex lg:flex-wrap lg:gap-3">
                   <Button href="/quote" variant="primary" size="lg">
-                    Get a Freight Quote <span aria-hidden>»</span>
+                    Get a Freight Quote <span aria-hidden className="hidden lg:inline">»</span>
                   </Button>
                   <Button href="tel:0246266661" variant="outline-light" size="lg">
-                    <PhoneIcon /> Call (02) 4626 6661
+                    <PhoneIcon />
+                    <span className="lg:hidden">Call</span>
+                    <span className="hidden lg:inline">Call (02) 4626 6661</span>
                   </Button>
                 </div>
               </div>
@@ -85,8 +88,8 @@ export function HomeHero() {
               <div
                 key={s.label}
                 className={`px-4 py-6 sm:py-0 ${
-                  i < stats.length - 1 ? "sm:border-r sm:border-ink/10" : ""
-                }`}
+                  i === stats.length - 1 ? "col-span-2 sm:col-span-1" : ""
+                } ${i < stats.length - 1 ? "sm:border-r sm:border-ink/10" : ""}`}
               >
                 <StatCounter value={s.value} />
                 <p className="mt-2 text-sm text-ink/50">{s.label}</p>
