@@ -111,7 +111,7 @@ export function SiteHeader() {
               {/* Figma "Frame 153". */}
               <div className="flex h-12 items-center gap-4">
                 <Link
-                  href="/merch"
+                  href="/adelaide"
                   className="group flex items-center justify-center gap-2"
                 >
                   <span
