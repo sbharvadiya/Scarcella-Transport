@@ -19,7 +19,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
         <h2 className="type-h5 mt-5 line-clamp-2 text-ink transition-colors group-hover:text-brand-bright">
           {post.title}
         </h2>
-        <p className="type-body-sm mt-3 line-clamp-2 text-muted">{post.excerpt}</p>
+        <p className="type-body-sm mt-3 line-clamp-2 text-[#A9AC9F]">{post.excerpt}</p>
       </Link>
       <div className="mt-5 flex items-center gap-3 border-b border-line pb-5">
         <Image

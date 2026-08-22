@@ -76,6 +76,24 @@ body {
 }
 
 @layer components {
+  .divider-fade-y {
+    background: linear-gradient(
+      180deg,
+      rgba(169, 172, 159, 0) 0%,
+      #a9ac9f 50%,
+      rgba(169, 172, 159, 0) 100%
+    );
+  }
+
+  .divider-fade-x {
+    background: linear-gradient(
+      90deg,
+      rgba(169, 172, 159, 0) 0%,
+      #a9ac9f 50%,
+      rgba(169, 172, 159, 0) 100%
+    );
+  }
+
   .type-h1 {
     font-size: 40px;
     line-height: 48px;

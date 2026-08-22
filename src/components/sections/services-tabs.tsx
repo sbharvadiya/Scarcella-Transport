@@ -57,10 +57,10 @@ function LegEnd({
   const end = align === "end";
   return (
     <div className={`flex flex-col gap-1.5 ${end ? "items-end" : "items-start"}`}>
-      <span className="type-body-sm text-muted">
+      <span className="type-body-sm text-[#A9AC9F]">
         {action} <Em>{city}</Em>
       </span>
-      <span className="type-body-sm rounded-full border border-line px-3 py-0.5 text-muted">
+      <span className="type-body-sm rounded-full border border-line px-3 py-0.5 text-[#A9AC9F]">
         {day}
       </span>
     </div>
@@ -81,7 +81,7 @@ function Leg({
   return (
     <div className="flex items-center justify-between gap-3 rounded-2xl bg-white px-4 py-3">
       <LegEnd action="Depart" city={from} day={fromDay} />
-      <ChevronRightDuo className="size-5 shrink-0 text-muted" />
+      <ChevronRightDuo className="size-5 shrink-0 text-[#A9AC9F]" />
       <LegEnd action="Deliver" city={to} day={toDay} align="end" />
     </div>
   );
@@ -174,7 +174,7 @@ export function ServicesTabs() {
   return (
     <section className="bg-white py-16 lg:py-24">
       <Container>
-        <p className="type-caption-caps text-muted">Our Services</p>
+        <p className="type-caption-caps text-[#A9AC9F]">Our Services</p>
         <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-6 lg:grid-cols-[minmax(0,264px)_1fr] lg:gap-6">
           <nav
             aria-label="Our services"
@@ -190,7 +190,7 @@ export function ServicesTabs() {
                   className={`flex items-center justify-between gap-3 rounded-2xl px-5 py-4 transition-colors ${
                     current
                       ? "bg-brand-bright text-white"
-                      : "border border-line bg-surface text-muted hover:text-ink"
+                      : "border border-line bg-surface text-[#A9AC9F] hover:text-ink"
                   }`}
                 >
                   <span className="type-body-sm">{s.label}</span>
@@ -210,12 +210,12 @@ export function ServicesTabs() {
               title="Regular services"
               image={images.fleetRoadTrainFull}
             >
-              <p className="type-body-md text-muted">
+              <p className="type-body-md text-[#A9AC9F]">
                 <Em>Every Tuesday and Friday</Em> the team at Scarcella
                 coordinate various triple and quad road train combinations to
                 travel to Darwin.
               </p>
-              <p className="type-body-md text-muted">
+              <p className="type-body-md text-[#A9AC9F]">
                 This is achieved by trailers being delivered to the
                 customer&apos;s premises, organising a multitude of LCL freight
                 and loading bulk loads with their local fleet. All with the
@@ -257,21 +257,21 @@ export function ServicesTabs() {
               title="Other Services"
               image={images.depotGateSign}
             >
-              <p className="type-body-md text-muted">
+              <p className="type-body-md text-[#A9AC9F]">
                 Scarcella Transport also offers many services on the eastern
                 seaboard.
               </p>
-              <p className="type-body-md text-muted">
+              <p className="type-body-md text-[#A9AC9F]">
                 Regular runs between <Em>Sydney – Brisbane – Melbourne</Em> with
                 b double and single combinations being the focus.
               </p>
-              <p className="type-body-md text-muted">
+              <p className="type-body-md text-[#A9AC9F]">
                 We also service many farms in the <Em>Riverina</Em> and carry
                 produce from <Em>Werribee Vic</Em> and the{" "}
                 <Em>Bowen basin QLD</Em>
               </p>
               <div className="rounded-2xl border border-line bg-white p-4">
-                <p className="type-body-sm text-muted">
+                <p className="type-body-sm text-[#A9AC9F]">
                   Scarcella Transport also regularly services:
                 </p>
                 <ul className="mt-2 flex flex-col gap-1">
@@ -283,12 +283,12 @@ export function ServicesTabs() {
                       <span className="type-body-md font-medium text-ink">
                         {lane}
                       </span>
-                      <span className="type-body-sm text-muted">{note}</span>
+                      <span className="type-body-sm text-[#A9AC9F]">{note}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <p className="type-body-md text-muted">
+              <p className="type-body-md text-[#A9AC9F]">
                 <Em>Scarcella Transport will travel anywhere</Em> and are
                 equipped to carry any type of freight.
               </p>

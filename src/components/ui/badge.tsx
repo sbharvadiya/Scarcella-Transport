@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 export function Eyebrow({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <p className={cn("text-xs font-semibold uppercase tracking-[0.15em] text-muted", className)}>
+    <p className={cn("text-xs font-semibold uppercase tracking-[0.15em] text-[#848877]", className)}>
       {children}
     </p>
   );
