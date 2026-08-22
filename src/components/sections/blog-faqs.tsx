@@ -8,7 +8,7 @@ export function BlogFaqs({ faqs }: { faqs: { question: string; answer: string }[
 
   return (
     <section className="py-16 lg:py-20">
-      <div className="mx-auto w-full max-w-[848px] px-4 sm:px-6 lg:px-0">
+      <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-0">
         <h2 className="type-h3 text-ink">Questions we get asked</h2>
         <div className="mt-8 flex flex-col gap-4">
           {faqs.map((faq, i) => {

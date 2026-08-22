@@ -21,7 +21,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
         </h2>
         <p className="type-body-sm mt-3 line-clamp-2 text-[#A9AC9F]">{post.excerpt}</p>
       </Link>
-      <div className="mt-5 flex items-center gap-3 border-b border-line pb-5">
+      <div className="mt-5 flex items-center gap-3 pb-5">
         <Image
           src="/brand/scarcella-logo.svg"
           alt=""

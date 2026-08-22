@@ -38,13 +38,13 @@ export function ContactEnquirySection() {
           className="type-body-sm flex items-center gap-1"
           aria-label="Breadcrumb"
         >
-          <Link href="/" className="text-neutral-400 hover:text-ink">
+          <Link href="/" className="text-[#A3A3A3] hover:text-ink">
             Home
           </Link>
           <span className="text-ink" aria-hidden>
             /
           </span>
-          <span className="text-ink">Contact Us</span>
+          <span className="text-black">Contact Us</span>
         </nav>
         <div className="mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-[minmax(0,626fr)_minmax(0,718fr)] lg:gap-x-16">
           <div className="flex h-full flex-col justify-between gap-12">

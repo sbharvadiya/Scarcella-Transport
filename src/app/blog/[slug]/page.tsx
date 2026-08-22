@@ -69,7 +69,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
         </Container>
       </section>
       <article className="pb-16">
-        <div className="mx-auto w-full max-w-[848px] px-4 sm:px-6 lg:px-0">
+        <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-0">
           <div className="mt-10 flex items-center gap-3 rounded-2xl border border-line p-4">
             <Image
               src="/brand/scarcella-logo.svg"
@@ -93,7 +93,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
             </div>
             <SharePost slug={post.slug} title={post.title} />
           </div>
-          <h1 className="type-h3 mt-8 text-ink">{post.title}</h1>
+          <h1 className="type-h2 mt-8 text-ink">{post.title}</h1>
           <div className="mt-8 flex flex-col gap-6">
             {body.map((block, i) => (
               <BodyBlock key={i} block={block} />
@@ -115,7 +115,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
               and talk it through with the depot.
             </p>
           </div>
-          <div className="mt-10 border-t border-line pt-8">
+          <div className="mt-10 border-t border-b border-line py-8">
             <SharePost slug={post.slug} title={post.title} inline />
           </div>
         </div>
@@ -148,13 +148,13 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
 function BodyBlock({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case "lead":
-      return <p className="type-body-md text-ink">{block.text}</p>;
+      return <p className="type-[18px] font-normal text-ink">{block.text}</p>;
 
     case "paragraph":
-      return <p className="type-body-sm text-ink">{block.text}</p>;
+      return <p className="type-[16px] text-ink">{block.text}</p>;
 
     case "note":
-      return <p className="type-body-sm italic text-[#A9AC9F]">{block.text}</p>;
+      return <p className="type-[16px] italic text-[#848877]">{block.text}</p>;
 
     case "heading":
       return <h2 className="type-h5 mt-4 text-ink">{block.text}</h2>;
