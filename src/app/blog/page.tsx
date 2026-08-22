@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero } from "@/components/sections/page-hero";
-import { images, blogThumbs } from "@/lib/images";
 import { Container } from "@/components/ui/container";
-import { Pill } from "@/components/ui/badge";
-import { SiteImage } from "@/components/ui/site-image";
+import { BlogCard } from "@/components/sections/blog-card";
+import { posts } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -12,73 +10,44 @@ export const metadata: Metadata = {
     "News and updates from F&A Scarcella Transport — fleet, safety, and life on the Sydney–Darwin lane.",
 };
 
-const posts = [
-  {
-    slug: "new-adelaide-branch",
-    image: blogThumbs[0],
-    tag: "Company news",
-    title: "New Adelaide branch launching soon",
-    excerpt:
-      "We're adding a third depot to the network, with two runs a week between Adelaide and Darwin.",
-  },
-  {
-    slug: "fleet-servicing-standard",
-    image: blogThumbs[1],
-    tag: "The fleet",
-    title: "Why every truck is serviced weekly",
-    excerpt:
-      "After every 8,000 km Darwin round trip, each prime mover goes through a full workshop check before it's back on the road.",
-  },
-  {
-    slug: "technology-behind-every-load",
-    image: blogThumbs[2],
-    tag: "Safety",
-    title: "The technology behind every load",
-    excerpt:
-      "Teletrac Navman, Guardian fatigue monitoring and live mass management — a look at what's fitted to every Scarcella truck.",
-  },
-];
-
 export default function BlogPage() {
+  // The light-header route already renders a spacer the height of the fixed
+  // bar, so this padding only needs to add the Figma gap above the breadcrumb.
   return (
-    <>
-      <PageHero
-        breadcrumb="Blog"
-        title="News from the green and white."
-        description="Updates on the fleet, the depots, and the people who keep the Sydney–Darwin lane running."
-        image={images.blogHero.src}
-        imageAlt="Scarcella Transport prime mover at the depot"
-      />
+    <section className="pb-20 pt-4 sm:pb-28">
+      <Container>
+        {/* Figma "Frame 175" — breadcrumb, 4px gap, Body/Sm. */}
+        <nav className="type-body-sm flex items-center gap-1" aria-label="Breadcrumb">
+          <Link href="/" className="text-neutral-400 transition-colors hover:text-ink">
+            Home
+          </Link>
+          <span className="text-ink" aria-hidden>
+            /
+          </span>
+          <span className="text-ink">Blog</span>
+        </nav>
 
-      <section className="py-20 sm:py-28">
-        <Container>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-surface"
-              >
-                <div className="relative h-52 overflow-hidden">
-                  <SiteImage
-                    src={post.image}
-                    alt={post.title}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <Pill className="self-start">{post.tag}</Pill>
-                  <h3 className="mt-4 text-xl font-medium text-ink">{post.title}</h3>
-                  <p className="mt-3 flex-1 text-sm text-muted">{post.excerpt}</p>
-                  <span className="mt-5 text-sm font-medium text-brand-bright">
-                    Read more »
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
-    </>
+        <h1 className="type-h1 mt-6 text-ink">Blog</h1>
+
+        <p className="type-body-sm mt-6 max-w-[520px] text-ink">
+          News, updates and explainers from the green and white — the fleet, the depots, and
+          the people who keep the Sydney–Darwin lane running.
+        </p>
+
+        {/* Figma tab row: a single active tab over a full-width hairline. */}
+        <div className="mt-10 border-b border-line">
+          <span className="inline-flex items-center gap-2 border-b-2 border-ink pb-3 text-sm font-medium tracking-[-0.24px] text-ink">
+            All Posts
+            <span className="text-neutral-600">({posts.length})</span>
+          </span>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <BlogCard key={post.slug} post={post} />
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 }
