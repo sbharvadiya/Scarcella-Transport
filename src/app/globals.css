@@ -19,6 +19,7 @@
   --color-neutral-300: #dfe1db;
   --color-neutral-400: #c9cbc2;
   --color-neutral-600: #848877;
+  --color-neutral-700: #5f6354;
 
   /* Neutral surfaces */
   --color-surface: #f5f6f3;
@@ -52,6 +53,7 @@
   --color-neutral-300: var(--color-neutral-300);
   --color-neutral-400: var(--color-neutral-400);
   --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-700: var(--color-neutral-700);
   --color-neutral-800: var(--color-neutral-800);
 
   --color-surface: var(--color-surface);
@@ -123,6 +125,22 @@ body {
       font-size: 40px;
       line-height: 48px;
       letter-spacing: -1.56px;
+    }
+  }
+
+  /* Mob/h3 steps up to Heading/H4 on desktop — the story photo pull-quote. */
+  .type-h4 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+    letter-spacing: -0.72px;
+  }
+
+  @media (min-width: 1024px) {
+    .type-h4 {
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: -1px;
     }
   }
 
@@ -211,6 +229,14 @@ body {
       font-size: 18px;
       letter-spacing: -0.24px;
     }
+  }
+
+  /* Label/Md — form field placeholders + values. */
+  .type-label-md {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    letter-spacing: -0.24px;
   }
 
   .type-label-lg {

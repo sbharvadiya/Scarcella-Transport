@@ -1,5 +1,4 @@
 import { Container } from "@/components/ui/container";
-import { Eyebrow, Pill } from "@/components/ui/badge";
 import { SiteImage } from "@/components/ui/site-image";
 import { images } from "@/lib/images";
 
@@ -36,15 +35,18 @@ const services = [
 
 export function ServicesGrid() {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="pt-20 pb-14 sm:pt-28 sm:pb-16">
       <Container>
-        <div className="text-left sm:text-center">
-          <Eyebrow>What we move</Eyebrow>
-          <h2 className="mt-4 max-w-3xl text-[28px] font-medium leading-tight text-ink sm:mx-auto sm:text-4xl lg:text-5xl">
+        {/* Figma "Frame 88": 829px wide, centred in the 1512 frame, with a flat
+            16px gap between all three lines — so the eyebrow, heading and
+            standfirst all share one measure rather than narrowing as they go. */}
+        <div className="mx-auto max-w-[829px] text-left sm:text-center">
+          <p className="type-caption-caps text-neutral-600">What we move</p>
+          <h2 className="type-h2 mt-4 text-ink">
             Scheduled lanes. Specialised gear. One family answerable for all
             of it.
           </h2>
-          <p className="mt-5 max-w-2xl text-base text-muted sm:mx-auto">
+          <p className="type-body-lg mt-4 text-neutral-600">
             From cold chain produce to oversized loads — if it has to be
             there, it goes on green and white.
           </p>
@@ -56,27 +58,47 @@ export function ServicesGrid() {
           </span>
         </div>
 
-        <div className="mt-4 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:mt-14 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 lg:grid-cols-4">
+        {/* "Frame 98" sits 40px under the header block: four 334px cards on a
+            16px gutter, which is exactly the container's 1384px. Below sm the
+            row becomes the swipe carousel the mobile frame uses. */}
+        <div className="mt-4 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
           {services.map((s) => (
             <div
               key={s.title}
-              className="relative flex min-h-100 w-[85%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-line bg-surface p-6 sm:w-auto"
+              /* Figma card: 334x424, fill Neutral/100, 1px Neutral/300 border,
+                 24px radius, 24px padding. The height is a floor, not a fix, so
+                 a title that wraps one line further cannot clip the chips. */
+              className="relative flex min-h-100 w-[85%] shrink-0 snap-start flex-col overflow-hidden rounded-3xl border border-neutral-300 bg-surface p-6 sm:w-auto lg:min-h-[424px]"
             >
+              {/* The export is the full 334x424 card art — map/graphic with the
+                  180deg #F5F6F3 -> 16% fade already flattened into it — so it
+                  fills the card and the copy reads straight over its top half. */}
               <SiteImage
                 {...s.bg}
+                sizes="(max-width: 639px) 85vw, (max-width: 1023px) 50vw, 334px"
                 className="pointer-events-none select-none object-bottom-right"
               />
               <div className="relative flex flex-1 flex-col">
-                <Pill className="self-start">{s.tag}</Pill>
-                <h3 className="mt-5 text-xl font-medium leading-snug text-ink">
+                {/* "Frame 84": outline-only chip — no fill — 8px/12px padding
+                    on a 32px radius, Caption/lg caps in Neutral/600. */}
+                <span className="type-caption-caps inline-flex self-start items-center rounded-full border border-neutral-300 px-3 py-2 text-neutral-600">
+                  {s.tag}
+                </span>
+                {/* Heading/H4 with the 24px gap the frame puts between the chip
+                    and the title block, and again between title and copy. */}
+                <h3 className="mt-6 text-xl font-medium leading-snug text-ink lg:text-[32px] lg:leading-10 lg:tracking-[-1px]">
                   {s.title}
                 </h3>
-                <p className="mt-3 flex-1 text-sm text-muted">{s.desc}</p>
+                <p className="type-body-sm mt-6 flex-1 text-neutral-700">
+                  {s.desc}
+                </p>
+                {/* Pinned to the card's bottom padding, which is where the
+                    frame's 40px chip row lands (top 360 of 424). */}
                 <div className="mt-6 flex flex-wrap gap-2">
                   {s.chips.map((c) => (
                     <span
                       key={c}
-                      className="rounded-full bg-surface-2 px-3 py-1 text-xs font-medium text-ink/70"
+                      className="rounded-lg bg-neutral-300 px-3 py-2 text-sm font-medium text-ink sm:text-base"
                     >
                       {c}
                     </span>

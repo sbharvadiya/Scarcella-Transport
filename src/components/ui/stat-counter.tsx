@@ -46,10 +46,14 @@ export function StatCounter({ value }: { value: string }) {
     return () => cancelAnimationFrame(raf);
   }, [started, target]);
 
+  // A word suffix ("-day") is Neutral/600 in Figma; symbol suffixes ("+") stay
+  // the same ink as the number.
+  const wordSuffix = /[a-z]/i.test(suffix);
+
   return (
-    <p ref={ref} className="text-4xl font-semibold text-ink sm:text-5xl">
+    <p ref={ref} className="type-h2 w-full text-center text-neutral-950">
       {display}
-      {suffix}
+      {wordSuffix ? <span className="text-neutral-600">{suffix}</span> : suffix}
     </p>
   );
 }
