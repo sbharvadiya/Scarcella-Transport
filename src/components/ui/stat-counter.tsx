@@ -51,7 +51,12 @@ export function StatCounter({ value }: { value: string }) {
   const wordSuffix = /[a-z]/i.test(suffix);
 
   return (
-    <p ref={ref} className="type-h2 w-full text-center text-neutral-950">
+    <p
+      ref={ref}
+      // Mobile/tablet the stat is Heading/H3 (40/48, -1.56px); Mob/h2 is not
+      // used here, so the type-h2 scale only kicks in from lg up.
+      className="type-h2 w-full text-center text-neutral-950 max-lg:text-[40px] max-lg:font-medium max-lg:leading-[48px] max-lg:tracking-[-1.56px]"
+    >
       {display}
       {wordSuffix ? <span className="text-neutral-600">{suffix}</span> : suffix}
     </p>

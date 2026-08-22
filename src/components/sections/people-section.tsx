@@ -23,8 +23,16 @@ export function PeopleSection() {
           <p className="type-caption-caps text-neutral-300">
             The people in the green and white
           </p>
+          {/* The frame breaks the line after the first sentence — at 918px
+              the natural wrap would take "Carried by the" up onto line one —
+              so the break is hand-placed, and only from lg, where the 1512
+              frame applies. */}
           <h2 className="type-h2 mt-4 text-white">
-            Driven by family. Carried by the best crews on the lane.
+            Driven by family.
+            <span className="hidden lg:inline">
+              <br />
+            </span>{" "}
+            Carried by the best crews on the lane.
           </h2>
         </div>
 
