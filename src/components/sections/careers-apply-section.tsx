@@ -40,10 +40,10 @@ export function CareersApplySection() {
               the applicant must:
             </h3>
 
-            <ul className="mt-6 flex flex-1 flex-col justify-between border-t border-line">
+            <ul className="mt-6 flex flex-1 flex-col justify-between">
               {requirements.map((item, i) => (
                 <li key={item} className="border-b border-line py-4">
-                  <span className="flex items-start gap-3 text-sm text-ink sm:text-base">
+                  <span className="flex items-start gap-3 text-[16px] text-ink sm:text-base">
                     <span className="shrink-0 text-sm font-semibold text-brand-bright sm:text-base">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -122,7 +122,7 @@ function ApplyForm() {
 
       <button
         type="submit"
-        className="mt-auto flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-dark py-4 text-base font-medium text-white hover:bg-brand"
+        className="mt-auto flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-dark py-4 text-base font-medium text-white hover:bg-brand !mt-8"
       >
         Submit application <SendIcon />
       </button>
@@ -144,7 +144,7 @@ function Field({
   return (
     <div>
       <label className="text-sm font-medium text-ink">
-        {label} {required && <span className="text-[#DFE1DB]">*</span>}
+        {label} {required && <span className="text-neutral-300">*</span>}
       </label>
       <div className="relative mt-2">
         {icon && (
