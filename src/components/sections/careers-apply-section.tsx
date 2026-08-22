@@ -27,7 +27,7 @@ export function CareersApplySection() {
             <h2 className="type-h2 text-ink">
               Want to work with us?
             </h2>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-muted">
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-[#A9AC9F]">
               We have invested in motel style accommodation fully equipped
               with onsite individual rooms, kitchens, and laundry facilities.
               Your safety and rest is paramount to Scarcella Transport.
@@ -103,7 +103,7 @@ function ApplyForm() {
               <option>Operations</option>
               <option>Workshop apprentice</option>
             </select>
-            <ChevronIcon className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted" />
+            <ChevronIcon className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#A9AC9F]" />
           </div>
         </div>
         <Field label="LinkedIn Link" placeholder="Enter your LinkedIn profile URL" />
@@ -113,7 +113,7 @@ function ApplyForm() {
         <textarea
           rows={3}
           placeholder="Tell us about yourself and why you'd like to join Scarcella Transport"
-          className="mt-2 w-full resize-none rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-brand-bright focus:outline-none"
+          className="mt-2 w-full resize-none rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-[#A9AC9F] focus:border-brand-bright focus:outline-none"
         />
       </div>
       <button
@@ -155,7 +155,7 @@ function Field({
         <input
           type="text"
           placeholder={placeholder}
-          className={`w-full rounded-xl border border-line bg-white py-3 text-sm text-ink placeholder:text-muted focus:border-brand-bright focus:outline-none ${
+          className={`w-full rounded-xl border border-line bg-white py-3 text-sm text-ink placeholder:text-[#A9AC9F] focus:border-brand-bright focus:outline-none ${
             icon ? "pl-11 pr-4" : "px-4"
           }`}
         />

@@ -43,6 +43,18 @@ export const images = {
     src: "/img/depot-gate-sign.png",
     alt: "Two prime movers either side of the F & A Scarcella depot sign",
   },
+  adelaideHeroBanner: {
+    src: "/img/adelaide-hero-banner.jpg",
+    alt: "Three Scarcella Kenworth prime movers parked in front of the F & A Scarcella depot sign",
+  },
+  adelaideHeroBannerMobile: {
+    src: "/img/adelaide-hero-banner-mobile.jpg",
+    alt: "Scarcella Kenworth prime mover parked in front of the F & A Scarcella depot sign",
+  },
+  adelaideServiceRoadTrain: {
+    src: "/img/adelaide-service-road-train.png",
+    alt: "Scarcella road train on the Adelaide to Darwin highway at dusk",
+  },
 
   fleetLineup: {
     src: "/img/fleet-2.png",

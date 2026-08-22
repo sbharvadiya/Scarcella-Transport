@@ -3,9 +3,9 @@ import { Container } from "@/components/ui/container";
 import { depots } from "@/lib/nav";
 
 const depotMap: Record<string, { src: string; width: number; height: number }> = {
-  "Sydney — Campbelltown": { src: "/img/map-adelaide.svg", width: 203, height: 189 },
+  "Sydney — Campbelltown": { src: "/img/map-sydney.svg", width: 211, height: 189 },
   "Darwin — Yarrawonga": { src: "/img/map-darwin.svg", width: 202, height: 205 },
-  Adelaide: { src: "/img/map-sydney.svg", width: 211, height: 189 },
+  Adelaide: { src: "/img/map-adelaide.svg", width: 203, height: 189 },
 };
 
 function ContactLink({

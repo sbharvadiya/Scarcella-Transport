@@ -154,7 +154,7 @@ function BodyBlock({ block }: { block: BlogBlock }) {
       return <p className="type-body-sm text-ink">{block.text}</p>;
 
     case "note":
-      return <p className="type-body-sm italic text-muted">{block.text}</p>;
+      return <p className="type-body-sm italic text-[#A9AC9F]">{block.text}</p>;
 
     case "heading":
       return <h2 className="type-h5 mt-4 text-ink">{block.text}</h2>;

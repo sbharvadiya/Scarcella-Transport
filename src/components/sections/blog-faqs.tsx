@@ -26,7 +26,7 @@ export function BlogFaqs({ faqs }: { faqs: { question: string; answer: string }[
                 </button>
                 {open ? (
                   <div className="px-6 pb-6">
-                    <p className="type-body-md text-muted">{faq.answer}</p>
+                    <p className="type-body-md text-[#A9AC9F]">{faq.answer}</p>
                   </div>
                 ) : null}
               </div>

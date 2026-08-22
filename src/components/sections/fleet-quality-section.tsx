@@ -86,7 +86,7 @@ export function FleetQualitySection() {
               the job done
             </h2>
           </div>
-          <p className="type-body-md text-neutral-800 lg:text-[18px] lg:tracking-[-0.24px]">
+          <p className="type-body-md text-[#A9AC9F]">
             F &amp; A Scarcella Pty Ltd are responsible for ensuring the
             quality and reliability of all products and services it
             provides. We recognise that quality starts with the planning of
