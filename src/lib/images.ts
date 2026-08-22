@@ -91,7 +91,7 @@ export const images = {
 
   // Safety technology
   guardianCamera: {
-    src: "/img/guardian-camera.png",
+    src: "/img/guardian-camera-cutout.png",
     alt: "Guardian in-cab fatigue and distraction detection camera",
   },
   techTelematics: {

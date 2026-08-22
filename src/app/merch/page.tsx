@@ -21,7 +21,7 @@ export default function MerchPage() {
   return (
     <>
       <PageHero
-        eyebrow="Merch Store"
+        breadcrumb="Merch Store"
         title="Wear the green and white."
         description="Fifty years on Australian highways has earned a few fans. Printed in Australia, shipped anywhere we drive."
         image={images.merchRack.src}

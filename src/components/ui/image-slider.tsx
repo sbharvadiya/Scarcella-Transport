@@ -115,8 +115,11 @@ export function ImageSlider({
         onPointerCancel={endDrag}
         onClickCapture={onClickCapture}
         className={cn(
-          "-mx-6 flex snap-x snap-mandatory gap-2 overflow-x-auto px-6 pb-2",
-          "[scrollbar-width:none] sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden",
+          // Below `sm` the rail keeps `Container`'s 16px gutter on the left and
+          // bleeds only to the right, so the first card lines up with the copy
+          // above it while the next one runs off-screen to signal the scroll.
+          "-mr-4 flex snap-x snap-mandatory gap-2 overflow-x-auto pb-2",
+          "[scrollbar-width:none] sm:mr-0 [&::-webkit-scrollbar]:hidden",
           dragging ? "cursor-grabbing select-none" : "cursor-grab"
         )}
       >
@@ -158,10 +161,12 @@ function SliderButton({
       disabled={disabled}
       aria-label={side === "left" ? "Previous image" : "Next image"}
       className={cn(
-        "absolute top-1/2 z-10 h-12 w-12 -translate-y-1/2 rounded-full transition",
+        // Touch gets the "Swipe" hint and the gesture itself, so the arrows are
+        // a pointer-only affordance from `sm` up.
+        "absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 rounded-full transition sm:block",
         "hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-bright",
         "disabled:pointer-events-none disabled:opacity-0",
-        side === "left" ? "left-2 sm:-left-5" : "right-2 sm:-right-5"
+        side === "left" ? "sm:-left-5" : "sm:-right-5"
       )}
     >
       <Image

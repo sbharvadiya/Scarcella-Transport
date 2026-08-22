@@ -43,7 +43,7 @@ export default function BlogPage() {
   return (
     <>
       <PageHero
-        eyebrow="Blog"
+        breadcrumb="Blog"
         title="News from the green and white."
         description="Updates on the fleet, the depots, and the people who keep the Sydney–Darwin lane running."
         image={images.blogHero.src}
