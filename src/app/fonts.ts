@@ -11,6 +11,10 @@ export const archivo = localFont({
       style: "italic",
     },
   ],
+  // Archivo-Variable.ttf carries a wght axis spanning 100-900. Without this
+  // range next/font emits no font-weight descriptor, so the browser pins the
+  // face to 400 and synthesises anything heavier instead of using the axis.
+  weight: "100 900",
   variable: "--font-archivo",
   display: "swap",
 });
