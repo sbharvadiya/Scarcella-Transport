@@ -1,6 +1,7 @@
 import { AnnouncementCountdown } from "@/components/sections/announcement-countdown";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { ChevronRightDuo } from "@/components/ui/chevron-right-duo";
 import { SiteImage } from "@/components/ui/site-image";
 import { images } from "@/lib/images";
 
@@ -32,7 +33,9 @@ export function AnnouncementBanner() {
                 New Adelaide <br className="lg:hidden" />
                 branch
               </h2>
-              <p className="type-body-lg text-neutral-300">
+              {/* Body/Md at 375 (16/24, no tracking) stepping to Body/Lg from
+                  lg, so it cannot ride type-body-lg's 14px mobile step. */}
+              <p className="type-body-md text-neutral-300 lg:text-[18px] lg:tracking-[-0.24px]">
                 Two runs a week, Adelaide to Darwin.
               </p>
               {/* Figma pins the button to the card's 295px content width on
@@ -43,7 +46,8 @@ export function AnnouncementBanner() {
                 size="none"
                 className="type-label-lg w-full px-6 py-4 lg:w-40"
               >
-                Learn More <span aria-hidden>»</span>
+                Learn More
+                <ChevronRightDuo />
               </Button>
             </div>
             {/* The counter row leads on mobile and returns to the right-hand
