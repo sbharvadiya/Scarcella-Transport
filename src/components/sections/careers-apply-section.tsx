@@ -37,13 +37,18 @@ export function CareersApplySection() {
               <br />
               the applicant must:
             </h3>
-            <ul className="mt-6 flex flex-1 flex-col justify-between">
+            <ul className="mt-6 flex flex-1 flex-col">
               {requirements.map((item, i) => (
-                <li key={item} className="border-b border-line py-4">
-                  <span className="flex items-start gap-3 text-[16px] text-ink sm:text-base">
-                    <span className="shrink-0 text-sm font-semibold text-brand-bright sm:text-base">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                <li
+                  key={item}
+                  className={`flex items-start gap-2 border-b border-line py-3 lg:flex-1 lg:items-center lg:gap-3 lg:py-0 ${
+                    i === 0 ? "border-t lg:border-t-0" : ""
+                  }`}
+                >
+                  <span className="shrink-0 text-sm font-semibold text-brand-bright sm:text-base">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[16px] text-ink sm:text-base">
                     {item}
                   </span>
                 </li>

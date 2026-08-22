@@ -6,7 +6,7 @@ import { images } from "@/lib/images";
 export function CareersHero() {
   return (
     <section className="relative overflow-hidden bg-ink">
-      <div className="relative h-[560px] w-full sm:h-[640px] lg:h-[700px]">
+      <div className="relative h-[584px] w-full sm:h-[640px] lg:h-[700px]">
         <VideoBackground
           src="/videos/careers-page_loop.mp4"
           poster={images.depotGateSign.src}
@@ -34,7 +34,7 @@ export function CareersHero() {
               <span className="text-white">Careers</span>
             </nav>
           </Container>
-          <div className="flex flex-1 flex-col justify-end pb-14 sm:pb-16">
+          <div className="flex flex-1 flex-col justify-end pb-8 sm:pb-16">
             <Container>
               <h1 className="type-h1 max-w-[684px] text-white">
                 Join the Team that makes work a great place to come to
