@@ -153,7 +153,7 @@ function SliderButton({
         "rounded-full border bg-white/8 backdrop-blur-[6px] transition hover:bg-white/16",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-bright",
         disabled
-          ? "pointer-events-none border-[#e5e5e5] text-[#d4d4d4]"
+          ? "pointer-events-none border-neutral-200 text-neutral-300"
           : "border-white text-white",
         side === "left" ? "sm:-left-4 lg:-left-8" : "sm:-right-4 lg:-right-8"
       )}

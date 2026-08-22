@@ -58,14 +58,10 @@ export function FleetQualitySection() {
               <br />
               every time.
             </h2>
-            <p className="type-body-md mt-4 text-neutral-800 lg:text-[18px] lg:tracking-[-0.24px] lg:text-neutral-600">
-              Scarcella Transport has{" "}
-              <span className="lg:text-ink">
-                35 late model, immaculately presented and well maintained
-                Prime Movers,
-              </span>{" "}
-              as well as{" "}
-              <span className="lg:text-ink">150 trailers and 36 dollies.</span>
+            <p className="type-body-md mt-4 text-neutral-600 lg:text-[18px] lg:tracking-[-0.24px]">
+              Scarcella Transport has <span className="text-ink"> 35 late model, immaculately presented
+              and well maintained Prime Movers,</span> as well as <span className="text-ink">150 trailers and </span>
+              36 dollies.
             </p>
           </div>
           <div className="relative h-[353px] overflow-hidden rounded-3xl lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-100">
@@ -81,7 +77,7 @@ export function FleetQualitySection() {
         <div className="mt-8 lg:mt-10">
           <TrailerList items={trailers} />
         </div>
-        <div className="mt-24 grid grid-cols-1 gap-8 sm:mt-32 lg:grid-cols-[1fr_1fr] lg:items-end">
+        <div className="mt-24 grid grid-cols-1 gap-8 sm:mt-32 lg:mt-36 lg:grid-cols-[742fr_509fr] lg:gap-x-33 lg:items-end">
           <div>
             <p className="type-caption-caps text-[#A9AC9F]">Our mission</p>
             <h2 className="type-h2 mt-4 text-ink">
@@ -103,7 +99,13 @@ export function FleetQualitySection() {
             Swipe <span aria-hidden>»»»</span>
           </span>
         </div>
-        <ImageSlider slides={gallerySlides} className="mt-4 sm:mt-14" />
+        <ImageSlider
+          slides={gallerySlides}
+          className="mt-4 sm:mt-14 lg:mt-10"
+          railClassName="gap-2 sm:gap-4"
+          slideClassName="h-[400px] w-[87.5%] rounded-3xl sm:h-[600px] sm:w-[78.9%]"
+          sizes="(max-width: 640px) 88vw, 79vw"
+        />
       </Container>
     </section>
   );
