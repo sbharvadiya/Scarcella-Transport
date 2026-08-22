@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { images } from "@/lib/images";
+import { cn } from "@/lib/utils";
 
 const routes = ["Sydney", "Darwin", "Adelaide", "Brisbane", "Melbourne"];
 
@@ -15,8 +16,10 @@ const stats = [
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden bg-ink">
-      <div className="relative h-[620px] w-full lg:h-[720px]">
+    <section className="relative overflow-hidden bg-white">
+      {/* The ink backdrop stays on the hero block itself — on the section it
+          bled a hairline under the white stats strip at fractional zoom. */}
+      <div className="relative h-[620px] w-full bg-ink lg:h-[720px]">
         <div className="absolute inset-0 overflow-hidden">
           <video
             className="absolute left-0 w-full object-cover"
@@ -81,20 +84,41 @@ export function HomeHero() {
         </div>
       </div>
 
-      <div className="border-t border-black/5 bg-white">
+      <div className="bg-white">
         <Container>
-          <div className="grid grid-cols-2 divide-y divide-ink/10 py-12 text-center sm:grid-cols-3 sm:divide-y-0 lg:grid-cols-5">
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className={`px-4 py-6 sm:py-0 ${
-                  i === stats.length - 1 ? "col-span-2 sm:col-span-1" : ""
-                } ${i < stats.length - 1 ? "sm:border-r sm:border-ink/10" : ""}`}
-              >
-                <StatCounter value={s.value} />
-                <p className="mt-2 text-sm text-ink/50">{s.label}</p>
-              </div>
-            ))}
+          {/*
+            Mobile (375 frame): two columns of 112px-tall cells, 8px column gap
+            and 16px row gap, with the hairlines sitting in the middle of those
+            gaps — hence the offset pseudo-element rules rather than borders.
+          */}
+          <div className="grid grid-cols-2 gap-x-2 gap-y-4 py-6 text-center sm:grid-cols-3 sm:gap-0 sm:py-12 lg:grid-cols-5">
+            {stats.map((s, i) => {
+              const isLast = i === stats.length - 1;
+              const hairline = "before:absolute before:left-0 before:h-px before:w-full before:bg-ink/10 sm:before:hidden";
+              return (
+                <div
+                  key={s.label}
+                  className={cn(
+                    "relative flex min-h-28 flex-col justify-center gap-2",
+                    "sm:block sm:min-h-0 sm:gap-0 sm:px-4",
+                    // hairline between the two mobile columns
+                    i % 2 === 0 &&
+                      !isLast &&
+                      "after:absolute after:-right-1 after:top-0 after:h-full after:w-px after:bg-ink/10 sm:after:hidden",
+                    // hairline under the first mobile row (breaks at the column gap)
+                    i < 2 && `${hairline} before:-bottom-2`,
+                    // full-width hairline above the last, full-bleed cell
+                    isLast && `col-span-2 sm:col-span-1 ${hairline} before:-top-2`,
+                    i < stats.length - 1 && "sm:border-r sm:border-ink/10",
+                  )}
+                >
+                  <StatCounter value={s.value} />
+                  <p className="text-base text-neutral-500 sm:mt-2 sm:text-sm sm:text-ink/50">
+                    {s.label}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </Container>
       </div>

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
-import { Eyebrow } from "@/components/ui/badge";
 import { images } from "@/lib/images";
 
 /*
@@ -71,23 +70,31 @@ export function PromiseSection() {
           lg the 1512 frame does not apply, so the stops stay proportional. */}
       <div className="bg-[linear-gradient(180deg,#fdfdfe_0%,#d5e2ef_30%,#acc5df_60%,#8db0d4_75%,#7ba4cd_85%,#77a1cc_90%)] lg:bg-[linear-gradient(180deg,#fdfdfe_0,#d5e2ef_13.56vw,#acc5df_27.12vw,#8db0d4_33.93vw,#7ba4cd_38.43vw,#77a1cc_40.74vw)] min-[1920px]:bg-[linear-gradient(180deg,#fdfdfe_0,#d5e2ef_257px,#acc5df_514px,#8db0d4_643px,#7ba4cd_728px,#77a1cc_782px)]">
         <Container className="pt-20 pb-0 sm:pt-28">
-          <div className="text-center">
-            <Eyebrow className="text-ink/50">The Scarcella promise</Eyebrow>
-            <h2 className="mx-auto mt-4 max-w-2xl text-[28px] font-medium leading-tight text-ink sm:text-4xl lg:text-5xl">
+          {/* Frame 135: an 829px centred stack — Caption/lg caps in
+              Neutral/600 over a Heading/H2 in Neutral/950, 16px apart. The
+              frame's third line (the "cold chain produce" standfirst) is
+              display:none, so it is not rendered here. */}
+          <div className="mx-auto max-w-[829px] text-center">
+            <p className="type-caption-caps text-neutral-600">
+              The Scarcella promise
+            </p>
+            <h2 className="type-h2 mt-4 text-ink">
               Our name is on the truck. That&apos;s the guarantee.
             </h2>
           </div>
 
-          {/* Figma cards are 509x288 with a 24px gutter, so the grid is
-              509*2 + 24 = 1042 wide and centred inside the 1512 frame rather
-              than filling the container's full 1384px. */}
-          <div className="mx-auto mt-10 grid max-w-[1042px] grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
+          {/* Figma "Frame 137": cards are 509x288 on a 16px gutter (the second
+              column starts at 525, the second row at 304), so the grid is
+              509*2 + 16 = 1034 wide and centred inside the 1512 frame rather
+              than filling the container's full 1384px. It sits 40px under the
+              header. */}
+          <div className="mx-auto mt-10 grid max-w-[1034px] grid-cols-1 gap-4 sm:grid-cols-2">
             {promises.map((p) => (
               <div
                 key={p.n}
                 /* Figma panel: fill #477FB8 at 16%, 1px #FFFFFF at 16% border,
-                   24px padding, space-between, background blur 12. */
-                className="relative flex min-h-[170px] flex-col overflow-hidden rounded-2xl border border-white/[0.16] bg-[#477fb8]/[0.16] p-6 text-white backdrop-blur-[12px] lg:min-h-[288px]"
+                   24px padding, space-between, backdrop-filter: blur(6px). */
+                className="relative flex min-h-[170px] flex-col overflow-hidden rounded-2xl border border-white/[0.16] bg-[#477fb8]/[0.16] p-6 text-white backdrop-blur-[6px] lg:min-h-[288px]"
               >
                 {/* The exports are dark line art with the Figma opacity baked
                     into their alpha (peak 33-66%), so on the blue card they
@@ -104,23 +111,21 @@ export function PromiseSection() {
                   className={`pointer-events-none absolute select-none object-contain brightness-0 invert ${p.iconClassName}`}
                 />
                 <div className="relative flex flex-1 flex-col justify-between gap-6">
-                  <span className="text-xl font-normal leading-none text-white/80 lg:text-[36px]">
-                    {p.n}
-                  </span>
+                  {/* Frame 84 — Heading/H4. */}
+                  <span className="type-h4 text-white">{p.n}</span>
                   <div>
-                    <h3 className="whitespace-pre-line text-lg font-medium leading-snug sm:text-xl lg:text-[36px] lg:leading-[48px] lg:tracking-[-1px]">
-                      {p.title}
-                    </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-white/80 sm:text-sm lg:mt-4 lg:leading-5">
-                      {p.desc}
-                    </p>
+                    {/* Frame 89 — Heading/H3 over Body/Sm, 16px apart, both
+                        Neutral/0. */}
+                    <h3 className="type-h3 whitespace-pre-line">{p.title}</h3>
+                    <p className="type-body-sm mt-4 text-white">{p.desc}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <p className="mx-auto mt-14 max-w-[1042px] text-center text-lg font-medium text-white sm:text-xl">
+          {/* Heading/H5, the full 1034 measure, 40px under the grid. */}
+          <p className="type-h5 mx-auto mt-10 max-w-[1034px] text-center text-white">
             Innovation with a purpose: continually improving safety and
             efficiency — that&apos;s been the written vision of this company
             from the start, not a line added by a marketing agency.
@@ -154,23 +159,27 @@ export function PromiseSection() {
           className="absolute bottom-0 left-0 w-[150%] max-w-none sm:w-[125%] lg:w-full"
         />
         {/* Figma "Rectangle 4191": a 2382x508 #181C1A rect under an 85.55px
-            layer blur, sitting 304px above the photo's bottom edge — which is
-            where "Rectangle 4190", the solid #181C1A the people section runs
-            on, takes over. So this is not a ramp: it is a hard-edged block
-            whose top edge the blur turns into a Gaussian falloff, ~256px of
-            fade each side of the edge. At the photo's bottom the edge is
-            3.55 sigma in, i.e. fully opaque, so nothing shows at the seam.
+            layer blur, spanning y 7456-7964 while the mask group — the photo —
+            is clipped at 7620. So the rect's top edge sits 164px above the
+            photo's bottom and it runs 344px past it. This is not a ramp: it is
+            a hard-edged block whose top edge the blur turns into a Gaussian
+            falloff, ~256px of fade each side. The onset therefore lands on the
+            trucks' tyres, not halfway up the trailers — measuring the overhang
+            off "Rectangle 4190" (the solid #181C1A the people section runs on,
+            which only starts at 7760) put the rect 140px too high.
 
-            The rect overhangs the frame by 435px on each side and runs 204px
-            past the photo's bottom, purely so its other three blurred edges
-            fall outside the visible area — the overhang is clipped here the
-            same way the solid rect covers it in the frame. The frame's 28.8%
-            is taken to 40% because the overhang has to clear 3 sigma of its
-            own blur, and sigma is widest (8.49vw) at the mobile step.
+            At the photo's bottom the edge is 1.92 sigma in — 97% opaque over
+            asphalt already within a few units of #181C1A, so the seam with the
+            people section still reads as flat. The 344px overhang and the
+            435px per side are there purely so the rect's other three blurred
+            edges fall outside the visible area; the overhang is clipped here
+            the same way the solid rect covers it in the frame. The frame's
+            28.8% is taken to 40% because the sides have to clear 3 sigma of
+            their own blur, and sigma is widest (8.49vw) at the mobile step.
 
             Every measurement is in frame units, so all three scale with the
             photo above (150% / 125% / 100%) and freeze past 2560 with it. */}
-        <div className="pointer-events-none absolute -inset-x-[40%] -bottom-[20.2vw] h-[50.4vw] bg-ink blur-[8.49vw] sm:-bottom-[16.9vw] sm:h-[42vw] sm:blur-[7.07vw] lg:-bottom-[13.5vw] lg:h-[33.6vw] lg:blur-[5.66vw] min-[2560px]:-bottom-[345px] min-[2560px]:h-[860px] min-[2560px]:blur-[145px]" />
+        <div className="pointer-events-none absolute -inset-x-[40%] -bottom-[34.1vw] h-[50.4vw] bg-ink blur-[8.49vw] sm:-bottom-[28.4vw] sm:h-[42vw] sm:blur-[7.07vw] lg:-bottom-[22.8vw] lg:h-[33.6vw] lg:blur-[5.66vw] min-[2560px]:-bottom-[582px] min-[2560px]:h-[860px] min-[2560px]:blur-[145px]" />
       </div>
     </section>
   );
