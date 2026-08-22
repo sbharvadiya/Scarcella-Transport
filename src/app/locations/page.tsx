@@ -15,7 +15,7 @@ export default function LocationsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Locations"
+        breadcrumb="Locations"
         title="One trusted transport network."
         description="Two depots, 4,000 km apart, with a third on the way in Adelaide — every load runs through people who know the lane."
         image={images.outbackDusk.src}

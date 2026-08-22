@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Eyebrow } from "@/components/ui/badge";
 import { SiteImage } from "@/components/ui/site-image";
 import { VideoBackground } from "@/components/ui/video-background";
 import { cn } from "@/lib/utils";
@@ -31,15 +31,21 @@ export function ScriptWord({
   );
 }
 
+/**
+ * Figma: 584px tall at 375px, 672px at 1512px. The copy block is bottom-left
+ * with a 801px measure, over a 257deg gradient that keeps the left third dark
+ * enough for white text while the photography stays readable on the right.
+ */
 export function PageHero({
-  eyebrow,
+  breadcrumb,
   title,
   description,
   image,
   imageAlt,
   video,
 }: {
-  eyebrow: string;
+  /** Trailing crumb; "Home /" is prepended. */
+  breadcrumb: string;
   title: React.ReactNode;
   description: string;
   image?: string;
@@ -48,23 +54,46 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-ink">
-      <div className="relative h-[420px] w-full sm:h-[560px]">
+      <div className="relative h-[584px] w-full lg:h-[672px]">
         {video ? (
           <VideoBackground src={video} cropLetterbox />
         ) : image ? (
           <SiteImage src={image} alt={imageAlt} eager />
         ) : null}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/55 to-ink/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/20" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(257.43deg, rgba(24,28,26,0.1152) 35.08%, rgba(24,28,26,0.72) 74.29%)",
+          }}
+        />
 
-        <div className="relative flex h-full flex-col justify-end pb-16 pt-32">
-          <Container>
-            <Eyebrow className="text-white/50">{eyebrow}</Eyebrow>
-            <h1 className="mt-4 max-w-3xl text-[32px] font-medium leading-[1.08] text-white sm:text-5xl lg:text-6xl">
-              {title}
-            </h1>
-            <p className="mt-5 max-w-xl text-base text-white/80">{description}</p>
+        <div className="relative flex h-full flex-col">
+          <Container className="pt-[92px] lg:pt-[112px]">
+            <nav
+              className="type-body-sm flex items-center gap-1"
+              aria-label="Breadcrumb"
+            >
+              <Link href="/" className="text-neutral-400 hover:text-white">
+                Home
+              </Link>
+              <span className="text-white" aria-hidden>
+                /
+              </span>
+              <span className="text-white">{breadcrumb}</span>
+            </nav>
           </Container>
+
+          <div className="flex flex-1 items-end pb-8 lg:pb-[48px]">
+            <Container className="flex flex-col gap-4">
+              <h1 className="type-h1 max-w-[343px] text-white lg:max-w-[801px]">
+                {title}
+              </h1>
+              <p className="type-body-lg max-w-[343px] text-white lg:max-w-[801px]">
+                {description}
+              </p>
+            </Container>
+          </div>
         </div>
       </div>
     </section>

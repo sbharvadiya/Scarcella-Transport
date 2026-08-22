@@ -79,7 +79,8 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
                 <SiteImage
                   src={it.image.src}
                   alt={it.image.alt}
-                  className="object-contain p-3"
+                  fit="contain"
+                  className="p-3"
                   sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 30vw"
                 />
               </div>

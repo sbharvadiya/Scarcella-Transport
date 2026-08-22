@@ -19,15 +19,13 @@
   --color-neutral-300: #dfe1db;
   --color-neutral-400: #c9cbc2;
   --color-neutral-600: #848877;
-  --color-neutral-800: #41453c;
 
   /* Neutral surfaces */
   --color-surface: #f5f6f3;
   --color-surface-2: #eceae4;
   --color-line: #edeeea;
 
-  --color-muted: #848877;
-  --color-muted: #6b6b63;
+  --color-muted: #525252;
 
   /* Dark-theme neutral scale (Figma "Neutral" palette, used on dark sections) */
   --color-neutral-950: #181c1a;
@@ -63,10 +61,7 @@
 
   --color-neutral-950: var(--color-neutral-950);
   --color-neutral-900: var(--color-neutral-900);
-  --color-neutral-800: var(--color-neutral-800);
   --color-neutral-500: var(--color-neutral-500);
-  --color-neutral-400: var(--color-neutral-400);
-  --color-neutral-200: var(--color-neutral-200);
 
   --font-sans: var(--font-archivo);
   --font-script: var(--font-pinyon);
@@ -182,6 +177,14 @@ body {
     }
   }
 
+  /* Caption/lg caps — section eyebrows. */
+  .type-caption-caps {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
   .type-body-sm {
     font-size: 14px;
     line-height: 24px;
@@ -193,6 +196,21 @@ body {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
+  }
+
+  /* Body/Md Medium on mobile stepping to Body/Lg Medium from lg — the fleet
+     trailer rows. Only Body/Lg carries the -0.24px tracking. */
+  .type-body-md-medium {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+
+  @media (min-width: 1024px) {
+    .type-body-md-medium {
+      font-size: 18px;
+      letter-spacing: -0.24px;
+    }
   }
 
   .type-label-lg {

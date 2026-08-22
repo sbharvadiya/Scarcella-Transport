@@ -13,7 +13,7 @@ export default function QuotePage() {
   return (
     <>
       <PageHero
-        eyebrow="Get a Quote"
+        breadcrumb="Get a Quote"
         title="We'll come back with a price."
         description="Refrigerated, general, oversize or dangerous goods — fill in the details below and operations will be in touch."
         image={images.heroRoadTrains.src}
