@@ -15,7 +15,6 @@ export function AccreditationHero() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/[0.1728] to-ink/[0.72] sm:hidden" />
         <div className="absolute inset-0 hidden bg-ink/45 sm:block" />
         <div className="absolute inset-0 hidden bg-gradient-to-t from-ink via-ink/10 to-ink/30 sm:block" />
-
         <div className="relative flex h-full flex-col">
           <Container className="hidden pt-28 sm:block sm:pt-32">
             <nav className="flex items-center gap-2 text-sm text-white/60" aria-label="Breadcrumb">
@@ -26,7 +25,6 @@ export function AccreditationHero() {
               <span className="text-white">Accreditation and Safety</span>
             </nav>
           </Container>
-
           <div className="flex flex-1 flex-col justify-end pb-14 sm:pb-16">
             <Container>
               <h1 className="max-w-2xl text-[40px] font-semibold leading-12 tracking-[-1px] text-white sm:text-6xl sm:font-bold sm:leading-[1.05] sm:tracking-[-2px] lg:text-7xl">

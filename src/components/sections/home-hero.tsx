@@ -17,8 +17,6 @@ const stats = [
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden bg-white">
-      {/* The ink backdrop stays on the hero block itself — on the section it
-          bled a hairline under the white stats strip at fractional zoom. */}
       <div className="relative h-[620px] w-full bg-ink lg:h-[720px]">
         <div className="absolute inset-0 overflow-hidden">
           <video
@@ -35,7 +33,6 @@ export function HomeHero() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
-
         <div className="relative flex h-full flex-col justify-end pb-12 pt-24">
           <Container>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-end">
@@ -46,7 +43,6 @@ export function HomeHero() {
                   <span className="font-script text-5xl italic sm:text-7xl lg:text-8xl">Done</span>{" "}
                   <span className="font-bold">PROPERLY.</span>
                 </h1>
-
                 <div className="mt-8 flex flex-wrap gap-2">
                   {routes.map((r) => (
                     <span
@@ -58,7 +54,6 @@ export function HomeHero() {
                   ))}
                 </div>
               </div>
-
               <div className="lg:pb-2">
                 <p className="text-base text-white/90">
                   Refrigerated, general, oversize and dangerous goods. Family run
@@ -83,14 +78,8 @@ export function HomeHero() {
           </Container>
         </div>
       </div>
-
       <div className="bg-white">
         <Container>
-          {/*
-            Mobile (375 frame): two columns of 112px-tall cells, 8px column gap
-            and 16px row gap, with the hairlines sitting in the middle of those
-            gaps — hence the offset pseudo-element rules rather than borders.
-          */}
           <div className="grid grid-cols-2 gap-x-2 gap-y-4 py-6 text-center sm:grid-cols-3 sm:gap-0 sm:py-12 lg:grid-cols-5">
             {stats.map((s, i) => {
               const isLast = i === stats.length - 1;
@@ -101,13 +90,10 @@ export function HomeHero() {
                   className={cn(
                     "relative flex min-h-28 flex-col justify-center gap-2",
                     "sm:block sm:min-h-0 sm:gap-0 sm:px-4",
-                    // hairline between the two mobile columns
                     i % 2 === 0 &&
                       !isLast &&
                       "after:absolute after:-right-1 after:top-0 after:h-full after:w-px after:bg-ink/10 sm:after:hidden",
-                    // hairline under the first mobile row (breaks at the column gap)
                     i < 2 && `${hairline} before:-bottom-2`,
-                    // full-width hairline above the last, full-bleed cell
                     isLast && `col-span-2 sm:col-span-1 ${hairline} before:-top-2`,
                     i < stats.length - 1 && "sm:border-r sm:border-ink/10",
                   )}

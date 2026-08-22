@@ -19,7 +19,6 @@ const variants: Record<ButtonVariant, string> = {
 const sizes: Record<ButtonSize, string> = {
   md: "px-6 py-3 text-base",
   lg: "px-6 py-4 text-base",
-  /* Opt out of the preset padding when a Figma frame pins its own box. */
   none: "",
 };
 

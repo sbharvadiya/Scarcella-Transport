@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/** Counts up from 0 to the leading number in `value` once it scrolls into view. */
 export function StatCounter({ value }: { value: string }) {
   const match = value.match(/^(\d+)(.*)$/);
   const target = match ? parseInt(match[1], 10) : 0;
@@ -46,15 +45,11 @@ export function StatCounter({ value }: { value: string }) {
     return () => cancelAnimationFrame(raf);
   }, [started, target]);
 
-  // A word suffix ("-day") is Neutral/600 in Figma; symbol suffixes ("+") stay
-  // the same ink as the number.
   const wordSuffix = /[a-z]/i.test(suffix);
 
   return (
     <p
       ref={ref}
-      // Mobile/tablet the stat is Heading/H3 (40/48, -1.56px); Mob/h2 is not
-      // used here, so the type-h2 scale only kicks in from lg up.
       className="type-h2 w-full text-center text-neutral-950 max-lg:text-[40px] max-lg:font-medium max-lg:leading-[48px] max-lg:tracking-[-1.56px]"
     >
       {display}

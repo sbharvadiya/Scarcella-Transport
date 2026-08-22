@@ -11,11 +11,6 @@ export function ScriptWord({
 }: {
   children: React.ReactNode;
   className?: string;
-  /**
-   * `default` keeps the shared hero sizing. Pass `custom` when the caller
-   * pins its own font-size — `cn` only joins classes, so leaving the preset
-   * on would make the winner depend on stylesheet order rather than intent.
-   */
   size?: "default" | "custom";
 }) {
   return (
@@ -31,11 +26,6 @@ export function ScriptWord({
   );
 }
 
-/**
- * Figma: 584px tall at 375px, 672px at 1512px. The copy block is bottom-left
- * with a 801px measure, over a 257deg gradient that keeps the left third dark
- * enough for white text while the photography stays readable on the right.
- */
 export function PageHero({
   breadcrumb,
   title,
@@ -44,7 +34,6 @@ export function PageHero({
   imageAlt,
   video,
 }: {
-  /** Trailing crumb; "Home /" is prepended. */
   breadcrumb: string;
   title: React.ReactNode;
   description: string;
@@ -67,7 +56,6 @@ export function PageHero({
               "linear-gradient(257.43deg, rgba(24,28,26,0.1152) 35.08%, rgba(24,28,26,0.72) 74.29%)",
           }}
         />
-
         <div className="relative flex h-full flex-col">
           <Container className="pt-[92px] lg:pt-[112px]">
             <nav
@@ -83,7 +71,6 @@ export function PageHero({
               <span className="text-white">{breadcrumb}</span>
             </nav>
           </Container>
-
           <div className="flex flex-1 items-end pb-8 lg:pb-[48px]">
             <Container className="flex flex-col gap-4">
               <h1 className="type-h1 max-w-[343px] text-white lg:max-w-[801px]">

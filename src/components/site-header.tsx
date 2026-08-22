@@ -6,21 +6,17 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Container } from "@/components/ui/container";
 import { ChevronRightDuo } from "@/components/ui/chevron-right-duo";
-import { primaryNav } from "@/lib/nav";
+import { primaryNav, MERCH_STORE_URL } from "@/lib/nav";
 import { cn } from "@/lib/utils";
 
-// Pages with no dark hero image behind the header need a solid, dark-on-light
-// header instead of the usual transparent overlay.
 const LIGHT_HEADER_ROUTES = ["/contact", "/blog"];
 
-/** Light on the route itself and anything nested under it (e.g. blog articles). */
 function isLightRoute(pathname: string) {
   return LIGHT_HEADER_ROUTES.some(
     (route) => pathname === route || pathname.startsWith(`${route}/`),
   );
 }
 
-// Figma "Label/Md" and "Label/Lg" — both ride a 24px line box at -0.24px tracking.
 const labelMd = "text-sm font-medium leading-6 tracking-[-0.24px]";
 const labelLg = "text-base font-medium leading-6 tracking-[-0.24px]";
 
@@ -29,9 +25,6 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isLight = isLightRoute(pathname);
-  // The open mobile menu puts its own dark panel behind the page, so the bar
-  // above it needs the solid white treatment — over a hero photo the
-  // transparent state leaves the logo and icons sitting on the image.
   const solid = isLight || scrolled || open;
 
   useEffect(() => {
@@ -50,17 +43,8 @@ export function SiteHeader() {
         )}
       >
         <Container>
-          {/*
-            Figma "Menu". Both frames wrap the same 48px row, so only the padding
-            moves: 72px tall at 375 (12px), 96px at 1512 (24px).
-          */}
           <div className="flex h-18 items-center justify-between gap-4 py-3 xl:h-24 xl:gap-6 xl:py-6">
             <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
-              {/*
-                Figma draws one logo for both header states: #1C522C letterforms
-                over a #FBFBFB outline of themselves, which keeps the green legible
-                on the hero photo and disappears against the solid white bar.
-              */}
               <Image
                 src="/brand/scarcella-logo-outlined.svg"
                 alt="F&A Scarcella Transport"
@@ -70,10 +54,8 @@ export function SiteHeader() {
                 priority
               />
             </Link>
-
-            {/* Figma "Frame 83": the menu and the actions, 40px apart. */}
-            <div className="hidden h-12 items-center gap-10 xl:flex">
-              <nav className="flex items-center gap-4 pt-2 pb-0.5">
+            <div className="hidden h-12 items-center gap-6 xl:flex 2xl:gap-10">
+              <nav className="flex items-center gap-3 pt-2 pb-0.5 2xl:gap-4">
                 {primaryNav.map((item) => {
                   const active =
                     pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -94,7 +76,6 @@ export function SiteHeader() {
                       >
                         {item.label}
                       </span>
-                      {/* Figma "Rectangle 4178" — 24x2 rule, hidden until active/hover. */}
                       <span
                         aria-hidden
                         className={cn(
@@ -107,11 +88,11 @@ export function SiteHeader() {
                   );
                 })}
               </nav>
-
-              {/* Figma "Frame 153". */}
               <div className="flex h-12 items-center gap-4">
-                <Link
-                  href="/adelaide"
+                <a
+                  href={MERCH_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center justify-center gap-2"
                 >
                   <span
@@ -124,8 +105,7 @@ export function SiteHeader() {
                     Merch Store
                   </span>
                   <ChevronRightDuo className={solid ? "text-ink/60" : "text-neutral-400"} />
-                </Link>
-
+                </a>
                 <Link
                   href="/quote"
                   className={cn(
@@ -138,10 +118,7 @@ export function SiteHeader() {
                 </Link>
               </div>
             </div>
-
-            {/* Figma "Frame 298": two 48px icon buttons, 16px apart. */}
             <div className="flex h-12 items-center gap-4 xl:hidden">
-              {/* The phone button carries the 12px radius but no border. */}
               <a
                 href="tel:0246266661"
                 aria-label="Call (02) 4626 6661"
@@ -168,7 +145,6 @@ export function SiteHeader() {
             </div>
           </div>
         </Container>
-
         {open && (
           <div className="border-t border-white/10 bg-ink/98 backdrop-blur xl:hidden">
             <Container>
@@ -183,8 +159,10 @@ export function SiteHeader() {
                     {item.label}
                   </Link>
                 ))}
-                <Link
-                  href="/merch"
+                <a
+                  href={MERCH_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
                   className={cn(
                     labelLg,
@@ -193,7 +171,7 @@ export function SiteHeader() {
                 >
                   Merch Store
                   <ChevronRightDuo className="text-neutral-400" />
-                </Link>
+                </a>
               </nav>
               <div className="pb-6">
                 <Link
@@ -217,10 +195,6 @@ export function SiteHeader() {
   );
 }
 
-/**
- * Figma "Communication / Phone" — a 24px box with the glyph inset 12.5% (3px)
- * on every side, mirrored on the x axis.
- */
 function PhoneIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -237,9 +211,6 @@ function PhoneIcon() {
   );
 }
 
-/**
- * Figma "menu-09" — two rules, not three: 16px wide (x 4→20) at y 8.5 and 15.5.
- */
 function MenuIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -253,7 +224,6 @@ function MenuIcon() {
   );
 }
 
-/** The open state isn't in the frame; this mirrors menu-09's 24px box and stroke. */
 function CloseIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>

@@ -3,13 +3,6 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-/**
- * Figma "Share Post" — a share control on each blog card.
- *
- * The card itself is a link, so the trigger stops propagation: clicking share
- * must open the panel rather than navigating to the post. The panel opens as a
- * viewport-centred modal over a backdrop, and closes on backdrop click or Escape.
- */
 export function SharePost({
   slug,
   title,
@@ -17,14 +10,11 @@ export function SharePost({
 }: {
   slug: string;
   title: string;
-  /** Render the targets directly instead of behind the modal trigger. */
   inline?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // The supplied artwork already draws its own 56px rounded plate, so the
-  // button contributes only the hit area, focus ring and pointer cursor.
   const tile =
     "cursor-pointer rounded-xl transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-bright";
 
@@ -36,7 +26,6 @@ export function SharePost({
     };
     document.addEventListener("keydown", onKeyDown);
 
-    // The modal covers the viewport, so the page behind it must not scroll.
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
@@ -46,7 +35,6 @@ export function SharePost({
     };
   }, [open]);
 
-  // Built at click time: the server render has no origin to resolve against.
   const postUrl = () =>
     typeof window === "undefined" ? "" : `${window.location.origin}/blog/${slug}`;
 
@@ -90,15 +78,10 @@ export function SharePost({
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard can be blocked by permissions; leave the panel open so the
-      // user can copy from the address bar instead of failing silently.
       setCopied(false);
     }
   };
 
-  // Article foot: the reader has finished the piece, so the targets are shown
-  // directly rather than behind the modal. Figma renders these on the neutral
-  // plate instead of the brand colours the modal uses.
   if (inline) {
     return (
       <div className="flex items-center gap-4">
@@ -145,11 +128,8 @@ export function SharePost({
       >
         <ShareIcon />
       </button>
-
       {open ? (
         <div
-          // Fixed to the viewport so the panel sits dead-centre on screen
-          // regardless of which card in the grid opened it.
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           onClick={(e) => {
             e.preventDefault();
@@ -158,7 +138,6 @@ export function SharePost({
           }}
         >
           <div className="absolute inset-0 bg-ink/50" aria-hidden />
-
           <div
             role="dialog"
             aria-modal="true"
@@ -169,11 +148,9 @@ export function SharePost({
             }}
             className="relative w-full max-w-[384px] rounded-2xl border border-line bg-white p-8 shadow-[0_24px_64px_rgba(24,28,26,0.24)]"
           >
-            {/* Figma: Archivo Medium 24/32, -0.72px tracking, Neutral/950. */}
             <p className="text-2xl font-medium leading-8 tracking-[-0.72px] text-ink">
               Share Post
             </p>
-
             <div className="mt-6 flex items-center gap-4">
               {targets.map((t) => (
                 <button
@@ -284,7 +261,6 @@ function LinkIcon() {
   );
 }
 
-/** Copy-link tile, confirmed state: the same 56px plate with a tick swapped in. */
 function CopiedIcon() {
   return (
     <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>

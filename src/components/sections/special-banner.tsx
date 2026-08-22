@@ -3,11 +3,6 @@ import { Button } from "@/components/ui/button";
 import { SiteImage } from "@/components/ui/site-image";
 import { images } from "@/lib/images";
 
-/**
- * Figma: 1384×560 panel (#181C1A, 24px radius). Photo is inset 24px on the
- * left at 660×512 with its own 24px radius; the copy column is 568px wide,
- * vertically centred, with a 34px gap above the button.
- */
 export function SpecialBanner() {
   return (
     <section className="py-16 lg:py-[144px]">
@@ -21,7 +16,6 @@ export function SpecialBanner() {
               />
             </div>
           </div>
-
           <div className="flex flex-col gap-8 p-6 lg:max-w-[568px] lg:gap-[34px] lg:p-0">
             <div className="flex flex-col gap-6">
               <h2 className="type-h2-h3 text-white">
@@ -41,7 +35,6 @@ export function SpecialBanner() {
                 </p>
               </div>
             </div>
-
             <Button
               href="/quote"
               variant="primary"
@@ -58,7 +51,6 @@ export function SpecialBanner() {
   );
 }
 
-/** Figma "Button/Arrow/Chevron_Right_Duo" — two 1.5px chevrons in a 24px box. */
 function ChevronRightDuo({ className }: { className?: string }) {
   return (
     <svg

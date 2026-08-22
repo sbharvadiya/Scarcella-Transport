@@ -3,11 +3,6 @@ import { Container } from "@/components/ui/container";
 import { VideoBackground } from "@/components/ui/video-background";
 import { ScriptWord } from "@/components/sections/page-hero";
 
-/**
- * Figma: 584px tall at 375px, 672px at 1512px, over the story loop.
- * The gradient darkens slightly on mobile (.1728 vs .1152 at the top).
- * The heading block is left-aligned on mobile and centred from lg up.
- */
 export function AboutHero() {
   return (
     <section className="relative overflow-hidden bg-ink">
@@ -27,7 +22,6 @@ export function AboutHero() {
               "linear-gradient(180deg, rgba(24,28,26,0.1152) 0%, rgba(24,28,26,0.72) 100%)",
           }}
         />
-
         <div className="relative flex h-full flex-col">
           <Container className="pt-[92px] lg:pt-[112px]">
             <nav
@@ -43,15 +37,8 @@ export function AboutHero() {
               <span className="text-white">About Us</span>
             </nav>
           </Container>
-
           <div className="flex flex-1 items-end pb-8 lg:pb-[48px]">
             <Container className="flex flex-col gap-4 lg:items-center lg:text-center">
-              {/*
-                The script word moves between breakpoints in the design: at
-                375px it sits on "Generations." inside a single flowing
-                heading, while the 1512px frame drops "Same Standard." onto
-                its own line and scripts that instead.
-              */}
               <h1 className="type-h1 max-w-[343px] text-white lg:max-w-[1150px]">
                 <span className="lg:hidden">
                   Three{" "}

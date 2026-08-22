@@ -17,7 +17,6 @@ export function AccreditationPartnersSection() {
         <h2 className="text-center text-3xl font-medium text-ink sm:text-4xl">
           Scarcella Transport is part of:
         </h2>
-
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {partners.map((p) => (
             <div

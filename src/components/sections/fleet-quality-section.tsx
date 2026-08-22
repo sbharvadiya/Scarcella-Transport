@@ -22,17 +22,6 @@ const gallerySlides = [
   images.primeMoverFront,
 ];
 
-/**
- * Figma: rows are `padding: 12px 0` / gap 8 on mobile and `16px 0` / gap 12 on
- * desktop, each with a 1px #DFE1DB rule top and bottom so the block reads as a
- * closed table.
- *
- * Mobile stacks all eight rows in one continuous column while desktop splits
- * them 4/4. That is a two-column *flow* of one list rather than two lists —
- * rendering two `<ul>`s would double the rule where they meet on mobile — so
- * the split is done with CSS columns and each row is kept from breaking across
- * them.
- */
 function TrailerList({ items }: { items: string[] }) {
   return (
     <ul className="lg:columns-2 lg:gap-x-33">
@@ -61,13 +50,7 @@ export function FleetQualitySection() {
         }}
         aria-hidden
       />
-
       <Container className="relative">
-        {/* Figma: two 626px columns with a 132px gutter, the photo spanning
-            both rows on the right. The h3 reads after the photo on mobile but
-            beside it on desktop, so it is placed third in source order and
-            assigned an explicit grid cell from `lg` up — where it bottoms out
-            against the photo (both end on the 1264 baseline). */}
         <div className="grid grid-cols-1 gap-x-33 gap-y-8 lg:grid-cols-2 lg:gap-y-10">
           <div className="lg:col-start-1 lg:row-start-1">
             <h2 className="type-h2 text-ink">
@@ -75,9 +58,6 @@ export function FleetQualitySection() {
               <br />
               every time.
             </h2>
-            {/* Body/Md #41453C on mobile, Body/Lg #848877 from lg. The spec
-                fills the block flat, but the desktop mock picks the two figures
-                out in ink — keep that emphasis where the copy is grey. */}
             <p className="type-body-md mt-4 text-neutral-800 lg:text-[18px] lg:tracking-[-0.24px] lg:text-neutral-600">
               Scarcella Transport has{" "}
               <span className="lg:text-ink">
@@ -88,25 +68,19 @@ export function FleetQualitySection() {
               <span className="lg:text-ink">150 trailers and 36 dollies.</span>
             </p>
           </div>
-
           <div className="relative h-[353px] overflow-hidden rounded-3xl lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-100">
             <SiteImage
               {...images.heroRoadTrains}
               sizes="(max-width: 1024px) 100vw, 626px"
             />
           </div>
-
-          {/* Mob/H4 (18px) stepping to Heading/H5 (24px) — exactly what
-              `type-h5` encodes, so no size override is needed. */}
           <h3 className="type-h5 max-w-98 text-ink lg:col-start-1 lg:row-start-2 lg:-mt-2 lg:self-end">
             Scarcella Transport has a mixture of trailers including:
           </h3>
         </div>
-
         <div className="mt-8 lg:mt-10">
           <TrailerList items={trailers} />
         </div>
-
         <div className="mt-24 grid grid-cols-1 gap-8 sm:mt-32 lg:grid-cols-[1fr_1fr] lg:items-end">
           <div>
             <p className="type-caption-caps text-muted">Our mission</p>
@@ -124,13 +98,11 @@ export function FleetQualitySection() {
             services.
           </p>
         </div>
-
         <div className="mt-6 flex justify-end sm:hidden">
           <span className="text-xs font-medium uppercase tracking-wide text-muted">
             Swipe <span aria-hidden>»»»</span>
           </span>
         </div>
-
         <ImageSlider slides={gallerySlides} className="mt-4 sm:mt-14" />
       </Container>
     </section>

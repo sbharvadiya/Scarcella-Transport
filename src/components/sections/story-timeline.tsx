@@ -32,14 +32,6 @@ const timeline = [
 
 const rows = [timeline.slice(0, 2), timeline.slice(2, 4)];
 
-/**
- * Figma (1512px frame): two 626px columns in a 1384px content width, so the
- * gutter is 132px and the hairline between them sits dead centre at x=756.
- *
- * The timeline grid is two rows of two. Only the FIRST row carries a bottom
- * hairline (626px under each column, 22px below the copy) — the bottom of the
- * second row is open, there is no closing line under the section.
- */
 export function StoryTimeline() {
   return (
     <section className="py-20 sm:py-28">
@@ -58,7 +50,6 @@ export function StoryTimeline() {
               that changes how everything gets done.
             </p>
           </div>
-
           <div className="relative h-[340px] overflow-hidden rounded-[24px] lg:h-[400px]">
             <SiteImage
               {...images.scarcellaBrothers}
@@ -81,11 +72,9 @@ export function StoryTimeline() {
             </div>
           </div>
         </div>
-
         <div className="mt-10">
           {rows.map((row, i) => (
             <div key={i} className={cn("relative", i > 0 && "mt-10 lg:mt-6")}>
-              {/* 168px hairline down the middle of the 132px gutter */}
               <div className="pointer-events-none absolute left-1/2 top-0 hidden h-[168px] w-px -translate-x-1/2 bg-line lg:block" />
               <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:gap-x-[132px] lg:gap-y-0">
                 {row.map((t) => (

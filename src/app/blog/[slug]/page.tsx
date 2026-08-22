@@ -11,7 +11,6 @@ import { BlogFaqs } from "@/components/sections/blog-faqs";
 import { BlogCard } from "@/components/sections/blog-card";
 import { posts, getPost, formatPostDate, type BlogBlock } from "@/lib/blog";
 
-/** Prerender every article at build time. */
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
@@ -39,8 +38,6 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
   const { slug } = await props.params;
   const post = getPost(slug);
 
-  // Only an unknown slug is a 404. A post whose full article isn't written yet
-  // still renders from the data the index card already shows.
   if (!post) notFound();
 
   const body: BlogBlock[] = post.body ?? [
@@ -54,7 +51,6 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
     <>
       <section className="pt-4">
         <Container>
-          {/* Figma "Frame 175" — the trailing crumb is the article title. */}
           <nav className="type-body-sm flex flex-wrap items-center gap-1" aria-label="Breadcrumb">
             <Link href="/" className="text-neutral-400 transition-colors hover:text-ink">
               Home
@@ -72,10 +68,8 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
           </nav>
         </Container>
       </section>
-
       <article className="pb-16">
         <div className="mx-auto w-full max-w-[848px] px-4 sm:px-6 lg:px-0">
-          {/* Byline card, above the headline in the Figma frame. */}
           <div className="mt-10 flex items-center gap-3 rounded-2xl border border-line p-4">
             <Image
               src="/brand/scarcella-logo.svg"
@@ -99,16 +93,12 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
             </div>
             <SharePost slug={post.slug} title={post.title} />
           </div>
-
           <h1 className="type-h3 mt-8 text-ink">{post.title}</h1>
-
           <div className="mt-8 flex flex-col gap-6">
             {body.map((block, i) => (
               <BodyBlock key={i} block={block} />
             ))}
           </div>
-
-          {/* Figma CTA band closing the article. */}
           <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-surface p-6 sm:flex-row sm:items-center">
             <Button href="/quote" variant="primary" size="md">
               Get an interstate freight quote
@@ -125,13 +115,11 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
               and talk it through with the depot.
             </p>
           </div>
-
           <div className="mt-10 border-t border-line pt-8">
             <SharePost slug={post.slug} title={post.title} inline />
           </div>
         </div>
       </article>
-
       {post.faqs?.length ? <BlogFaqs faqs={post.faqs} /> : null}
 
       <section className="border-t border-line py-16 lg:py-20">
@@ -146,7 +134,6 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
               <ChevronRightDuo className="h-6 w-6" />
             </Link>
           </div>
-
           <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {recent.map((p) => (
               <BlogCard key={p.slug} post={p} />

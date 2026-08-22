@@ -1,9 +1,5 @@
 import { cn } from "@/lib/utils";
 
-/**
- * Figma "Button/Arrow/Chevron_Right_Duo" — a 24x24 box holding two chevrons.
- * Percentages from the spec resolve to x 7→11 and 13→17, y 8→16.
- */
 export function ChevronRightDuo({ className }: { className?: string }) {
   return (
     <svg

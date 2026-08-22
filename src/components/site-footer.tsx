@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { footerNav, serviceAreas, depots } from "@/lib/nav";
+import { footerNav, serviceAreas, depots, MERCH_STORE_URL } from "@/lib/nav";
 import { footerBadges } from "@/lib/images";
 
 const socials = [
@@ -11,19 +11,14 @@ const socials = [
   { label: "Facebook", href: "#", icon: "/img/icon-social-facebook.svg" },
 ];
 
-// Label/Lg — Archivo 500, 16/24, -0.24px tracking.
 const labelLg = "text-base font-medium leading-6 tracking-[-0.24px]";
 
-// Caption/lg caps — Archivo 400, 13/16, uppercase.
 const captionLgCaps = "text-[13px] font-normal uppercase leading-4";
 
-// Body/Md — Archivo 400, 16/24.
 const bodyMd = "text-base font-normal leading-6";
 
-// Body/Md Medium — Archivo 500, 16/24.
 const bodyMdMedium = "text-base font-medium leading-6";
 
-// Pre-composed 84x48 cards — background/border/logo all baked in by design.
 const accreditationBadges = [
   footerBadges.truckSafe,
   footerBadges.nhvas,
@@ -37,7 +32,6 @@ export function SiteFooter() {
     <footer className="bg-neutral-950 text-white">
       <Container className="pt-14 pb-4">
         <div className="grid grid-cols-2 gap-x-4 gap-y-12 lg:grid-cols-[334fr_217fr_217fr_392fr] lg:gap-x-[75px]">
-          {/* Frame 254 — 334px column, 40px between logo / contact block / CTA. */}
           <div className="col-span-2 flex flex-col items-start gap-10 lg:col-span-1">
             <Image
               src="/brand/scarcella-logo-white.svg"
@@ -46,7 +40,6 @@ export function SiteFooter() {
               height={72}
               className="h-[72px] w-auto"
             />
-            {/* Frame 170 */}
             <div className="flex flex-col items-start gap-6 self-stretch">
               <a
                 href="tel:0246266661"
@@ -74,7 +67,6 @@ export function SiteFooter() {
                 />
                 ops@scarcellatransport.com.au
               </a>
-              {/* Frame 180 */}
               <div className="flex items-center gap-2">
                 {socials.map((s) => (
                   <a
@@ -88,7 +80,7 @@ export function SiteFooter() {
                 ))}
               </div>
             </div>
-            <Button href="/merch" variant="primary" size="md" className="tracking-[-0.24px]">
+            <Button href={MERCH_STORE_URL} target="_blank" rel="noopener noreferrer" variant="primary" size="md" className="tracking-[-0.24px]">
               Merch Store
               <Image
                 src="/img/icon-chevron-right-duo.svg"
@@ -100,12 +92,9 @@ export function SiteFooter() {
               />
             </Button>
           </div>
-
-          {/* Frame 169 — heading, 1px rule, list; 16px between each. */}
           <div className="flex flex-col items-start gap-4">
             <h3 className={`self-stretch text-white ${captionLgCaps}`}>Navigation</h3>
             <div className="h-px self-stretch bg-neutral-800" />
-            {/* Frame 168 */}
             <ul className="flex flex-col items-start gap-4 self-stretch">
               {footerNav.map((item) => (
                 <li key={item.href}>
@@ -119,7 +108,6 @@ export function SiteFooter() {
               ))}
             </ul>
           </div>
-
           <div className="flex flex-col items-start gap-4">
             <h3 className={`self-stretch text-white ${captionLgCaps}`}>Service Areas</h3>
             <div className="h-px self-stretch bg-neutral-800" />
@@ -131,12 +119,9 @@ export function SiteFooter() {
               ))}
             </ul>
           </div>
-
           <div className="col-span-2 flex flex-col items-start gap-4 lg:col-span-1">
             <h3 className={`self-stretch text-white ${captionLgCaps}`}>Depots</h3>
             <div className="h-px self-stretch bg-neutral-800" />
-            {/* Frame 168 — 8px between cards; each card is 74px: 12px padding,
-                two 24px lines, no gap between them, plus the 1px border. */}
             <ul className="flex flex-col items-start gap-2 self-stretch">
               {depots.map((d) => (
                 <li
@@ -150,7 +135,6 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-
         <div className="mt-8 flex flex-col gap-6 border-t border-neutral-800 pt-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex w-full items-center justify-between gap-4 text-sm tracking-[-0.24px] lg:w-auto lg:justify-start">
             <span className="text-white">© {new Date().getFullYear()} F &amp; A Scarcella Pty Ltd</span>

@@ -2,13 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 
-/*
-  Figma "Contact Us" — hero enquiry block.
-  Left column 626px, card 718px inside the 1384px content width. The left
-  column is justify-between so the contact rows bottom-align with the card:
-  the heading sits at the top, the divided list flushes to the baseline.
-*/
-
 const rows = [
   {
     label: "Freight Enquiries",
@@ -29,11 +22,6 @@ const rows = [
     icon: "/img/icon-mail-02.svg",
   },
   {
-    /*
-      The phone row is the one emphasised entry — Figma sets it at Heading/H5
-      with the label above, so `large` swaps the type ramp rather than the
-      layout.
-    */
     label: "Please use the form or call us on",
     value: "02 4626 6661",
     href: "tel:0246266661",
@@ -58,7 +46,6 @@ export function ContactEnquirySection() {
           </span>
           <span className="text-ink">Contact Us</span>
         </nav>
-
         <div className="mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-[minmax(0,626fr)_minmax(0,718fr)] lg:gap-x-16">
           <div className="flex h-full flex-col justify-between gap-12">
             <h1 className="type-h2 text-ink">
@@ -66,7 +53,6 @@ export function ContactEnquirySection() {
               <br />
               or Questions
             </h1>
-
             <div className="divide-y divide-line border-y border-line">
               {rows.map((row) => (
                 <div key={row.label} className="flex flex-col py-4">
@@ -91,7 +77,6 @@ export function ContactEnquirySection() {
               ))}
             </div>
           </div>
-
           <ContactForm />
         </div>
       </Container>
@@ -116,7 +101,6 @@ function ContactForm() {
             placeholder="Enter your last name"
           />
         </div>
-
         <Field
           label="Email"
           name="email"
@@ -125,13 +109,11 @@ function ContactForm() {
           icon="/img/icon-mail-02.svg"
           required
         />
-
         <Field
           label="Subject"
           name="subject"
           placeholder="What is your enquiry about?"
         />
-
         <div className="flex flex-col">
           <FieldLabel label="Leave us a message" htmlFor="message" />
           <textarea
@@ -143,7 +125,6 @@ function ContactForm() {
           />
         </div>
       </div>
-
       <button
         type="submit"
         className="type-label-lg flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-brand-bright px-6 text-white transition-colors hover:bg-brand"

@@ -63,7 +63,6 @@ export function AdelaideContent() {
           </div>
         </Container>
       </section>
-
       <section className="bg-white py-20 sm:py-28">
         <Container>
           <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:items-stretch lg:gap-x-10 lg:gap-y-8">
@@ -75,14 +74,12 @@ export function AdelaideContent() {
                 Service
               </h2>
             </div>
-
             <div className="relative h-70 overflow-hidden rounded-3xl sm:h-100 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:h-full">
               <SiteImage
                 {...images.outbackDusk}
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-
             <div className="grid grid-cols-2 gap-x-10 lg:col-start-1 lg:row-start-2">
               <BulletList items={serviceColumns[0]} />
               <BulletList items={serviceColumns[1]} />
@@ -90,7 +87,6 @@ export function AdelaideContent() {
           </div>
         </Container>
       </section>
-
       <section className="bg-white pb-0 sm:pb-28">
         <Container>
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
@@ -100,7 +96,6 @@ export function AdelaideContent() {
               </h2>
               <p className="mt-3 text-base text-muted">{adelaide.address}</p>
             </div>
-
             <div className="w-full max-w-xs sm:w-auto">
               <div className="border-t border-line py-3">
                 <a
@@ -126,7 +121,6 @@ export function AdelaideContent() {
               </div>
             </div>
           </div>
-
           <div className="mt-10 h-[420px] w-screen -ml-[50vw] relative left-1/2 overflow-hidden border-y border-line sm:ml-0 sm:left-0 sm:w-full sm:rounded-3xl sm:border sm:h-[480px]">
   <iframe
     title="Adelaide depot area map"

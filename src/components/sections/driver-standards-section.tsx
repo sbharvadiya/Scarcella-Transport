@@ -2,7 +2,6 @@ import { Container } from "@/components/ui/container";
 import { SiteImage } from "@/components/ui/site-image";
 import { images } from "@/lib/images";
 
-/* Figma sizes every icon at 24px on a 48px white tile, stroked in brand green. */
 function CouplingIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -46,7 +45,6 @@ function LoadRestraintIcon() {
   );
 }
 
-/* Figma breaks each label across two 24px lines, so the copy carries the break. */
 const standards = [
   { icon: CouplingIcon, lines: ["Coupling", "and uncoupling trailers"] },
   { icon: ComplianceIcon, lines: ["All relevant", "OH&S compliance issues"] },
@@ -58,29 +56,20 @@ export function DriverStandardsSection() {
   return (
     <section className="bg-white py-20 sm:py-28">
       <Container>
-        {/* Figma pairs a 624px copy column with a 626px media card, 1384px wide
-            overall. Mobile collapses to one column and lifts the card between
-            the intro and the training grid. */}
         <div className="grid grid-cols-1 gap-0 lg:grid-cols-2 lg:items-start lg:gap-x-[132px]">
           <div className="contents lg:block">
-            {/* Heading/H2 — 56/64, 500, -2px. */}
             <h2 className="order-1 text-[40px] font-medium leading-[1.1] tracking-[-1px] text-neutral-950 sm:text-5xl lg:text-[56px] lg:leading-16 lg:tracking-[-2px]">
               Driver Standards
             </h2>
-            {/* Body/Md — 16/24 on Neutral/600. */}
             <p className="order-2 mt-4 text-base font-normal leading-6 text-neutral-600">
               All drivers receive induction and ongoing training; all drivers
               participate in the company&apos;s health screening program
               aligned with the Truck Safe Accreditation Program.
             </p>
-
-            {/* Heading/H5 — 24/32, 500, -0.72px. */}
             <h3 className="order-4 mt-10 text-2xl font-medium leading-8 tracking-[-0.72px] text-neutral-950">
               Scarcella Transport has a high priority on safety and all
               drivers are trained in the following:
             </h3>
-
-            {/* Frame 277 — two 305px columns, 16px gutters, 136px rows. */}
             <div className="order-5 mt-4 grid grid-cols-2 gap-4">
               {standards.map((s) => (
                 <div
@@ -90,7 +79,6 @@ export function DriverStandardsSection() {
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-neutral-200 bg-white text-brand-bright">
                     <s.icon />
                   </span>
-                  {/* Body/Lg Medium — 18/24, 500, -0.24px. */}
                   <p className="text-[18px] font-medium leading-6 tracking-[-0.24px] text-neutral-950">
                     {s.lines[0]}
                     <br />
@@ -99,8 +87,6 @@ export function DriverStandardsSection() {
                 </div>
               ))}
             </div>
-
-            {/* Frame 227 — 56px bar, same 16px radius and border as the cards. */}
             <div className="order-6 mt-4 flex min-h-14 flex-col justify-center rounded-2xl border border-neutral-200 bg-surface p-4">
               <p className="text-base font-normal leading-6 text-neutral-950">
                 All Training is delivered by{" "}
@@ -115,9 +101,6 @@ export function DriverStandardsSection() {
               </p>
             </div>
           </div>
-
-          {/* Rectangle 23 — 626x608 image card, 24px radius, caption inset over
-              the bottom-left of the frame. */}
           <div className="order-3 mt-8 flex flex-col justify-end overflow-hidden rounded-3xl border border-neutral-200 bg-[#f2f3ee] lg:order-none lg:mt-0 lg:h-[608px]">
             <div className="relative h-72 sm:h-80 lg:h-auto lg:flex-1">
               <SiteImage
@@ -128,11 +111,9 @@ export function DriverStandardsSection() {
               />
             </div>
             <div className="flex flex-col items-start p-6 sm:p-8">
-              {/* Label/Lg — 16/24, 500, -0.24px. */}
               <p className="self-stretch text-base font-medium leading-6 tracking-[-0.24px] text-[#525252]">
                 The tech in the cab:
               </p>
-              {/* Heading/H5 — 24/32, 500, -0.72px. */}
               <p className="self-stretch text-2xl font-medium leading-8 tracking-[-0.72px] text-black">
                 Guardian Seeing-eye in-cab camera
               </p>

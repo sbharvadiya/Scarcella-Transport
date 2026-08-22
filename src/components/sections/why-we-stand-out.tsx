@@ -2,7 +2,6 @@ import { Container } from "@/components/ui/container";
 import { SiteImage } from "@/components/ui/site-image";
 import { images } from "@/lib/images";
 
-/** Figma: 8px radius, rgba(13,120,60,0.12) fill, Body/Md Medium in #0D783C. */
 function Pill({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex h-10 items-center justify-center rounded-lg bg-[rgba(13,120,60,0.12)] px-3 text-sm font-medium leading-6 tracking-[-0.24px] text-brand-bright lg:text-base lg:tracking-normal">
@@ -16,7 +15,6 @@ type Card = {
   paragraphs: string[];
   pills: string[];
   bg: { src: string; alt: string };
-  /** Figma card heights: the two top cards are 466px, the lower pair 394px. */
   height: string;
 };
 
@@ -66,18 +64,11 @@ export function WhyWeStandOut() {
   return (
     <section className="bg-white pt-16 pb-0 lg:pt-[144px]">
       <Container>
-        {/*
-          Figma: inside the 1384px content box the H2 is 312px wide at x=0 and
-          the copy column is a fixed 684px starting at x=700 — it does NOT fill
-          the remaining width, so the paragraphs wrap where the design wraps.
-        */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[312px_minmax(0,684px)] lg:justify-between lg:gap-0">
-          {/* Figma mobile keeps the title on one line; desktop breaks it. */}
           <h2 className="type-h2 text-ink">
             Why We<span className="hidden lg:inline"><br /></span>
             <span className="lg:hidden"> </span>Stand Out
           </h2>
-
           <div className="flex flex-col gap-6">
             <div className="border-l-4 border-brand-bright pl-4 lg:pl-6">
               <p className="type-h5 text-brand-dark">
@@ -103,22 +94,12 @@ export function WhyWeStandOut() {
             </div>
           </div>
         </div>
-
-        {/* Figma: Frame 187 — 1384px wide, 16px gap, two columns of 684px */}
         <div className="mt-12 grid grid-cols-1 gap-4 lg:mt-[80px] lg:grid-cols-2">
           {cards.map((card) => (
             <div
               key={card.title}
               className={`relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line p-6 lg:p-10 bg-[#f1f0ec] ${card.height}`}
             >
-              {/*
-                Figma offsets each graphic down from the card origin — 44px on
-                mobile, 68px from lg up. The offset lives on the <img> itself:
-                `fill` hardcodes `top:0` inline, so it is overridden with a
-                breakpoint-aware custom property rather than by shifting a
-                wrapper. The band behind it carries the graphic canvas colour
-                so it stays seamless against the card while the image loads.
-              */}
               <div
                 className="pointer-events-none absolute inset-0 select-none bg-[#f1f0ec] [--graphic-top:44px] lg:[--graphic-top:68px]"
                 aria-hidden
@@ -131,7 +112,6 @@ export function WhyWeStandOut() {
                   sizes="(max-width: 1024px) 100vw, 684px"
                 />
               </div>
-
               <div className="relative flex flex-col gap-4">
                 <h3 className="type-h3 text-ink">
                   {card.title}
@@ -144,7 +124,6 @@ export function WhyWeStandOut() {
                   ))}
                 </div>
               </div>
-
               <div className="relative mt-6 flex flex-wrap items-center gap-2">
                 {card.pills.map((p) => (
                   <Pill key={p}>{p}</Pill>

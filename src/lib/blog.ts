@@ -1,14 +1,5 @@
 import { blogThumbs } from "@/lib/images";
 
-/**
- * The blog index copy, in the order Figma lays the grid out.
- *
- * `date` is the ISO day the post is dated; the card prints the Figma
- * "Aug 2026" / "Nov 28, 2022" shape, so recent posts show month + year and
- * the older syndicated pieces keep their full date. `readMinutes` drives the
- * "N min read" label rather than being counted from the excerpt, which would
- * under-report against the full article body.
- */
 export type BlogPost = {
   slug: string;
   title: string;
@@ -17,16 +8,10 @@ export type BlogPost = {
   date: string;
   dateFormat: "monthYear" | "fullDate";
   readMinutes: number;
-  /** Article body. Posts without one still list on the index. */
   body?: BlogBlock[];
   faqs?: { question: string; answer: string }[];
 };
 
-/**
- * Article bodies are modelled as blocks rather than raw HTML so the renderer
- * keeps full control of the Figma type scale and image treatment, and so no
- * `dangerouslySetInnerHTML` is needed.
- */
 export type BlogBlock =
   | { type: "lead"; text: string }
   | { type: "paragraph"; text: string }
@@ -207,16 +192,10 @@ export const posts: BlogPost[] = [
   },
 ];
 
-/** Look one post up by slug; used by the article route. */
 export function getPost(slug: string) {
   return posts.find((p) => p.slug === slug);
 }
 
-/**
- * Figma prints recent posts as "Aug 2026" and the older syndicated pieces as
- * "Nov 28, 2022". Formatting is pinned to en-AU with a UTC time zone so the
- * server and client render the same string — the date carries no local time.
- */
 export function formatPostDate(post: BlogPost) {
   const date = new Date(`${post.date}T00:00:00Z`);
   return new Intl.DateTimeFormat("en-AU", {

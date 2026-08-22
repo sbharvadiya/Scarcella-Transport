@@ -3,11 +3,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-/**
- * Figma "Questions we get asked" — bordered rows with a chevron that rotates
- * as the answer opens. Rows use native buttons so keyboard and screen-reader
- * users get the disclosure semantics for free.
- */
 export function BlogFaqs({ faqs }: { faqs: { question: string; answer: string }[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -15,7 +10,6 @@ export function BlogFaqs({ faqs }: { faqs: { question: string; answer: string }[
     <section className="py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[848px] px-4 sm:px-6 lg:px-0">
         <h2 className="type-h3 text-ink">Questions we get asked</h2>
-
         <div className="mt-8 flex flex-col gap-4">
           {faqs.map((faq, i) => {
             const open = openIndex === i;
@@ -30,7 +24,6 @@ export function BlogFaqs({ faqs }: { faqs: { question: string; answer: string }[
                   <span className="type-body-md-medium text-ink">{faq.question}</span>
                   <ChevronIcon open={open} />
                 </button>
-
                 {open ? (
                   <div className="px-6 pb-6">
                     <p className="type-body-md text-muted">{faq.answer}</p>

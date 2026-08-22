@@ -4,15 +4,6 @@ import { SiteImage } from "@/components/ui/site-image";
 import { SharePost } from "@/components/ui/share-post";
 import { formatPostDate, type BlogPost } from "@/lib/blog";
 
-/**
- * Figma blog card: 16:9 photo, two-line clamped title, two-line clamped
- * excerpt, then a meta row (logo avatar, byline, date · read time) with the
- * share control pinned right and a 1px rule under it.
- *
- * The share control is a button inside the card link, so it sits as a sibling
- * of the link rather than a descendant — nesting a button inside an anchor is
- * invalid and would make the share click ambiguous.
- */
 export function BlogCard({ post }: { post: BlogPost }) {
   return (
     <article className="group relative flex flex-col">
@@ -25,14 +16,11 @@ export function BlogCard({ post }: { post: BlogPost }) {
             className="transition-transform duration-500 group-hover:scale-[1.03]"
           />
         </div>
-
         <h2 className="type-h5 mt-5 line-clamp-2 text-ink transition-colors group-hover:text-brand-bright">
           {post.title}
         </h2>
-
         <p className="type-body-sm mt-3 line-clamp-2 text-muted">{post.excerpt}</p>
       </Link>
-
       <div className="mt-5 flex items-center gap-3 border-b border-line pb-5">
         <Image
           src="/brand/scarcella-logo.svg"
@@ -54,7 +42,6 @@ export function BlogCard({ post }: { post: BlogPost }) {
             {post.readMinutes} min read
           </p>
         </div>
-
         <SharePost slug={post.slug} title={post.title} />
       </div>
     </article>

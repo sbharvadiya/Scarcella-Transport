@@ -14,10 +14,7 @@ export function ExperienceBanner() {
             sizes="100vw"
             className="object-cover"
           />
-          {/* Mobile stacks the copy, so the scrim runs top-to-bottom there and
-              left-to-right once the layout goes side-by-side. */}
           <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/55 to-ink/80 sm:bg-gradient-to-r sm:from-ink/85 sm:via-ink/40 sm:to-ink/70" />
-
           <div className="relative flex h-full flex-col justify-center gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-14">
             <h2 className="text-4xl font-medium text-white sm:text-6xl">
               Experience
@@ -36,9 +33,6 @@ export function ExperienceBanner() {
                 time.
               </p>
             </div>
-
-            {/* Design surfaces the ops address as a tap target on mobile only;
-                on desktop the footer already carries it. */}
             <Button
               href="mailto:ops@scarcellatransport.com.au"
               variant="primary"

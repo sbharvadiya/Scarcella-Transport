@@ -45,15 +45,9 @@ const partners = [
 
 export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean }) {
   return (
-    /* Figma "Group 47": a 1512x1288 Neutral/950 band running 72px of padding
-       top and bottom (3522 -> 3594 header, 4738 partners bar -> 4810 end). */
     <section className="bg-ink py-20 text-white lg:py-[72px]">
       <Container>
-        {/* "Frame 106": the 1384px container row, space-between and bottom-
-            aligned, so the standfirst's last line sits on the heading's
-            baseline block rather than its top. */}
         <div className="grid grid-cols-1 gap-6 lg:flex lg:items-end lg:justify-between lg:gap-4">
-          {/* "Frame 100": 742px, eyebrow and heading on a flat 16px gap. */}
           <div className="lg:w-[742px]">
             <p className="type-caption-caps text-neutral-300">
               Accreditation &amp; Safety
@@ -63,39 +57,23 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
               truck.
             </h2>
           </div>
-          {/* Body/Lg Medium — the one 18px style in the section that carries
-              weight 500, so type-body-lg needs the medium override. */}
           <p className="type-body-lg font-medium text-neutral-300 lg:w-[509px]">
             Scarcella Transport prioritises safety and has invested in the
             following technology in every vehicle — so every load runs
             compliant, monitored and accounted for.
           </p>
         </div>
-
         <div className="mt-6 flex justify-end sm:hidden">
           <span className="text-xs font-medium uppercase tracking-wide text-white/50">
             Swipe <span aria-hidden>»»»</span>
           </span>
         </div>
-
-        {/* "Frame 321" sits 40px under the header: three 450.67px cards on a
-            16px gutter, which is exactly the container's 1384px. Below sm the
-            row becomes the swipe carousel the mobile frame uses.
-
-            Card heights are left to the content — 16 + 232 + 16 + title + 8 +
-            48 + 24 lands on Figma's 408 for a two-line title and 376 for one,
-            and grid's row stretch levels each row the way the frame does. */}
-        <div className="mt-4 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+        <div className="mt-4 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {items.map((it) => (
             <div
               key={it.title}
-              /* Figma card: fill Neutral/900, 24px radius, 16/16/24 padding,
-                 16px gap between the tile and the copy. */
               className="flex w-[80%] shrink-0 snap-start flex-col gap-4 rounded-3xl bg-neutral-900 p-4 pb-6 sm:w-auto"
             >
-              {/* "Rectangle 20": 419x232, 16px radius, on a Neutral/50 plate —
-                  the product shots are cutouts, so they sit contained on the
-                  light tile rather than cropping to fill it. */}
               <div className="relative h-40 shrink-0 overflow-hidden rounded-2xl bg-neutral-50 lg:h-[232px]">
                 <SiteImage
                   src={it.image.src}
@@ -105,7 +83,6 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
                   sizes="(max-width: 639px) 80vw, (max-width: 1023px) 45vw, 419px"
                 />
               </div>
-              {/* "Frame 113": inset a further 16px each side, 8px gap. */}
               <div className="px-4">
                 <h3 className="type-h5 text-white">{it.title}</h3>
                 <p className="type-body-md mt-2 text-neutral-300">{it.desc}</p>
@@ -113,17 +90,10 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
             </div>
           ))}
         </div>
-
-        {/* "Group 23": the 1384x104 partner bar, 40px under the grid. 16px
-            radius (not the cards' 24), 24px padding, Neutral/900. */}
         <div className="mt-6 flex flex-col gap-6 rounded-2xl bg-neutral-900 p-6 sm:mt-10 lg:h-[104px] lg:flex-row lg:items-center lg:justify-between lg:gap-4 lg:p-6">
-          {/* 268px, so "Technology &" and "accreditation partners" break on
-              their own rather than needing a hard <br>. */}
           <p className="type-h5 shrink-0 text-white lg:w-[268px]">
             Technology &amp; accreditation partners
           </p>
-          {/* "Frame 124": a 1006px centred row on a 116px gap — 268 + 1006 +
-              48 of padding leaves the 62px space-between gap the frame shows. */}
           <div className="flex flex-wrap items-center gap-x-10 gap-y-6 lg:w-[1006px] lg:flex-nowrap lg:justify-center lg:gap-x-[116px]">
             {partners.map((p) => (
               <Image
@@ -138,7 +108,6 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
           </div>
         </div>
       </Container>
-
       {showWashBay && (
         <div className="relative mt-14 h-[300px] w-full overflow-hidden sm:h-[380px]">
           <VideoBackground src="/videos/safety-page_wash-bay-loop.mp4" cropLetterbox />

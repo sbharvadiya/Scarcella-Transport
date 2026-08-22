@@ -5,7 +5,6 @@ import { images } from "@/lib/images";
 
 const EMAIL = "ops@scarcellatransport.com.au";
 
-/** Figma "Button/Arrow/Chevron_Right_Duo" — two 1.5px chevrons in a 24px box. */
 function ChevronRightDuo() {
   return (
     <svg
@@ -63,11 +62,6 @@ function MailIcon() {
   );
 }
 
-/**
- * Figma: full-bleed photo band with the copy on the left and the mail CTA
- * pinned right. The panel keeps its own dark scrim so the white type holds
- * against the truck photography underneath.
- */
 export function RatesBand() {
   return (
     <section className="pb-16 lg:pb-[144px]">
@@ -79,7 +73,6 @@ export function RatesBand() {
             sizes="(max-width: 1024px) 100vw, 1384px"
           />
           <div className="absolute inset-0 bg-ink/65" />
-
           <div className="relative flex flex-col gap-8 p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:p-12">
             <div className="flex flex-col gap-4 lg:max-w-[640px]">
               <h2 className="type-h2-h3 text-white">Rates</h2>
@@ -93,7 +86,6 @@ export function RatesBand() {
                 for a quote via
               </p>
             </div>
-
             <Link
               href={`mailto:${EMAIL}`}
               className="type-label-lg inline-flex max-w-full items-center justify-center gap-2 rounded-xl bg-brand-bright px-4 py-3 text-white transition-colors hover:bg-brand sm:px-6"

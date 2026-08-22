@@ -1,13 +1,4 @@
-/**
- * Central registry of the photography shipped in `public/img`.
- *
- * The originals arrived as Figma SVG exports with the photo embedded as a
- * base64 payload (some over 18 MB). Those payloads were extracted to real
- * raster files so `next/image` can optimise them; the source SVGs are kept
- * in their original folders for reference.
- */
 export const images = {
-  // Home
   heroRoadTrains: {
     src: "/img/hero-road-trains.jpg",
     alt: "Two Scarcella Kenworth road trains parked at the Campbelltown depot",
@@ -53,7 +44,6 @@ export const images = {
     alt: "Two prime movers either side of the F & A Scarcella depot sign",
   },
 
-  // Fleet
   fleetLineup: {
     src: "/img/fleet-2.png",
     alt: "The Scarcella fleet lined up front-on under a stormy sky",
@@ -67,7 +57,6 @@ export const images = {
     alt: "Forklift loading palletised freight into a refrigerated trailer",
   },
 
-  // Page heroes
   aboutHero: {
     src: "/img/about-hero.png",
     alt: "Scarcella prime movers at the depot",
@@ -89,7 +78,6 @@ export const images = {
     alt: "Scarcella prime mover on the highway",
   },
 
-  // Safety technology
   guardianCamera: {
     src: "/img/guardian-camera-cutout.png",
     alt: "Guardian in-cab fatigue and distraction detection camera",
@@ -119,7 +107,6 @@ export const images = {
     alt: "Axle group mass management readout",
   },
 
-  // Promise section card icons
   promiseIconRightFirstTime: {
     src: "/img/promise-icon-right-first-time.png",
     alt: "",
@@ -145,7 +132,6 @@ export const images = {
     height: 747,
   },
 
-  // Fleet showcase feature icons
   fleetIconWeeklyServicing: {
     src: "/img/fleet-icon-weekly-servicing.svg",
     alt: "",
@@ -159,7 +145,6 @@ export const images = {
     alt: "",
   },
 
-  // Services grid card backgrounds
   serviceSydneyDarwin: {
     src: "/img/services-sydney-darwin-express.svg",
     alt: "",
@@ -177,7 +162,6 @@ export const images = {
     alt: "",
   },
 
-  // Graphics (not photography)
   graphicMilestones: {
     src: "/img/graphic-milestones.png",
     alt: "",
@@ -196,13 +180,11 @@ export const images = {
   },
 } as const;
 
-/** Slider navigation arrows (supplied as 64px rounded buttons). */
 export const sliderArrows = {
   left: "/img/arrow-left.png",
   right: "/img/arrow-right.png",
 } as const;
 
-/** Accreditation and partner logos. */
 export const logos = {
   nhvas: { src: "/img/logo-nhvas.svg", alt: "NHVAS accredited" },
   truckSafe: { src: "/img/logo-trucksafe.svg", alt: "TruckSafe accredited" },
@@ -211,10 +193,6 @@ export const logos = {
   sillaker: { src: "/img/logo-sillaker.png", alt: "Partner logo" },
 } as const;
 
-/**
- * Footer accreditation badges, pre-composed by design (84x48 card with its
- * own background/border baked in) — render at native size, no wrapper needed.
- */
 export const footerBadges = {
   truckSafe: { src: "/img/footer-badge-trucksafe.svg", alt: "TruckSafe accredited" },
   nhvas: { src: "/img/footer-badge-nhvas.svg", alt: "Heavy Vehicle Accreditation Scheme" },
@@ -223,7 +201,6 @@ export const footerBadges = {
   natroad: { src: "/img/footer-badge-natroad.svg", alt: "NatRoad member" },
 } as const;
 
-/** Technology & accreditation partner logos (dark-mode wordmarks, 56px tall). */
 export const techPartnerLogos = {
   teletracNavman: {
     src: "/img/logo-teletrac-navman.svg",
@@ -245,7 +222,6 @@ export const techPartnerLogos = {
   },
 } as const;
 
-/** Blog thumbnails, used in order for the article grid. */
 export const blogThumbs = [
   "/img/blog-1.png",
   "/img/blog-2.png",

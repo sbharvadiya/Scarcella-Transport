@@ -12,9 +12,6 @@ export function CareersHero() {
           poster={images.depotGateSign.src}
           cropLetterbox
         />
-        {/* Rectangle 2: a single 180deg wash from 11.52% to 72% Neutral/950,
-            with the -12.66% first stop pushed above the frame so the top of
-            the image keeps most of its brightness. */}
         <div
           className="absolute inset-0"
           style={{
@@ -22,11 +19,8 @@ export function CareersHero() {
               "linear-gradient(180deg, rgba(24,28,26,0.1152) -12.66%, rgba(24,28,26,0.72) 100%)",
           }}
         />
-
         <div className="relative flex h-full flex-col">
           <Container className="pt-28 sm:pt-32">
-            {/* Frame 175: Body/Sm, 4px gap; only the crumb for the current
-                page and the slash are Neutral/0 — "Home" sits at #A3A3A3. */}
             <nav
               className="type-body-sm flex items-center gap-1"
               aria-label="Breadcrumb"
@@ -40,11 +34,8 @@ export function CareersHero() {
               <span className="text-white">Careers</span>
             </nav>
           </Container>
-
           <div className="flex flex-1 flex-col justify-end pb-14 sm:pb-16">
             <Container>
-              {/* Frame 221: 684 wide, 16px between the H1 and the Body/Lg
-                  standfirst. */}
               <h1 className="type-h1 max-w-[684px] text-white">
                 Join the Team that makes work a great place to come to
               </h1>

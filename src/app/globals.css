@@ -4,16 +4,13 @@
   --background: #ffffff;
   --foreground: #181c1a;
 
-  /* Brand greens — Figma */
   --color-brand-dark: #154624;
   --color-brand: #1c522c;
   --color-brand-bright: #0d783c;
 
-  /* Near-black ink used for dark sections / footer (Neutral/950) */
   --color-ink: #181c1a;
   --color-ink-soft: #1b1c17;
 
-  /* Neutral scale — Figma */
   --color-neutral-50: #fbfbfb;
   --color-neutral-200: #edeeea;
   --color-neutral-300: #dfe1db;
@@ -21,14 +18,12 @@
   --color-neutral-600: #848877;
   --color-neutral-700: #5f6354;
 
-  /* Neutral surfaces */
   --color-surface: #f5f6f3;
   --color-surface-2: #eceae4;
   --color-line: #edeeea;
 
   --color-muted: #525252;
 
-  /* Dark-theme neutral scale (Figma "Neutral" palette, used on dark sections) */
   --color-neutral-950: #181c1a;
   --color-neutral-900: #2a2e28;
   --color-neutral-800: #41453c;
@@ -69,17 +64,18 @@
   --font-script: var(--font-pinyon);
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: clip;
 }
 
 @layer components {
-  /* ---- Figma type scale ------------------------------------------------ */
-  /* Values are the desktop (1512px) frame; the responsive step-downs live on
-     the components so the fluid 320–1920 requirement still holds. */
-
   .type-h1 {
     font-size: 40px;
     line-height: 48px;
@@ -95,7 +91,6 @@ body {
     }
   }
 
-  /* Mob/h2 — 375px frame. Note the weight climbs to 600 on mobile. */
   .type-h2 {
     font-size: 32px;
     line-height: 40px;
@@ -112,7 +107,6 @@ body {
     }
   }
 
-  /* Mob/h3 */
   .type-h3 {
     font-size: 24px;
     line-height: 32px;
@@ -128,7 +122,6 @@ body {
     }
   }
 
-  /* Mob/h3 steps up to Heading/H4 on desktop — the story photo pull-quote. */
   .type-h4 {
     font-size: 24px;
     line-height: 32px;
@@ -144,7 +137,6 @@ body {
     }
   }
 
-  /* Mob/H4 steps up to Heading/H5 on desktop. */
   .type-h5 {
     font-size: 18px;
     line-height: 24px;
@@ -160,7 +152,6 @@ body {
     }
   }
 
-  /* Body/Sm on mobile, Body/Lg from lg up — the About hero standfirst. */
   .type-body-lg {
     font-size: 14px;
     line-height: 24px;
@@ -174,11 +165,6 @@ body {
     }
   }
 
-  /*
-    Section headings that are Mob/h2 on mobile but Heading/H3 on desktop
-    (the "We think we are quite special" banner). Different weights, so this
-    cannot be composed from type-h2/type-h3 with a variant prefix.
-  */
   .type-h2-h3 {
     font-size: 32px;
     line-height: 40px;
@@ -195,7 +181,6 @@ body {
     }
   }
 
-  /* Caption/lg caps — section eyebrows. */
   .type-caption-caps {
     font-size: 13px;
     line-height: 16px;
@@ -216,8 +201,6 @@ body {
     font-weight: 400;
   }
 
-  /* Body/Md Medium on mobile stepping to Body/Lg Medium from lg — the fleet
-     trailer rows. Only Body/Lg carries the -0.24px tracking. */
   .type-body-md-medium {
     font-size: 16px;
     line-height: 24px;
@@ -231,7 +214,6 @@ body {
     }
   }
 
-  /* Label/Md — form field placeholders + values. */
   .type-label-md {
     font-size: 14px;
     line-height: 24px;
@@ -245,5 +227,4 @@ body {
     font-weight: 500;
     letter-spacing: -0.24px;
   }
-
 }

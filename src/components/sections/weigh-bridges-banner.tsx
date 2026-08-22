@@ -4,9 +4,6 @@ import { images } from "@/lib/images";
 export function WeighBridgesBanner() {
   return (
     <section className="relative h-[300px] w-full overflow-hidden sm:h-[420px]">
-      {/* TODO: placeholder footage. There is no weigh-bridge cut in the library
-          — public/videos/README-WHERE-THESE-GO.txt flags it for the next shoot
-          day. Swap this src once that footage lands. */}
       <VideoBackground
         src="/videos/safety-page_wash-bay-loop.mp4"
         poster={images.freightForklift.src}

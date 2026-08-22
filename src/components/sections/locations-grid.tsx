@@ -2,13 +2,6 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { depots } from "@/lib/nav";
 
-// Each map graphic already has its own pin baked in (dashed ring + solid
-// marker), so a card only has to place the frame. The Sydney and Adelaide
-// exports carry each other's pin, so the two are mapped by card rather
-// than by filename. Figma pins every frame to the same spot — 16px in from
-// the right edge, 14px up from the bottom — landing all three continents level
-// card-to-card while each pin falls wherever it naturally sits. Darwin's
-// graphic is taller because its pin sits above the landmass.
 const depotMap: Record<string, { src: string; width: number; height: number }> = {
   "Sydney — Campbelltown": { src: "/img/map-adelaide.svg", width: 203, height: 189 },
   "Darwin — Yarrawonga": { src: "/img/map-darwin.svg", width: 202, height: 205 },
@@ -63,7 +56,6 @@ export function LocationsGrid({
             <p className="type-body-md-medium text-neutral-800">{description}</p>
           )}
         </div>
-
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {depots.map((d) => {
             const map = depotMap[d.name];
@@ -87,7 +79,6 @@ export function LocationsGrid({
                   <h3 className="type-h4 text-ink">{d.name}</h3>
                   <p className="type-body-sm text-ink">{d.address}</p>
                 </div>
-
                 <div className="flex flex-col gap-3">
                   <div className="flex flex-col justify-center gap-3">
                     <ContactLink icon="/img/icon-smart-phone-01.svg" href={d.phoneHref}>
@@ -107,9 +98,7 @@ export function LocationsGrid({
                       </div>
                     )}
                   </div>
-
                   <div className="h-px w-full bg-neutral-300" />
-
                   <ContactLink icon="/img/icon-mail-02.svg" href={`mailto:${d.email}`}>
                     {d.email}
                   </ContactLink>

@@ -1,8 +1,11 @@
+export const MERCH_STORE_URL = "https://store.scarcellatransport.com.au";
+
 export const primaryNav = [
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Fleet", href: "/fleet" },
   { label: "Accreditation & Safety", href: "/safety" },
+  { label: "Locations", href: "/adelaide" },
   { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },

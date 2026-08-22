@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/container";
 import { SiteImage } from "@/components/ui/site-image";
 import { images } from "@/lib/images";
 
-/** Figma "Button/Arrow/Chevron_Right_Duo" — two 1.5px chevrons in a 24px box. */
 function ChevronRightDuo({ className }: { className?: string }) {
   return (
     <svg
@@ -34,7 +33,6 @@ function ChevronRightDuo({ className }: { className?: string }) {
   );
 }
 
-/** Muted body copy with ink-coloured emphasis, the way the design marks terms. */
 function Em({ children }: { children: React.ReactNode }) {
   return <strong className="font-medium text-ink">{children}</strong>;
 }
@@ -45,7 +43,6 @@ const sections = [
   { id: "other-services", label: "Other Services" },
 ] as const;
 
-/** One end of a leg: the action and city over its day chip. */
 function LegEnd({
   action,
   city,
@@ -70,10 +67,6 @@ function LegEnd({
   );
 }
 
-/**
- * One leg of the schedule: a white card holding depart and deliver ends either
- * side of a chevron, each end stacking its city over its day.
- */
 function Leg({
   from,
   fromDay,
@@ -94,27 +87,11 @@ function Leg({
   );
 }
 
-/** Header clearance before the first card parks. */
 const STACK_TOP = 112;
-/**
- * How far each card parks below the one before it — just enough of the covered
- * card's rounded top edge stays visible to read as a stack.
- */
 const CARD_PEEK = 24;
 
-/** Breathing room before the final card rides up over the one before it. */
 const CARD_DWELL = 5;
 
-/**
- * Cards stack as you scroll: each parks CARD_PEEK lower than the last and the
- * next slides up over it. z-index rises with the index so a later card always
- * covers the one before it, and the opaque background stops the covered card
- * showing through.
- *
- * Where a card opts into `dwell`, the gap is a bottom margin on the card
- * itself rather than a wrapper: a sticky element only travels inside its own
- * parent, so wrapping each card would confine it and break the stack.
- */
 function Panel({
   id,
   index,
@@ -128,7 +105,6 @@ function Panel({
   title: string;
   image: { src: string; alt: string };
   children: React.ReactNode;
-  /** Adds scroll room below this card before the next one covers it. */
   dwell?: boolean;
 }) {
   return (
@@ -143,14 +119,7 @@ function Panel({
         ["--card-dwell" as string]: `${CARD_DWELL}px`,
       }}
     >
-      {/*
-        Mobile runs title, photo, then copy in one column. From lg the design
-        splits into copy on the left and photo on the right, with the heading
-        pinned to the top of the card and the copy dropped to its foot so the
-        baseline lines up with the photo.
-      */}
       <h2 className="type-h3 text-ink">{title}</h2>
-
       <div className="mt-4 grid grid-cols-1 gap-6 lg:mt-8 lg:grid-cols-2 lg:gap-8">
         <div className="order-2 flex flex-col lg:order-1 lg:justify-end">
           <div className="flex flex-col gap-4">{children}</div>
@@ -170,22 +139,12 @@ function Panel({
 export function ServicesTabs() {
   const [active, setActive] = useState(0);
 
-  /*
-    The rail mirrors reading position rather than driving it: the current panel
-    is the last one whose top has passed the reading line.
-
-    The observer only says "something moved" — its entries cover just the nodes
-    that changed, so the answer is recomputed from every panel's live position
-    rather than from the callback payload, which would otherwise leave the rail
-    pointing at a stale panel.
-  */
   useEffect(() => {
     const nodes = sections
       .map((s) => document.getElementById(s.id))
       .filter((n): n is HTMLElement => n !== null);
     if (nodes.length === 0) return;
 
-    // Roughly where the sticky header ends and reading begins.
     const readingLine = 160;
 
     const sync = () => {
@@ -216,7 +175,6 @@ export function ServicesTabs() {
     <section className="bg-white py-16 lg:py-24">
       <Container>
         <p className="type-caption-caps text-muted">Our Services</p>
-
         <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-6 lg:grid-cols-[minmax(0,264px)_1fr] lg:gap-6">
           <nav
             aria-label="Our services"
@@ -245,7 +203,6 @@ export function ServicesTabs() {
               );
             })}
           </nav>
-
           <div className="flex flex-col gap-4 lg:gap-0">
             <Panel
               id="regular-services"
@@ -267,7 +224,6 @@ export function ServicesTabs() {
                 <Em>Dubbo, Bourke, Gatton, Roma</Em> and <Em>Moama.</Em>
               </p>
             </Panel>
-
             <Panel
               id="schedule"
               index={1}
@@ -284,7 +240,6 @@ export function ServicesTabs() {
                 />
                 <Leg from="Sydney" fromDay="Friday" to="Darwin" toDay="Monday" />
               </div>
-              {/* The design rules off the southbound legs from the northbound. */}
               <hr className="border-line" />
               <div className="flex flex-col gap-2">
                 <Leg
@@ -296,7 +251,6 @@ export function ServicesTabs() {
                 <Leg from="Darwin" fromDay="Friday" to="Sydney" toDay="Monday" />
               </div>
             </Panel>
-
             <Panel
               id="other-services"
               index={2}
@@ -316,7 +270,6 @@ export function ServicesTabs() {
                 produce from <Em>Werribee Vic</Em> and the{" "}
                 <Em>Bowen basin QLD</Em>
               </p>
-
               <div className="rounded-2xl border border-line bg-white p-4">
                 <p className="type-body-sm text-muted">
                   Scarcella Transport also regularly services:
@@ -335,7 +288,6 @@ export function ServicesTabs() {
                   ))}
                 </ul>
               </div>
-
               <p className="type-body-md text-muted">
                 <Em>Scarcella Transport will travel anywhere</Em> and are
                 equipped to carry any type of freight.

@@ -21,7 +21,6 @@ export function CareersApplySection() {
         }}
         aria-hidden
       />
-
       <Container className="relative">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-stretch">
           <div className="flex h-full flex-col">
@@ -33,13 +32,11 @@ export function CareersApplySection() {
               with onsite individual rooms, kitchens, and laundry facilities.
               Your safety and rest is paramount to Scarcella Transport.
             </p>
-
             <h3 className="type-h5 mt-16 text-ink sm:mt-20">
               Please note that for all driving positions,
               <br />
               the applicant must:
             </h3>
-
             <ul className="mt-6 flex flex-1 flex-col justify-between">
               {requirements.map((item, i) => (
                 <li key={item} className="border-b border-line py-4">
@@ -53,7 +50,6 @@ export function CareersApplySection() {
               ))}
             </ul>
           </div>
-
           <ApplyForm />
         </div>
       </Container>
@@ -67,7 +63,6 @@ function ApplyForm() {
       <h3 className="type-h5 text-ink">
         Join the success, please fill up the form below
       </h3>
-
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Field label="First name" placeholder="Enter your first name" required />
         <Field label="Last name" placeholder="Enter your last name" />
@@ -84,11 +79,9 @@ function ApplyForm() {
           required
         />
       </div>
-
       <div className="mt-4">
         <Field label="Address" placeholder="Enter your address" />
       </div>
-
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className="text-sm font-medium text-ink">Position</label>
@@ -110,7 +103,6 @@ function ApplyForm() {
         </div>
         <Field label="LinkedIn Link" placeholder="Enter your LinkedIn profile URL" />
       </div>
-
       <div className="mt-4">
         <label className="text-sm font-medium text-ink">Cover Letter</label>
         <textarea
@@ -119,7 +111,6 @@ function ApplyForm() {
           className="mt-2 w-full resize-none rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-brand-bright focus:outline-none"
         />
       </div>
-
       <button
         type="submit"
         className="mt-auto flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-dark py-4 text-base font-medium text-white hover:bg-brand !mt-8"

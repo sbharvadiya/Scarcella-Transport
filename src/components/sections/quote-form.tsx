@@ -1,12 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 
-/*
-  Figma "Group 45" — Get a quote.
-  Left column 567px, card 684px, 133px gutter inside the 1384px content width.
-  Card: 32px padding, 32px gap, #F5F6F3 on a #EDEEEA hairline, 24px radius.
-*/
-
 const bullets = [
   {
     icon: "/img/delivery-tracking-01.svg",
@@ -28,7 +22,6 @@ export function QuoteForm() {
     <section className="py-20 sm:py-28">
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,567fr)_minmax(0,684fr)] lg:gap-x-[133px] lg:gap-y-0">
-          {/* ---- Copy + bullets ------------------------------------------ */}
           <div className="flex h-full flex-col">
             <div className="flex flex-col gap-4">
               <p className="type-caption-caps text-neutral-600">Get a quote</p>
@@ -40,7 +33,6 @@ export function QuoteForm() {
                 business day.
               </p>
             </div>
-
             <div className="mt-12 divide-y divide-line border-y border-line lg:mt-auto">
               {bullets.map((b) => (
                 <div key={b.text} className="flex items-center gap-2 py-4">
@@ -66,8 +58,6 @@ export function QuoteForm() {
               ))}
             </div>
           </div>
-
-          {/* ---- Form card ----------------------------------------------- */}
           <form className="flex flex-col gap-8 rounded-3xl border border-line bg-surface p-6 sm:p-8">
             <div className="flex flex-col gap-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -91,7 +81,6 @@ export function QuoteForm() {
                   placeholder="e.g. Campbelltown NSW"
                 />
                 <Field label="Delivery suburb" placeholder="e.g. Darwin NT" />
-
                 <div className="flex flex-col">
                   <FieldLabel label="Freight type" />
                   <div className="relative">
@@ -107,13 +96,11 @@ export function QuoteForm() {
                     <CaretDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2" />
                   </div>
                 </div>
-
                 <Field
                   label="When does it need to move?"
                   placeholder="e.g. next Tuesday"
                 />
               </div>
-
               <div className="flex flex-col">
                 <FieldLabel label="Freight details" />
                 <textarea
@@ -123,7 +110,6 @@ export function QuoteForm() {
                 />
               </div>
             </div>
-
             <div className="flex flex-col gap-4">
               <button
                 type="submit"
