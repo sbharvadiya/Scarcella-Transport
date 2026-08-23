@@ -1,9 +1,10 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { VideoBackground } from "@/components/ui/video-background";
 import { SiteImage } from "@/components/ui/site-image";
 import { SwipeHint } from "@/components/ui/swipe-hint";
-import { images, techPartnerLogos } from "@/lib/images";
+import { images, techPartnerLogos, techPartnerMarks } from "@/lib/images";
 
 const items = [
   {
@@ -39,9 +40,18 @@ const items = [
 ];
 
 const partners = [
-  techPartnerLogos.teletracNavman,
-  techPartnerLogos.seeingMachinesGuardian,
-  techPartnerLogos.nswFoodAuthority,
+  {
+    logo: techPartnerLogos.teletracNavman,
+    mark: techPartnerMarks.teletracNavman,
+  },
+  {
+    logo: techPartnerLogos.seeingMachinesGuardian,
+    mark: techPartnerMarks.seeingMachinesGuardian,
+  },
+  {
+    logo: techPartnerLogos.nswFoodAuthority,
+    mark: techPartnerMarks.nswFoodAuthority,
+  },
 ];
 
 export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean }) {
@@ -89,20 +99,28 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
             </div>
           ))}
         </div>
-        <div className="mt-6 flex flex-col gap-6 rounded-2xl bg-neutral-900 p-6 sm:mt-10 lg:h-[104px] lg:flex-row lg:items-center lg:justify-between lg:gap-4 lg:p-6">
+        <div className="mt-6 flex flex-col gap-6 md:rounded-2xl md:bg-neutral-900 p-4 md:p-6 sm:mt-10 lg:h-[104px] lg:flex-row lg:items-center lg:justify-between lg:gap-4 lg:p-6">
           <p className="type-h5 shrink-0 text-white lg:w-[268px]">
             Technology &amp; accreditation partners
           </p>
-          <div className="flex flex-nowrap items-center justify-between gap-x-4 gap-y-6 lg:w-[1006px] lg:justify-center lg:gap-x-[116px]">
-            {partners.map((p) => (
-              <Image
-                key={p.src}
-                src={p.src}
-                alt={p.alt}
-                width={p.width}
-                height={p.height}
-                className="h-auto max-h-9 w-auto min-w-0 shrink object-contain lg:h-14 lg:max-h-none lg:shrink-0"
-              />
+          <div className="flex flex-nowrap items-center justify-between md:gap-x-4 md:gap-y-6 lg:w-[1006px] lg:justify-center lg:gap-x-[116px]">
+            {partners.map(({ logo, mark }) => (
+              <Fragment key={logo.src}>
+                <Image
+                  src={mark.src}
+                  alt={mark.alt}
+                  width={mark.width}
+                  height={mark.height}
+                  className="h-10 w-auto object-contain lg:hidden"
+                />
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
+                  className="hidden h-auto max-h-9 w-auto min-w-0 shrink object-contain lg:block lg:h-14 lg:max-h-none lg:shrink-0"
+                />
+              </Fragment>
             ))}
           </div>
         </div>

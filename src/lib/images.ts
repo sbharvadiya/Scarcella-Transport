@@ -241,6 +241,29 @@ export const techPartnerLogos = {
   },
 } as const;
 
+// Icon-only marks. The full lockups above shrink to ~40% on the mobile card,
+// which makes their wordmarks unreadable, so mobile shows just the symbol.
+export const techPartnerMarks = {
+  teletracNavman: {
+    src: "/img/logo-mark-teletrac-navman.png",
+    alt: "Teletrac Navman",
+    width: 96,
+    height: 40,
+  },
+  seeingMachinesGuardian: {
+    src: "/img/logo-mark-seeing-machines-guardian.png",
+    alt: "Seeing Machines Guardian",
+    width: 96,
+    height: 40,
+  },
+  nswFoodAuthority: {
+    src: "/img/logo-mark-nsw-food-authority.png",
+    alt: "NSW Food Authority",
+    width: 96,
+    height: 40,
+  },
+} as const;
+
 export const blogThumbs = [
   "/img/blog-1.png",
   "/img/blog-2.png",

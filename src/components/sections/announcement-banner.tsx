@@ -11,7 +11,15 @@ export function AnnouncementBanner() {
       <Container>
         <div className="relative overflow-hidden rounded-3xl">
           <div className="relative h-[450px] w-full lg:h-[288px]">
-            <SiteImage {...images.outbackDusk} />
+            {/* outbackDusk is a 3.91-aspect band: it covers the wide desktop
+                slot correctly, but cover-cropping it into the 0.76 mobile card
+                cuts out the truck, so mobile uses the tighter 1.12 crop. */}
+            <SiteImage
+              {...images.adelaideServiceRoadTrain}
+              sizes="100vw"
+              className="object-center lg:hidden"
+            />
+            <SiteImage {...images.outbackDusk} className="hidden lg:block" />
           </div>
           <div className="absolute inset-0 bg-[rgba(24,28,26,0.56)]" />
           <div className="absolute inset-0 flex flex-col justify-center gap-16 px-6 py-8 lg:flex-row lg:items-center lg:gap-4 lg:p-14">
