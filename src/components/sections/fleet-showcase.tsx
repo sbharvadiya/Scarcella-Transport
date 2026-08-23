@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { ImageSlider } from "@/components/ui/image-slider";
+import { SwipeHint } from "@/components/ui/swipe-hint";
 import { images } from "@/lib/images";
 
 const slides = [
@@ -55,11 +56,8 @@ export function FleetShowcase() {
             </span>
           </p>
         </div>
-        <div className="mt-2 flex items-center justify-end gap-2 sm:hidden">
-          <span className="text-[11px] leading-4 font-normal uppercase tracking-[3px] text-neutral-600">
-            Swipe
-          </span>
-          <ChevronRightDuo />
+        <div className="mt-2 flex justify-end sm:hidden">
+          <SwipeHint />
         </div>
         <ImageSlider
           slides={slides}
@@ -85,28 +83,5 @@ export function FleetShowcase() {
         </div>
       </Container>
     </section>
-  );
-}
-
-function ChevronRightDuo() {
-  return (
-    <svg
-      width="24"
-      height="16"
-      viewBox="0 0 24 16"
-      fill="none"
-      aria-hidden
-      className="shrink-0 text-neutral-500"
-    >
-      {[4, 10.67, 17.33].map((x) => (
-        <path
-          key={x}
-          d={`M${x} 5.5 L${x + 2.33} 8 L${x} 10.5`}
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      ))}
-    </svg>
   );
 }

@@ -50,7 +50,7 @@ export function PromiseSection() {
             {promises.map((p) => (
               <div
                 key={p.n}
-                className="relative flex min-h-[170px] flex-col overflow-hidden rounded-2xl border border-white/[0.16] bg-[#477fb8]/[0.16] p-6 text-white backdrop-blur-[6px] lg:min-h-[288px]"
+                className="relative flex min-h-[240px] flex-col overflow-hidden rounded-3xl border border-white/[0.16] bg-[#477fb8]/[0.16] p-6 text-white backdrop-blur-[6px] sm:min-h-[170px] lg:min-h-[288px]"
               >
                 <Image
                   src={p.icon.src}
@@ -62,7 +62,9 @@ export function PromiseSection() {
                   className={`pointer-events-none absolute select-none object-contain brightness-0 invert ${p.iconClassName}`}
                 />
                 <div className="relative flex flex-1 flex-col justify-between gap-6">
-                  <span className="type-h4 text-white">{p.n}</span>
+                  <span className="block text-center text-[40px] font-medium leading-12 tracking-[-1.56px] text-white sm:text-left">
+                    {p.n}
+                  </span>
                   <div>
                     <h3 className="type-h3 whitespace-pre-line">{p.title}</h3>
                     <p className="type-body-sm mt-4 text-white">{p.desc}</p>

@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { SiteImage } from "@/components/ui/site-image";
+import { SwipeHint } from "@/components/ui/swipe-hint";
 import { images } from "@/lib/images";
 
 const services = [
@@ -48,12 +49,10 @@ export function ServicesGrid() {
             there, it goes on green and white.
           </p>
         </div>
-        <div className="mt-2 flex items-center justify-end gap-2 sm:hidden">
-          <span className="text-[11px] leading-4 font-normal uppercase tracking-[3px] text-neutral-600">
-            Swipe <span aria-hidden>»»»</span>
-          </span>
+        <div className="mt-2 flex justify-end sm:hidden">
+          <SwipeHint />
         </div>
-        <div className="mt-2 flex snap-x snap-mandatory gap-2 overflow-x-auto pb-2 sm:mt-10 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible lg:grid-cols-4">
+        <div className="no-scrollbar mt-2 flex snap-x snap-mandatory gap-2 overflow-x-auto pb-2 sm:mt-10 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible lg:grid-cols-4">
           {services.map((s) => (
             <div
               key={s.title}

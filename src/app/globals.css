@@ -76,6 +76,27 @@ body {
 }
 
 @layer components {
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .swipe-chevron {
+    animation: swipe-chevron 1s ease infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .swipe-chevron {
+      animation: none;
+    }
+  }
+
   .divider-fade-y {
     background: linear-gradient(
       180deg,
@@ -246,3 +267,22 @@ body {
     letter-spacing: -0.24px;
   }
 }
+
+@keyframes swipe-chevron {
+  0%,
+  1% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  35% {
+    transform: translateX(6px);
+    opacity: 0.35;
+    animation-timing-function: ease-in;
+  }
+  55%,
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+

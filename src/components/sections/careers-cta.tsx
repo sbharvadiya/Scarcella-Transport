@@ -21,7 +21,7 @@ export function CareersCta() {
         <div className="relative mt-10 min-h-[340px] overflow-hidden rounded-3xl border border-neutral-800 sm:min-h-[264px]">
           <SiteImage {...images.mechanicCummins} />
           <div className="absolute inset-0 bg-ink/56" />
-          <div className="relative flex flex-col gap-8 p-6 sm:flex-row sm:items-end sm:justify-between sm:gap-10 lg:p-14">
+          <div className="relative flex flex-col gap-14 px-6 py-8 sm:flex-row sm:items-end sm:justify-between sm:gap-10 sm:p-6 lg:p-14">
             <div className="max-w-[652px]">
               <p className="type-caption-caps text-neutral-300">
                 Now hiring · SYD Depot
@@ -37,7 +37,7 @@ export function CareersCta() {
             </div>
             <a
               href="mailto:ops@scarcellatransport.com.au"
-              className="type-label-lg inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-xl bg-brand-bright px-6 py-4 text-white transition-colors hover:bg-brand sm:self-auto"
+              className="type-label-lg inline-flex w-full shrink-0 items-center justify-center gap-2 self-stretch rounded-xl bg-brand-bright px-6 py-4 text-white transition-colors hover:bg-brand sm:w-auto sm:self-auto"
             >
               <Image
                 src="/img/mail-02.svg"

@@ -24,7 +24,7 @@ export function FleetHero() {
               <span className="text-white">Our Fleet</span>
             </nav>
           </Container>
-          <div className="flex flex-1 items-end pb-8 lg:pb-[48px]">
+          <div className="flex flex-1 items-end pb-8 lg:pb-14">
             <Container>
               <h1 className="type-h1 text-center text-white">
                 We&apos;re <ScriptWord>Built</ScriptWord> to last

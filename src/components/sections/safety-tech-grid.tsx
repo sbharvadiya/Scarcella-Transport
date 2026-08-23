@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { VideoBackground } from "@/components/ui/video-background";
 import { SiteImage } from "@/components/ui/site-image";
+import { SwipeHint } from "@/components/ui/swipe-hint";
 import { images, techPartnerLogos } from "@/lib/images";
 
 const items = [
@@ -64,11 +65,9 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
           </p>
         </div>
         <div className="mt-6 flex justify-end sm:hidden">
-          <span className="text-xs font-medium uppercase tracking-wide text-white/50">
-            Swipe <span aria-hidden>»»»</span>
-          </span>
+          <SwipeHint className="text-white/50" />
         </div>
-        <div className="mt-4 -mr-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:mr-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
+        <div className="no-scrollbar mt-4 -mr-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:mr-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
           {items.map((it) => (
             <div
               key={it.title}

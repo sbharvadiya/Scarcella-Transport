@@ -42,7 +42,7 @@ export function AboutHero() {
               <h1 className="type-h1 max-w-[343px] text-white lg:max-w-[1150px]">
                 <span className="lg:hidden">
                   Three{" "}
-                  <ScriptWord size="custom" className="text-[40px] leading-none">
+                  <ScriptWord size="custom" className="pr-2.5 text-[40px] leading-none">
                     Generations.
                   </ScriptWord>{" "}
                   Same Standard.

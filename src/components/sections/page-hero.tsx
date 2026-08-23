@@ -16,8 +16,9 @@ export function ScriptWord({
   return (
     <span
       className={cn(
-        "font-script italic",
-        size === "default" && "text-5xl sm:text-6xl lg:text-7xl",
+        "font-script",
+        size === "default" &&
+          "pr-3 text-[44px] leading-[48px] sm:text-[60px] sm:leading-[64px] lg:pr-[15px] lg:text-[80px] lg:leading-[80px] font-normal",
         className,
       )}
     >

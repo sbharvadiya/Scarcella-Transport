@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/container";
 import { SiteImage } from "@/components/ui/site-image";
 import { ImageSlider } from "@/components/ui/image-slider";
+import { SwipeHint } from "@/components/ui/swipe-hint";
 import { images } from "@/lib/images";
 
 const trailers = [
@@ -95,9 +96,7 @@ export function FleetQualitySection() {
           </p>
         </div>
         <div className="mt-6 flex justify-end sm:hidden">
-          <span className="text-xs font-medium uppercase tracking-wide text-[#A9AC9F]">
-            Swipe <span aria-hidden>»»»</span>
-          </span>
+          <SwipeHint className="text-[#A9AC9F]" />
         </div>
         <ImageSlider
           slides={gallerySlides}

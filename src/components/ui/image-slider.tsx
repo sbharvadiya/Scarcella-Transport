@@ -102,8 +102,7 @@ export function ImageSlider({
         onPointerCancel={endDrag}
         onClickCapture={onClickCapture}
         className={cn(
-          "-mr-4 flex snap-x snap-mandatory overflow-x-auto pb-2",
-          "[scrollbar-width:none] sm:mr-0 [&::-webkit-scrollbar]:hidden",
+          "no-scrollbar -mr-4 flex snap-x snap-mandatory overflow-x-auto pb-2 sm:mr-0",
           dragging ? "cursor-grabbing select-none" : "cursor-grab",
           railClassName
         )}
