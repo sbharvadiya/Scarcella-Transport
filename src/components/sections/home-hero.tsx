@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/container";
+import { VideoBackground } from "@/components/ui/video-background";
 import { Button } from "@/components/ui/button";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { images } from "@/lib/images";
@@ -19,16 +20,11 @@ export function HomeHero() {
     <section className="relative overflow-hidden bg-white">
       <div className="relative h-[784px] max-h-[900px] min-h-[620px] w-full bg-ink lg:h-[720px] lg:max-h-none lg:min-h-0">
         <div className="absolute inset-0 overflow-hidden">
-          <video
+          <VideoBackground
             className="absolute left-0 w-full object-cover"
             style={{ top: "-6%", height: "112%" }}
             src="/videos/home-page_hero-reel.mp4"
             poster={images.heroRoadTrains.src}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
