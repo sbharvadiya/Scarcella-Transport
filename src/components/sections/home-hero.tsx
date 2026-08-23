@@ -17,7 +17,7 @@ const stats = [
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden bg-white">
-      <div className="relative h-[620px] w-full bg-ink lg:h-[720px]">
+      <div className="relative h-[784px] max-h-[900px] min-h-[620px] w-full bg-ink lg:h-[720px] lg:max-h-none lg:min-h-0">
         <div className="absolute inset-0 overflow-hidden">
           <video
             className="absolute left-0 w-full object-cover"
@@ -32,10 +32,10 @@ export function HomeHero() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
-        <div className="relative flex h-full flex-col justify-end pb-12 pt-24">
-          <Container>
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-end">
+        <div className="absolute inset-0 bg-gradient-to-t from-ink from-15% via-ink/30 via-45% to-transparent lg:from-0% lg:via-ink/10 lg:via-50%" />
+        <div className="relative flex h-full flex-col pb-12 pt-24 lg:justify-end">
+          <Container className="flex flex-1 flex-col lg:block lg:flex-none">
+            <div className="flex h-full flex-col justify-between gap-10 lg:grid lg:h-auto lg:grid-cols-[1.3fr_1fr] lg:items-end">
               <div>
                 <h1 className="text-[40px] font-medium leading-[48px] text-white sm:text-6xl sm:leading-[1.05] lg:text-7xl">
                   Interstate freight,
