@@ -19,7 +19,7 @@ const bullets = [
 
 export function QuoteForm() {
   return (
-    <section className="py-20 sm:py-28">
+    <section id="quote" className="scroll-mt-24 py-20 sm:py-28">
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,567fr)_minmax(0,684fr)] lg:gap-x-[133px] lg:gap-y-0">
           <div className="flex h-full flex-col">

@@ -36,7 +36,7 @@ export function SpecialBanner() {
               </div>
             </div>
             <Button
-              href="/quote"
+              href="/#quote"
               variant="primary"
               size="none"
               className="type-label-lg h-12 w-full gap-2 rounded-xl px-6 lg:w-[165px]"

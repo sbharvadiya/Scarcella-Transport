@@ -107,7 +107,7 @@ export function SiteHeader() {
                   <ChevronRightDuo className={solid ? "text-ink/60" : "text-neutral-400"} />
                 </a>
                 <Link
-                  href="/quote"
+                  href="/#quote"
                   className={cn(
                     labelLg,
                     "inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-brand-bright px-6 py-3 text-white transition-colors hover:bg-brand"
@@ -175,7 +175,7 @@ export function SiteHeader() {
               </nav>
               <div className="pb-6">
                 <Link
-                  href="/quote"
+                  href="/#quote"
                   onClick={() => setOpen(false)}
                   className={cn(
                     labelLg,

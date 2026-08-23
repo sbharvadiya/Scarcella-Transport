@@ -100,7 +100,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
             ))}
           </div>
           <div className="mt-12 flex flex-col items-start gap-4 rounded-2xl bg-surface p-6 sm:flex-row sm:items-center">
-            <Button href="/quote" variant="primary" size="md">
+            <Button href="/#quote" variant="primary" size="md">
               Get an interstate freight quote
               <ChevronRightDuo className="h-6 w-6" />
             </Button>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export const ADELAIDE_LAUNCH = new Date("2026-09-03T12:00:00+10:00");
+export const ADELAIDE_LAUNCH = new Date("2026-09-01T00:00:00+10:00");
 
 const MINUTE = 60_000;
 const HOUR = 60 * MINUTE;

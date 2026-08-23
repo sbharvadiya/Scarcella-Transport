@@ -24,7 +24,7 @@ export function AnnouncementBanner() {
                 Two runs a week, Adelaide to Darwin.
               </p>
               <Button
-                href="/locations"
+                href="/adelaide"
                 variant="primary"
                 size="none"
                 className="type-label-lg w-full px-6 py-4 lg:w-40"

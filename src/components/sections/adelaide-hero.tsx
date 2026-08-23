@@ -54,7 +54,7 @@ export function AdelaideHero() {
             <div className="flex flex-col items-stretch gap-4 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-5">
               <LaunchCountdown />
               <Button
-                href="/quote"
+                href="/#quote"
                 variant="primary"
                 size="lg"
                 className="order-last w-full sm:order-first sm:w-auto"

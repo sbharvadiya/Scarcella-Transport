@@ -64,7 +64,7 @@ export function HomeHero() {
                   TruckSafe accredited
                 </p>
                 <div className="mt-6 grid grid-cols-2 gap-2 lg:flex lg:flex-wrap lg:gap-3">
-                  <Button href="/quote" variant="primary" size="lg">
+                  <Button href="/#quote" variant="primary" size="lg">
                     Get a Freight Quote <span aria-hidden className="hidden lg:inline">»</span>
                   </Button>
                   <Button href="tel:0246266661" variant="outline-light" size="lg">

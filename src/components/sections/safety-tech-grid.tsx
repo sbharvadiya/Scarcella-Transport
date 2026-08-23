@@ -68,7 +68,7 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
             Swipe <span aria-hidden>»»»</span>
           </span>
         </div>
-        <div className="mt-4 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+        <div className="mt-4 -mr-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:mr-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
           {items.map((it) => (
             <div
               key={it.title}
@@ -94,7 +94,7 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
           <p className="type-h5 shrink-0 text-white lg:w-[268px]">
             Technology &amp; accreditation partners
           </p>
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-6 lg:w-[1006px] lg:flex-nowrap lg:justify-center lg:gap-x-[116px]">
+          <div className="flex flex-nowrap items-center justify-between gap-x-4 gap-y-6 lg:w-[1006px] lg:justify-center lg:gap-x-[116px]">
             {partners.map((p) => (
               <Image
                 key={p.src}
@@ -102,7 +102,7 @@ export function SafetyTechGrid({ showWashBay = false }: { showWashBay?: boolean 
                 alt={p.alt}
                 width={p.width}
                 height={p.height}
-                className="h-9 w-auto lg:h-14"
+                className="h-auto max-h-9 w-auto min-w-0 shrink object-contain lg:h-14 lg:max-h-none lg:shrink-0"
               />
             ))}
           </div>
