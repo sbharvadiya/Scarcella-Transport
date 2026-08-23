@@ -16,6 +16,7 @@ type Card = {
   pills: string[];
   bg: { src: string; alt: string };
   height: string;
+  bgAspect: number;
 };
 
 const cards: Card[] = [
@@ -28,6 +29,7 @@ const cards: Card[] = [
     pills: ["2 day — Express service", "2up — Teams driving non stop"],
     bg: images.graphicRoadTrain,
     height: "lg:h-[466px]",
+    bgAspect: 2400 / 1800,
   },
   {
     title: "How We Operate",
@@ -38,6 +40,7 @@ const cards: Card[] = [
     pills: ["Pickup → Loading → Road Train → Delivery"],
     bg: images.graphicGauge,
     height: "lg:h-[466px]",
+    bgAspect: 2400 / 1800,
   },
   {
     title: "Our Vision",
@@ -47,6 +50,7 @@ const cards: Card[] = [
     pills: ["Safety — Continually improving", "Efficiency — Latest technology"],
     bg: images.graphicTrajectory,
     height: "lg:h-[394px]",
+    bgAspect: 2400 / 1800,
   },
   {
     title: "Our Mission",
@@ -57,12 +61,13 @@ const cards: Card[] = [
     pills: ["Quality — And reliability", "First time — Every time"],
     bg: images.graphicMilestones,
     height: "lg:h-[394px]",
+    bgAspect: 2534 / 1800,
   },
 ];
 
 export function WhyWeStandOut() {
   return (
-    <section className="bg-white pt-16 pb-0 lg:pt-[144px]">
+    <section className="bg-white pt-16 pb-8 lg:pt-[144px] lg:pb-0">
       <Container>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[312px_minmax(0,684px)] lg:justify-between lg:gap-0">
           <h2 className="type-h2 text-ink">
@@ -77,7 +82,7 @@ export function WhyWeStandOut() {
               </p>
             </div>
             <div className="flex flex-col gap-4">
-              <p className="type-body-md text-[#A9AC9F]">
+              <p className="type-body-md text-neutral-600">
                 Scarcella Transport is based in NSW and has been in business
                 since the late 1960s. During that time, the small family company
                 carried coal locally, and was involved in the transportation of
@@ -86,7 +91,7 @@ export function WhyWeStandOut() {
                 Northern Regions of the country using Road Trains as well as B
                 Doubles across the eastern seaboard.
               </p>
-              <p className="type-body-md text-[#A9AC9F]">
+              <p className="type-body-md text-neutral-600">
                 We like to be flexible. We like to listen. We care about your
                 next delivery and our history tells us we are one of the best in
                 the business.
@@ -101,14 +106,14 @@ export function WhyWeStandOut() {
               className={`relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line p-6 lg:p-10 bg-[#f1f0ec] ${card.height}`}
             >
               <div
-                className="pointer-events-none absolute inset-0 select-none bg-[#f1f0ec] [--graphic-top:44px] lg:[--graphic-top:68px]"
+                className="pointer-events-none absolute inset-x-0 bottom-0 select-none"
+                style={{ aspectRatio: card.bgAspect }}
                 aria-hidden
               >
                 <SiteImage
                   src={card.bg.src}
                   alt=""
                   className="object-bottom"
-                  style={{ top: "var(--graphic-top)" }}
                   sizes="(max-width: 1024px) 100vw, 684px"
                 />
               </div>
@@ -118,7 +123,7 @@ export function WhyWeStandOut() {
                 </h3>
                 <div className="flex flex-col gap-4">
                   {card.paragraphs.map((p, i) => (
-                    <p key={i} className="type-body-md text-[#A9AC9F]">
+                    <p key={i} className="type-body-md text-neutral-600">
                       {p}
                     </p>
                   ))}

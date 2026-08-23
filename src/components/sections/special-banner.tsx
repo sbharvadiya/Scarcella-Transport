@@ -7,7 +7,16 @@ export function SpecialBanner() {
   return (
     <section className="py-16 lg:py-[144px]">
       <Container>
-        <div className="grid grid-cols-1 overflow-hidden rounded-3xl bg-ink lg:h-[560px] lg:grid-cols-[660px_1fr] lg:items-center lg:gap-[74px] lg:p-6">
+        <div className="relative grid grid-cols-1 overflow-hidden rounded-3xl bg-ink lg:h-[560px] lg:grid-cols-[660px_1fr] lg:items-center lg:gap-[74px] lg:p-6">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
           <div className="relative h-[288px] lg:h-[512px]">
             <div className="relative h-full w-full overflow-hidden rounded-3xl">
               <SiteImage
@@ -16,7 +25,7 @@ export function SpecialBanner() {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-8 p-6 lg:max-w-[568px] lg:gap-[34px] lg:p-0">
+          <div className="relative flex flex-col gap-8 p-6 lg:max-w-[568px] lg:gap-[34px] lg:p-0">
             <div className="flex flex-col gap-6">
               <h2 className="type-h2-h3 text-white">
                 We think we are quite special
